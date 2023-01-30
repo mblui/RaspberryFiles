@@ -31,8 +31,6 @@ file_count = 0
 # ---- ---- ---- ---- ----
 
 
-
-
 class visionbox(QMainWindow):
 
     def __init__(self, parent: QWidget = None):
@@ -130,7 +128,9 @@ class visionbox(QMainWindow):
 
     def getItem(self, slidertype):  # slidertype := [intensity', 'red', 'green', 'blue']
         global Brightness,RGB_val
-        items = ("10", "20", "30", "40", "50", "60", "70", "80", "90", "100")
+        items_1 = ("0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100")
+        items_2 = ("0", "25", "51", "77", "102", "128", "153", "178", "204", "229", "255")
+        items = items_1 if slidertype == "intensity" else items_2
         #item, ok = QInputDialog.getInt(self, "select input", "enter a number", self.w.slider_intensity.value())
         item, ok = QInputDialog.getItem(self, "select input", "enter a number", items, 0, False)
         if ok:
