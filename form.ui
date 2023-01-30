@@ -43,7 +43,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../../../ProgramFiles/dslr-camera.png</normaloff>../../../ProgramFiles/dslr-camera.png</iconset>
+     <normaloff>dslr-camera.png</normaloff>dslr-camera.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -68,7 +68,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../../../ProgramFiles/DGS_startup.jpeg</pixmap>
+    <pixmap>DGS_startup.jpeg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
