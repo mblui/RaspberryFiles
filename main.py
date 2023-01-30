@@ -12,6 +12,7 @@ from PySide2.QtGui import QPixmap, QTouchEvent
 from functools import partial
 import time
 from ErrorHandler import *
+from LinkSliders import *
 
 # Set path to directory with images
 dir_path = r'/home/dgslr/ProgramFiles/'
@@ -19,7 +20,7 @@ scp_path = dir_path + "SCP_images/"
 
 # --- --- Define inputs ---
 windowsize = [800, 600] # [width,heights]
-updatefps = 7
+updatefps = 1
 
 # ---- --- Define Global variables
 cnt = int(1)
@@ -55,36 +56,38 @@ class visionbox(QMainWindow):
         print(file_count)
 
         # slider initial
-        self.w.slider_red.setMinimum(0)
-        self.w.slider_intensity.setValue(Brightness)
-        self.w.slider_red.setMaximum(255)
-        self.w.slider_green.setMinimum(0)
-        self.w.slider_green.setMaximum(255)
-        self.w.slider_blue.setMinimum(0)
-        self.w.slider_blue.setMaximum(255)
-        self.w.SliderVal_but_text_intensity.setText(str(Brightness))
-        self.w.SliderVal_but_text_red.setText(str(RGB_val[0]))
-        self.w.SliderVal_but_text_green.setText(str(RGB_val[1]))
-        self.w.SliderVal_but_text_blue.setText(str(RGB_val[2]))
+        # self.w.slider_red.setMinimum(0)
+        # self.w.slider_intensity.setValue(Brightness)
+        # self.w.slider_red.setMaximum(255)
+        # self.w.slider_green.setMinimum(0)
+        # self.w.slider_green.setMaximum(255)
+        # self.w.slider_blue.setMinimum(0)
+        # self.w.slider_blue.setMaximum(255)
+        # self.w.SliderVal_but_text_intensity.setText(str(Brightness))
+        # self.w.SliderVal_but_text_red.setText(str(RGB_val[0]))
+        # self.w.SliderVal_but_text_green.setText(str(RGB_val[1]))
+        # self.w.SliderVal_but_text_blue.setText(str(RGB_val[2]))
 
         self.w.pushButton.clicked.connect(self.on_button_press)
-        self.w.slider_red.sliderMoved.connect(self.on_slider_change)
-        self.w.slider_green.sliderMoved.connect(self.on_slider_change)
-        self.w.slider_blue.sliderMoved.connect(self.on_slider_change)
-        self.w.slider_intensity.sliderMoved.connect(self.on_slider_change)
-        self.w.SliderVal_but_text_intensity.clicked.connect(partial(self.getItem,"intensity"))
-        self.w.SliderVal_but_text_red.clicked.connect(partial(self.getItem,"red"))
-        self.w.SliderVal_but_text_green.clicked.connect(partial(self.getItem,"green"))
-        self.w.SliderVal_but_text_blue.clicked.connect(partial(self.getItem,"blue"))
+        # self.w.slider_red.sliderMoved.connect(self.on_slider_change)
+        # self.w.slider_green.sliderMoved.connect(self.on_slider_change)
+        # self.w.slider_blue.sliderMoved.connect(self.on_slider_change)
+        # self.w.slider_intensity.sliderMoved.connect(self.on_slider_change)
+        # self.w.SliderVal_but_text_intensity.clicked.connect(partial(self.getItem,"intensity"))
+        # self.w.SliderVal_but_text_red.clicked.connect(partial(self.getItem,"red"))
+        # self.w.SliderVal_but_text_green.clicked.connect(partial(self.getItem,"green"))
+        # self.w.SliderVal_but_text_blue.clicked.connect(partial(self.getItem,"blue"))
         self.w.button_openImageFolder.clicked.connect(self.openFolder)
-        self.w.button_ExitProgram.clicked.connect(partial(self.exit_system, "exit"))
+        self.w.button_ExitProgram.clicked.connect(self.ExitProgram) 
 
         timer = QTimer(self)
         timer.timeout.connect(self.update_image)
         timer.start((1/updatefps)*1000)
         self.update_image()
 
-
+    def ExitProgram(self):
+        errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=1, debug= False)
+        
     def openFolder(self):
         #subprocess.Popen(r'explorer /select,"C:\path\of\folder\file"')
         show_in_file_manager('/home/dgslr/ProgramFiles/SCP_images')
@@ -101,9 +104,7 @@ class visionbox(QMainWindow):
         global cnt, file_count, Brightness, RGB_val
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
-        #if cnt > file_count:
-        #    cnt = 0
-        #cnt = cnt + 1
+
         cnt = file_count
         self.w.num_img.setText(str(file_count))
         ExtendedPath = scp_path + "img" + str(cnt) + ".jpg"
@@ -147,17 +148,6 @@ class visionbox(QMainWindow):
                 self.w.slider_blue.setValue(int(item))
             else:
                 errorMsgBit = 1
-
-    # def errorMsg(self):
-    #     global errorMsgBit, cnt
-    #     if errorMsgBit:
-    #         dlg = QMessageBox(self)
-    #         dlg.setWindowTitle("Error! counter bigger than setpoint!")
-    #         dlg.setText("Counter bigger than setpoint! Do you want to reset the counter?")
-    #         button = dlg.exec_()
-    #         if button == QMessageBox.Ok:
-    #             cnt = 0
-    #             errorMsgBit = 0
 
 if __name__ == "__main__":
     app = QApplication([])

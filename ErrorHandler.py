@@ -14,7 +14,7 @@ from functools import partial
 
 # Error message bits
 # 0     =   no error
-# 1     =   exit program
+# 1     =   Exit program
 # 2     =   ...
 # 3     =   ...
 # 4     =   ...
@@ -22,23 +22,36 @@ from functools import partial
 # 6     =   ...
 # 7     =   ...
 
-def errorMsg(errorMsgBit, cnt):
-    # Program exit is pressend
-    if errorMsgBit == 1:
-        dlg = QMessageBox(self)
-        dlg.question(self,'', "Are you sure to reset all the values?", qm.Yes | qm.No)
-        if qm.Yes:
-            sys.exit(app.exec_())    
-        return errorMsgBit, True
+class errorMsgHandlerClass(QMessageBox):
+    def __init__(self):
+        super().__init__()
 
-    ## error bit ...
-    if errorMsgBit == 2:
-        dlg = QMessageBox(self)
-        dlg.setWindowTitle("Program exit?")
-        dlg.setText("Are you sure to exit current program?")
-        button = dlg.exec_()
-        if button == QMessageBox.Ok:
-            cnt = 0
-            errorMsgBit = 0
-        return errorMsgBit, True
+    def errorMsgHandler(self, errorMsgBit , cnt=0, debug = 0):
+        if debug:
+            print("Item is:", errorMsgBit, "Errorbit:", errorMsgBit, "Count:", cnt)
 
+    # ERROR 1:  Program exit is pressend
+        if errorMsgBit == 1:
+            dlg = QMessageBox.question(self,"Exit program?", "Are you sure to exit the current program?", QMessageBox.Yes | QMessageBox.No)
+            if dlg.Yes:
+                sys.exit()    
+            return True, errorMsgBit
+
+    # ERROR 2: ....
+        elif errorMsgBit == 2:
+            dlg = QMessageBox()
+            dlg.setWindowTitle("Program exit?")
+            dlg.setText("Are you sure to exit current program?")
+            button = dlg.exec_()
+            if button == QMessageBox.Ok:
+                cnt = 0
+                errorMsgBit = 0
+            return errorMsgBit, True
+
+    # ERROR @: ....
+        elif errorMsgBit == 2:  
+            print("...")
+
+        else:
+            print("No errors found")
+            return False, errorMsgBit 
