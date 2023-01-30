@@ -11,7 +11,7 @@ from PySide2.QtUiTools import QUiLoader
 from PySide2.QtGui import QPixmap, QTouchEvent
 from functools import partial
 import time
-from Errorhandler import *
+from ErrorHandler import *
 
 # Set path to directory with images
 dir_path = r'/home/dgslr/ProgramFiles/'
@@ -77,15 +77,13 @@ class visionbox(QMainWindow):
         self.w.SliderVal_but_text_green.clicked.connect(partial(self.getItem,"green"))
         self.w.SliderVal_but_text_blue.clicked.connect(partial(self.getItem,"blue"))
         self.w.button_openImageFolder.clicked.connect(self.openFolder)
-        self.w.button_ExitProgram.clicked.connect(self.exit_system)
+        self.w.button_ExitProgram.clicked.connect(partial(self.exit_system, "exit"))
 
         timer = QTimer(self)
         timer.timeout.connect(self.update_image)
         timer.start((1/updatefps)*1000)
         self.update_image()
 
-    def exit_system(self):
-        sys.exit(app.exec_())
 
     def openFolder(self):
         #subprocess.Popen(r'explorer /select,"C:\path\of\folder\file"')
@@ -150,16 +148,16 @@ class visionbox(QMainWindow):
             else:
                 errorMsgBit = 1
 
-    def errorMsg(self):
-        global errorMsgBit, cnt
-        if errorMsgBit:
-            dlg = QMessageBox(self)
-            dlg.setWindowTitle("Error! counter bigger than setpoint!")
-            dlg.setText("Counter bigger than setpoint! Do you want to reset the counter?")
-            button = dlg.exec_()
-            if button == QMessageBox.Ok:
-                cnt = 0
-                errorMsgBit = 0
+    # def errorMsg(self):
+    #     global errorMsgBit, cnt
+    #     if errorMsgBit:
+    #         dlg = QMessageBox(self)
+    #         dlg.setWindowTitle("Error! counter bigger than setpoint!")
+    #         dlg.setText("Counter bigger than setpoint! Do you want to reset the counter?")
+    #         button = dlg.exec_()
+    #         if button == QMessageBox.Ok:
+    #             cnt = 0
+    #             errorMsgBit = 0
 
 if __name__ == "__main__":
     app = QApplication([])
