@@ -11,6 +11,7 @@ from PySide2.QtUiTools import QUiLoader
 from PySide2.QtGui import QPixmap, QTouchEvent
 from functools import partial
 import time
+from Errorhandler import *
 
 # Set path to directory with images
 dir_path = r'/home/dgslr/ProgramFiles/'
