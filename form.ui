@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>visionbox</class>
- <widget class="QMainWindow" name="visionbox">
+ <class>MainWidget</class>
+ <widget class="QWidget" name="MainWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,12 +10,478 @@
     <height>600</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>visionbox</string>
+  <property name="maximumSize">
+   <size>
+    <width>1280</width>
+    <height>16777215</height>
+   </size>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
-  <widget class="QStatusBar" name="statusbar"/>
+  <property name="windowTitle">
+   <string>hdadfgasdf</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>400</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Take a new image</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../../ProgramFiles/dslr-camera.png</normaloff>../../ProgramFiles/dslr-camera.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="imglabel">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>50</y>
+     <width>741</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../../ProgramFiles/DGS_startup.jpeg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>0</y>
+     <width>241</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>DGS Vision Box</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>450</y>
+     <width>229</width>
+     <height>107</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QCheckBox" name="checkBox">
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Upper Lighting</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBox_2">
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Left Side Lighting</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBox_3">
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Right Side Lightning</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="num_img">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>380</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>num_img</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::RichText</enum>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="totalImg">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>380</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Total images:</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::RichText</enum>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>360</y>
+     <width>383</width>
+     <height>232</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QSlider" name="slider_intensity">
+        <property name="styleSheet">
+         <string notr="true">.QSlider {
+    min-height: 35px;
+    max-height: 35px;
+	min-width: 100px;
+	max-width:100px;
+}</string>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Light Intensity:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="SliderVal_but_text_intensity">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>100</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="l_text_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>[0-100]</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="Hor_red">
+      <item>
+       <widget class="QSlider" name="slider_red">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QSlider {
+    min-height: 35px;
+    max-height: 35px;
+	min-width: 100px;
+	max-width:100px;
+}</string>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Red value:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="SliderVal_but_text_red">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>100</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="r_text_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>[0-255]</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="hor_green">
+      <item>
+       <widget class="QSlider" name="slider_green">
+        <property name="styleSheet">
+         <string notr="true">.QSlider {
+    min-height: 35px;
+    max-height: 35px;
+	min-width: 100px;
+	max-width:100px;
+}</string>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Green value:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="SliderVal_but_text_green">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>100</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="g_text_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>[0-255]</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="hor_blue">
+      <item>
+       <widget class="QSlider" name="slider_blue">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QSlider {
+    min-height: 35px;
+    max-height: 35px;
+	min-width: 100px;
+	max-width:100px;
+}</string>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Blue value:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="SliderVal_but_text_blue">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>100</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="b_text_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>[0-255]</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>570</y>
+     <width>80</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </widget>
+  <zorder>imglabel</zorder>
+  <zorder>label</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>verticalLayoutWidget_3</zorder>
+  <zorder>num_img</zorder>
+  <zorder>totalImg</zorder>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>pushButton_2</zorder>
  </widget>
  <resources/>
  <connections/>
