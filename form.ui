@@ -95,14 +95,14 @@
   <widget class="QLabel" name="num_img">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>200</x>
      <y>350</y>
-     <width>111</width>
+     <width>91</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>num_img</string>
+    <string>img0101.jpg</string>
    </property>
    <property name="textFormat">
     <enum>Qt::RichText</enum>
@@ -119,6 +119,11 @@
      <width>171</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>Current displayed imaged: </string>
