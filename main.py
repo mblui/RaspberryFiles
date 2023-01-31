@@ -99,7 +99,7 @@ class visionbox(QMainWindow):
         cnt += 1
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
-        self.w.num_img.setText(str(file_count))
+        self.w.num_img.setText(str(files[-1]))
         if False: #nt > file_count:
             errorMsgBit = 1
 

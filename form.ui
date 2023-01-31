@@ -166,7 +166,10 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="2">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
+    </property>
+    <item row="0" column="2" alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="text_rgb">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -190,7 +193,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="1">
+    <item row="3" column="1" alignment="Qt::AlignHCenter">
      <widget class="QCheckBox" name="check_Right_Enable">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -214,7 +217,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
+    <item row="1" column="1" alignment="Qt::AlignHCenter">
      <widget class="QCheckBox" name="check_Top_Enable">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -238,7 +241,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="3">
+    <item row="3" column="3" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
      <widget class="QCheckBox" name="check_Right_White">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -262,7 +265,7 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="2">
+    <item row="2" column="2" alignment="Qt::AlignHCenter">
      <widget class="QCheckBox" name="check_Left_RGB">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -286,7 +289,7 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="3">
+    <item row="0" column="3" alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="text_white">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -310,7 +313,7 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
+    <item row="0" column="1" alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="text_enable">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -334,7 +337,7 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
+    <item row="2" column="1" alignment="Qt::AlignHCenter">
      <widget class="QCheckBox" name="check_Left_Enable">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -358,7 +361,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="2">
+    <item row="1" column="2" alignment="Qt::AlignHCenter">
      <widget class="QCheckBox" name="check_Top_RGB">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -382,7 +385,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
+    <item row="3" column="0" alignment="Qt::AlignRight">
      <widget class="QLabel" name="text_right">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -406,14 +409,8 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="3">
+    <item row="2" column="3" alignment="Qt::AlignHCenter">
      <widget class="QCheckBox" name="check_Left_White">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -431,7 +428,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item row="1" column="0" alignment="Qt::AlignRight">
      <widget class="QLabel" name="text_top">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -455,7 +452,7 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
+    <item row="2" column="0" alignment="Qt::AlignRight">
      <widget class="QLabel" name="text_left">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -479,7 +476,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="3">
+    <item row="1" column="3" alignment="Qt::AlignHCenter">
      <widget class="QCheckBox" name="check_Top_White">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -503,7 +500,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="2">
+    <item row="3" column="2" alignment="Qt::AlignHCenter">
      <widget class="QCheckBox" name="check_Right_RGB">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -602,7 +599,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
+    <item row="3" column="0" alignment="Qt::AlignRight">
      <widget class="QLabel" name="num_img_15">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -663,7 +660,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item row="1" column="0" alignment="Qt::AlignRight">
      <widget class="QLabel" name="num_img_16">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -689,12 +686,6 @@
     </item>
     <item row="0" column="2">
      <widget class="QPushButton" name="SliderVal_but_text_intensity">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
@@ -749,7 +740,7 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
+    <item row="2" column="0" alignment="Qt::AlignRight">
      <widget class="QLabel" name="num_img_17">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
