@@ -14,7 +14,7 @@ import time
 from ErrorHandler import *
 from LinkSliders import *
 
-# Set path to directory with images
+# Set path to directory with images 1
 dir_path = r'/home/dgslr/ProgramFiles/'
 scp_path = dir_path + "SCP_images/"
 
