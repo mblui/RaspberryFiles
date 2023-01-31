@@ -1,3 +1,7 @@
+# TODO
+# Add mutually exclusive to buttons
+# Add actions to buttons
+
 # This Python file uses the following encoding: utf-8
 import sys
 import os
@@ -71,15 +75,16 @@ class visionbox(QMainWindow):
         self.update_image()
 
     def onCheckboxChange(self):
-        lightInputs[0,0] = self.w.check_Top_Enable.toggled.isChecked()
-        lightInputs[0,1] = self.w.check_Left_Enable.toggled.isChecked()
-        lightInputs[0,2] = self.w.check_Right_Enable.toggled.isChecked()
-        lightInputs[1,0] = self.w.check_Top_RGB.toggled.isChecked()
-        lightInputs[1,1] = self.w.check_Left_RGB.toggled.isChecked()
-        lightInputs[1,2] = self.w.check_Right_RGB.toggled.isChecked()
-        lightInputs[2,0] = self.w.check_Top_White.toggled.isChecked()
-        lightInputs[2,1] = self.w.check_Left_White.toggled.isChecked()
-        lightInputs[2,2] = self.w.check_Right_White.toggled.isChecked()
+        print("hi")
+        lightInputs[0][0] = self.w.check_Top_Enable.isChecked()
+        lightInputs[1][0] = self.w.check_Left_Enable.isChecked()
+        lightInputs[2][0] = self.w.check_Right_Enable.isChecked()
+        lightInputs[0][1] = self.w.check_Top_RGB.isChecked()
+        lightInputs[1][1] = self.w.check_Left_RGB.isChecked()
+        lightInputs[2][1] = self.w.check_Right_RGB.isChecked()
+        lightInputs[0][2] = self.w.check_Top_White.isChecked()
+        lightInputs[1][2] = self.w.check_Left_White.isChecked()
+        lightInputs[2][2] = self.w.check_Right_White.isChecked()
         print(lightInputs)
         print("UpdateDone")
 

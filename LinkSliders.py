@@ -42,19 +42,19 @@ class lightsettingsClass:
 
         ## Settings Checkboxes
             ## Enable/disable:
-        self.w.check_Top_Enable.toggled.connect(lambda: self.onCheckboxChange)
-        self.w.check_Left_Enable.toggled.connect(lambda: self.onCheckboxChange)
-        self.w.check_Right_Enable.toggled.connect(lambda: self.onCheckboxChange)
+        self.w.check_Top_Enable.toggled.connect(self.onCheckboxChange)
+        self.w.check_Left_Enable.toggled.connect(self.onCheckboxChange)
+        self.w.check_Right_Enable.toggled.connect(self.onCheckboxChange)
             
             ## RGB:
-        self.w.check_Top_RGB.toggled.connect(lambda: self.onCheckboxChange)
-        self.w.check_Left_RGB.toggled.connect(lambda: self.onCheckboxChange)
-        self.w.check_Right_RGB.toggled.connect(lambda: self.onCheckboxChange)
+        self.w.check_Top_RGB.toggled.connect(self.onCheckboxChange)
+        self.w.check_Left_RGB.toggled.connect(self.onCheckboxChange)
+        self.w.check_Right_RGB.toggled.connect(self.onCheckboxChange)
             
             ## White:
-        self.w.check_Top_White.toggled.connect(lambda: self.onCheckboxChange)
-        self.w.check_Left_White.toggled.connect(lambda: self.onCheckboxChange)
-        self.w.check_Right_White.toggled.connect(lambda: self.onCheckboxChange)
+        self.w.check_Top_White.toggled.connect(self.onCheckboxChange)
+        self.w.check_Left_White.toggled.connect(self.onCheckboxChange)
+        self.w.check_Right_White.toggled.connect(self.onCheckboxChange)
             
 
 
