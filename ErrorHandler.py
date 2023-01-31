@@ -32,21 +32,34 @@ class errorMsgHandlerClass(QMessageBox):
 
     # ERROR 1:  Program exit is pressend
         if errorMsgBit == 1:
-            dlg = QMessageBox.question(self,"Exit program?", "Are you sure to exit the current program?", QMessageBox.Yes | QMessageBox.No)
-            if dlg.Yes:
-                sys.exit()    
-            return True, errorMsgBit
+            #dlg = QMessageBox.question(self,"Exit program?", "Are you sure to exit the current program?", QMessageBox.Yes | QMessageBox.No)
+            reply = QMessageBox.question(self, 'Quit', 'Are you sure you want to quit?',  QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+            if reply == QMessageBox.Yes:
+                sys.exit()
+            else:
+                print("...")
+ #           return True, errorMsgBit
+
+            # dlg = QMessageBox()
+            # dlg.setWindowTitle("Program exit?")
+            # dlg.setText("Are you sure to exit current program?")
+            # button = dlg.exec_()
+            # if button == QMessageBox.Ok:
+            #     errorMsgBit = 0
+            #     sys.exit()    
+            # return True, errorMsgBit
 
     # ERROR 2: ....
         elif errorMsgBit == 2:
-            dlg = QMessageBox()
-            dlg.setWindowTitle("Program exit?")
-            dlg.setText("Are you sure to exit current program?")
-            button = dlg.exec_()
-            if button == QMessageBox.Ok:
-                cnt = 0
-                errorMsgBit = 0
-            return errorMsgBit, True
+            print("...")
+            #dlg = QMessageBox()
+            #dlg.setWindowTitle("Program exit?")
+            #dlg.setText("Are you sure to exit current program?")
+            #button = dlg.exec_()
+            #if button == QMessageBox.Ok:
+            #    cnt = 0
+            #    errorMsgBit = 0
+            #return errorMsgBit, True
 
     # ERROR @: ....
         elif errorMsgBit == 2:  

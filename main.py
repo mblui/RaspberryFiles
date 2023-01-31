@@ -24,10 +24,11 @@ scp_path = dir_path + "SCP_images/"
 
 # --- --- Define inputs ---
 windowsize = [800, 600] # [width,heights]
-updatefps = 1
+updatefps = 10
 
 # ---- --- Define Global variables/ Initial values
 cnt = int(1)
+globalImageUpdate = True
 Brightness_value = int(50)
 errorMsgBit = int(0)
 ExtendedPath = ""
@@ -41,7 +42,7 @@ lightInputs = [ [0,0,0],        # Corresponding to GUI
 
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
-        global file_count
+        global file_count, globalImageUpdate
         super().__init__(parent)
         self.setWindowTitle("Vision Box")
         self.setFixedSize(QSize(windowsize[0], windowsize[1]))
@@ -61,12 +62,14 @@ class visionbox(QMainWindow):
         # Initial count number of images
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
-
+        if globalImageUpdate: self.w.Start_pause_watching.setText(str("Start"))
+        
         # Link buttons
         self.w.button_openImageFolder.clicked.connect(self.openFolder)
         self.w.button_ExitProgram.clicked.connect(self.ExitProgram) 
         self.w.Start_pause_watching.clicked.connect(self.on_button_press)
-
+        self.w.Start_pause_watching.setCheckable(True)
+    
         ## Set update timer
         self.__acquisition_timer = QTimer()
         timer = QTimer(self)
@@ -93,24 +96,33 @@ class visionbox(QMainWindow):
         show_in_file_manager('/home/dgslr/ProgramFiles/SCP_images')
 
     def on_button_press(self):
+        global globalImageUpdate
+        if self.w.Start_pause_watching.isChecked():
+            self.w.Start_pause_watching.setText(str("Start"))
+            globalImageUpdate = True
+        else:
+            self.w.Start_pause_watching.setText(str("Pause"))
+            globalImageUpdate = False
+
         global cnt, errorMsgBit, ExtendedPath, file_count
         cnt += 1
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
-        self.w.num_img.setText(files[-1])
+        #self.w.num_img.setText(files[-1])
 
     def update_image(self):
-        global cnt, file_count, Brightness_value, RGB_val
-        _,_,files = next(os.walk(scp_path))
-        file_count = len(files)
-        cnt = file_count
-        files = natsorted(files)
-        self.w.num_img.setText(files[-1])
-        ExtendedPath = scp_path + "img" + str(cnt) + ".jpg"
-        label = self.w.imglabel
-        pixmap =QPixmap(ExtendedPath)
-        label.setPixmap(pixmap)
-        label.show()
+        global cnt, file_count, Brightness_value, RGB_val, globalImageUpdate
+        if globalImageUpdate:
+            _,_,files = next(os.walk(scp_path))
+            file_count = len(files)
+            cnt = file_count
+            files = natsorted(files)
+            self.w.num_img.setText(files[-1])
+            ExtendedPath = scp_path + "img" + str(cnt) + ".jpg"
+            label = self.w.imglabel
+            pixmap =QPixmap(ExtendedPath)
+            label.setPixmap(pixmap)
+            label.show()
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
 
     def on_slider_change(self):

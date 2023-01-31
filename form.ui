@@ -23,6 +23,9 @@
    <bool>false</bool>
   </property>
   <widget class="QPushButton" name="Start_pause_watching">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -42,9 +45,9 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>play_icon.png</normaloff>
-     <normalon>pause_icon.png</normalon>
-     <disabledoff>play_icon.png</disabledoff>play_icon.png</iconset>
+     <activeoff>pause_icon.png</activeoff>
+     <activeon>play_icon.png</activeon>
+    </iconset>
    </property>
    <property name="iconSize">
     <size>
