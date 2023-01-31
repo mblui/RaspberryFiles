@@ -17,7 +17,7 @@ from functools import partial
 import time
 from ErrorHandler import *
 from LinkSliders import *
-
+from natsort import natsorted 
 # Set path to directory with images 1
 dir_path = r'/home/dgslr/ProgramFiles/'
 scp_path = dir_path + "SCP_images/"
@@ -62,9 +62,7 @@ class visionbox(QMainWindow):
         # Initial count number of images
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
-        print(file_count)
 
-        self.w.pushButton.clicked.connect(self.on_button_press)
         self.w.button_openImageFolder.clicked.connect(self.openFolder)
         self.w.button_ExitProgram.clicked.connect(self.ExitProgram) 
         
@@ -75,7 +73,6 @@ class visionbox(QMainWindow):
         self.update_image()
 
     def onCheckboxChange(self):
-        print("hi")
         lightInputs[0][0] = self.w.check_Top_Enable.isChecked()
         lightInputs[1][0] = self.w.check_Left_Enable.isChecked()
         lightInputs[2][0] = self.w.check_Right_Enable.isChecked()
@@ -85,8 +82,7 @@ class visionbox(QMainWindow):
         lightInputs[0][2] = self.w.check_Top_White.isChecked()
         lightInputs[1][2] = self.w.check_Left_White.isChecked()
         lightInputs[2][2] = self.w.check_Right_White.isChecked()
-        print(lightInputs)
-        print("UpdateDone")
+        print("UpdateDone", lightInputs)
 
     def ExitProgram(self):
         errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=1, debug= False)
@@ -99,7 +95,7 @@ class visionbox(QMainWindow):
         cnt += 1
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
-        self.w.num_img.setText(str(files[-1]))
+        self.w.num_img.setText(files[-1])
         if False: #nt > file_count:
             errorMsgBit = 1
 
@@ -109,9 +105,10 @@ class visionbox(QMainWindow):
         file_count = len(files)
 
         cnt = file_count
-        self.w.num_img.setText(str(file_count))
+        files = natsorted(files)
+        self.w.num_img.setText(files[-1])
         ExtendedPath = scp_path + "img" + str(cnt) + ".jpg"
-        print(ExtendedPath)
+        #print(ExtendedPath)
         label = self.w.imglabel
         pixmap =QPixmap(ExtendedPath)
         label.setPixmap(pixmap)
