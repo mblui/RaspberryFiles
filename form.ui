@@ -22,7 +22,7 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="Start_pause_watching">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -842,7 +842,7 @@
   </widget>
   <zorder>imglabel</zorder>
   <zorder>label</zorder>
-  <zorder>pushButton</zorder>
+  <zorder>Start_pause_watching</zorder>
   <zorder>num_img</zorder>
   <zorder>totalImg</zorder>
   <zorder>button_ExitProgram</zorder>
