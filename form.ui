@@ -239,7 +239,7 @@
      </widget>
     </item>
     <item row="3" column="3">
-     <widget class="QCheckBox" name="check_Left_White_2">
+     <widget class="QCheckBox" name="check_Right_White">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>

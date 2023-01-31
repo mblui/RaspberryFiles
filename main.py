@@ -29,6 +29,9 @@ errorMsgBit = int(0)
 ExtendedPath = ""
 RGB_val= [0,0,0]
 file_count = 0
+lightInputs = [ [0,0,0],        # Corresponding to GUI
+                [0,0,0],
+                [0,0,0]]
 # ---- ---- ---- ---- ----
 
 
@@ -50,7 +53,7 @@ class visionbox(QMainWindow):
         ui_file.close()
 
         # Link sliders and initialize
-        linksliders.linkslider(self, RGB_value=RGB_val, Brightness=Brightness_value)
+        lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)
 
         # Initial count number of images
         _,_,files = next(os.walk(scp_path))
@@ -66,6 +69,19 @@ class visionbox(QMainWindow):
         timer.timeout.connect(self.update_image)
         timer.start((1/updatefps)*1000)
         self.update_image()
+
+    def onCheckboxChange(self):
+        lightInputs[0,0] = self.w.check_Top_Enable.toggled.isChecked()
+        lightInputs[0,1] = self.w.check_Left_Enable.toggled.isChecked()
+        lightInputs[0,2] = self.w.check_Right_Enable.toggled.isChecked()
+        lightInputs[1,0] = self.w.check_Top_RGB.toggled.isChecked()
+        lightInputs[1,1] = self.w.check_Left_RGB.toggled.isChecked()
+        lightInputs[1,2] = self.w.check_Right_RGB.toggled.isChecked()
+        lightInputs[2,0] = self.w.check_Top_White.toggled.isChecked()
+        lightInputs[2,1] = self.w.check_Left_White.toggled.isChecked()
+        lightInputs[2,2] = self.w.check_Right_White.toggled.isChecked()
+        print(lightInputs)
+        print("UpdateDone")
 
     def ExitProgram(self):
         errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=1, debug= False)

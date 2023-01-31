@@ -6,7 +6,7 @@ import subprocess
 import numpy as np
 from showinfm import show_in_file_manager
 
-from PySide2.QtWidgets import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog
+from PySide2.QtWidgets import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog, QButtonGroup
 from PySide2.QtCore import QFile, QTimer, QSize
 from PySide2.QtUiTools import QUiLoader
 from PySide2.QtGui import QPixmap, QTouchEvent
@@ -15,11 +15,11 @@ import time
 
 
 
-class linksliders:
+class lightsettingsClass:
     def __init__(self):
         super().__init__()
 
-    def linkslider(self, RGB_value = [0,0,0], Brightness = 10):
+    def lightsettings(self, RGB_value = [0,0,0], Brightness = 10):
         ## Settings of sliders
             ## Slider Red value
         self.w.slider_red.setMinimum(0)
@@ -39,6 +39,23 @@ class linksliders:
             ## Slider Brightness 
         self.w.slider_intensity.setValue(Brightness)
         self.w.SliderVal_but_text_intensity.setText(str(Brightness))
+
+        ## Settings Checkboxes
+            ## Enable/disable:
+        self.w.check_Top_Enable.toggled.connect(lambda: self.onCheckboxChange)
+        self.w.check_Left_Enable.toggled.connect(lambda: self.onCheckboxChange)
+        self.w.check_Right_Enable.toggled.connect(lambda: self.onCheckboxChange)
+            
+            ## RGB:
+        self.w.check_Top_RGB.toggled.connect(lambda: self.onCheckboxChange)
+        self.w.check_Left_RGB.toggled.connect(lambda: self.onCheckboxChange)
+        self.w.check_Right_RGB.toggled.connect(lambda: self.onCheckboxChange)
+            
+            ## White:
+        self.w.check_Top_White.toggled.connect(lambda: self.onCheckboxChange)
+        self.w.check_Left_White.toggled.connect(lambda: self.onCheckboxChange)
+        self.w.check_Right_White.toggled.connect(lambda: self.onCheckboxChange)
+            
 
 
         ## Connecting sliders to actions
