@@ -149,6 +149,7 @@ class visionbox(QMainWindow):
             else:
                 errorMsgBit = 1
 
+# test
 if __name__ == "__main__":
     app = QApplication([])
     widget = visionbox()
