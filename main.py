@@ -24,10 +24,9 @@ updatefps = 1
 
 # ---- --- Define Global variables
 cnt = int(1)
-Brightness = 50
+Brightness_value = int(50)
 errorMsgBit = int(0)
 ExtendedPath = ""
-Red_value = 0
 RGB_val= [0,0,0]
 file_count = 0
 # ---- ---- ---- ---- ----
@@ -50,35 +49,18 @@ class visionbox(QMainWindow):
         self.w.show()
         ui_file.close()
 
+        # Link sliders and initialize
+        linksliders.linkslider(self, RGB_value=RGB_val, Brightness=Brightness_value)
+
         # Initial count number of images
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
         print(file_count)
 
-        # slider initial
-        # self.w.slider_red.setMinimum(0)
-        # self.w.slider_intensity.setValue(Brightness)
-        # self.w.slider_red.setMaximum(255)
-        # self.w.slider_green.setMinimum(0)
-        # self.w.slider_green.setMaximum(255)
-        # self.w.slider_blue.setMinimum(0)
-        # self.w.slider_blue.setMaximum(255)
-        # self.w.SliderVal_but_text_intensity.setText(str(Brightness))
-        # self.w.SliderVal_but_text_red.setText(str(RGB_val[0]))
-        # self.w.SliderVal_but_text_green.setText(str(RGB_val[1]))
-        # self.w.SliderVal_but_text_blue.setText(str(RGB_val[2]))
-
         self.w.pushButton.clicked.connect(self.on_button_press)
-        # self.w.slider_red.sliderMoved.connect(self.on_slider_change)
-        # self.w.slider_green.sliderMoved.connect(self.on_slider_change)
-        # self.w.slider_blue.sliderMoved.connect(self.on_slider_change)
-        # self.w.slider_intensity.sliderMoved.connect(self.on_slider_change)
-        # self.w.SliderVal_but_text_intensity.clicked.connect(partial(self.getItem,"intensity"))
-        # self.w.SliderVal_but_text_red.clicked.connect(partial(self.getItem,"red"))
-        # self.w.SliderVal_but_text_green.clicked.connect(partial(self.getItem,"green"))
-        # self.w.SliderVal_but_text_blue.clicked.connect(partial(self.getItem,"blue"))
         self.w.button_openImageFolder.clicked.connect(self.openFolder)
         self.w.button_ExitProgram.clicked.connect(self.ExitProgram) 
+        
 
         timer = QTimer(self)
         timer.timeout.connect(self.update_image)
@@ -101,7 +83,7 @@ class visionbox(QMainWindow):
             errorMsgBit = 1
 
     def update_image(self):
-        global cnt, file_count, Brightness, RGB_val
+        global cnt, file_count, Brightness_value, RGB_val
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
 
@@ -113,15 +95,15 @@ class visionbox(QMainWindow):
         pixmap =QPixmap(ExtendedPath)
         label.setPixmap(pixmap)
         label.show()
-        self.w.SliderVal_but_text_intensity.setText(str(Brightness))
+        self.w.SliderVal_but_text_intensity.setText(str(Brightness_value))
         self.w.SliderVal_but_text_red.setText(str(RGB_val[0]))
         self.w.SliderVal_but_text_green.setText(str(RGB_val[1]))
         self.w.SliderVal_but_text_blue.setText(str(RGB_val[2]))
 
     def on_slider_change(self):
-        global RGB_val, Brightness
+        global RGB_val, Brightness_value
         # Update RGBvaluea
-        Brightness = self.w.slider_intensity.value()
+        Brightness_value = self.w.slider_intensity.value()
         RGB_val[0] = self.w.slider_red.value()
         RGB_val[1] = self.w.slider_green.value()
         RGB_val[2] = self.w.slider_blue.value()
