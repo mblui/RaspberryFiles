@@ -38,11 +38,13 @@
     </font>
    </property>
    <property name="text">
-    <string>Take a new image</string>
+    <string>Start Watchting</string>
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>dslr-camera.png</normaloff>dslr-camera.png</iconset>
+     <normaloff>play_icon.png</normaloff>
+     <normalon>pause_icon.png</normalon>
+     <disabledoff>play_icon.png</disabledoff>play_icon.png</iconset>
    </property>
    <property name="iconSize">
     <size>

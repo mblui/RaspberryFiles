@@ -16,10 +16,28 @@ import time
 
 
 class lightsettingsClass:
-    def __init__(self):
-        super().__init__()
+    def __init__(self, RGB_value = [0,0,0], Brightness = 10):
+        ## Create groups
+        RGB_white_Group1 = QButtonGroup(self.w)
+        RGB_white_Group1.addButton(self.w.check_Top_RGB, 1)      # ID = 1
+        RGB_white_Group1.addButton(self.w.check_Top_White,2)      # ID = 2 
+        RGB_white_Group1.setExclusive(True)
+        
+        RGB_white_Group2 = QButtonGroup(self.w)
+        RGB_white_Group2.addButton(self.w.check_Left_RGB, 1)      # ID = 1
+        RGB_white_Group2.addButton(self.w.check_Left_White,2)      # ID = 2 
+        RGB_white_Group2.setExclusive(True)
 
-    def lightsettings(self, RGB_value = [0,0,0], Brightness = 10):
+        RGB_white_Group3 = QButtonGroup(self.w)
+        RGB_white_Group3.addButton(self.w.check_Right_RGB, 1)      # ID = 1
+        RGB_white_Group3.addButton(self.w.check_Right_White,2)      # ID = 2 
+        RGB_white_Group3.setExclusive(True)
+
+        # Default white checkbox
+        self.w.check_Top_White.setChecked(True)
+        self.w.check_Left_White.setChecked(True)
+        self.w.check_Right_White.setChecked(True)
+        
         ## Settings of sliders
             ## Slider Red value
         self.w.slider_red.setMinimum(0)
@@ -46,7 +64,7 @@ class lightsettingsClass:
         self.w.check_Left_Enable.toggled.connect(self.onCheckboxChange)
         self.w.check_Right_Enable.toggled.connect(self.onCheckboxChange)
             
-            ## RGB:
+            ## RGB
         self.w.check_Top_RGB.toggled.connect(self.onCheckboxChange)
         self.w.check_Left_RGB.toggled.connect(self.onCheckboxChange)
         self.w.check_Right_RGB.toggled.connect(self.onCheckboxChange)
@@ -56,10 +74,7 @@ class lightsettingsClass:
         self.w.check_Left_White.toggled.connect(self.onCheckboxChange)
         self.w.check_Right_White.toggled.connect(self.onCheckboxChange)
             
-
-
         ## Connecting sliders to actions
-        self.w.pushButton.clicked.connect(self.on_button_press)
         self.w.slider_red.sliderMoved.connect(self.on_slider_change)
         self.w.slider_green.sliderMoved.connect(self.on_slider_change)
         self.w.slider_blue.sliderMoved.connect(self.on_slider_change)
@@ -69,3 +84,17 @@ class lightsettingsClass:
         self.w.SliderVal_but_text_green.clicked.connect(partial(self.getItem,"green"))
         self.w.SliderVal_but_text_blue.clicked.connect(partial(self.getItem,"blue"))
 
+    def lightsettings(self, RGB_value = [0,0,0], Brightness = 10):
+                ## Settings of sliders
+            ## Slider Red value
+        self.w.SliderVal_but_text_red.setText(str(RGB_value[0]))
+
+            ## Slider Green value
+        self.w.SliderVal_but_text_green.setText(str(RGB_value[1]))   
+
+            ## Slider Blue value
+        self.w.SliderVal_but_text_blue.setText(str(RGB_value[2]))
+
+            ## Slider Brightness 
+        self.w.slider_intensity.setValue(Brightness)
+        self.w.SliderVal_but_text_intensity.setText(str(Brightness))

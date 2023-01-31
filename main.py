@@ -26,7 +26,7 @@ scp_path = dir_path + "SCP_images/"
 windowsize = [800, 600] # [width,heights]
 updatefps = 1
 
-# ---- --- Define Global variables
+# ---- --- Define Global variables/ Initial values
 cnt = int(1)
 Brightness_value = int(50)
 errorMsgBit = int(0)
@@ -40,33 +40,35 @@ lightInputs = [ [0,0,0],        # Corresponding to GUI
 
 
 class visionbox(QMainWindow):
-
     def __init__(self, parent: QWidget = None):
         global file_count
         super().__init__(parent)
         self.setWindowTitle("Vision Box")
         self.setFixedSize(QSize(windowsize[0], windowsize[1]))
 
-        self.__acquisition_timer = QTimer()
+        # Load GUI
         loader = QUiLoader()
         path = os.path.join(os.path.dirname(__file__), "form.ui")
         ui_file = QFile(path)
         ui_file.open(QFile.ReadOnly)
-        self.w = loader.load(ui_file, self) #self
+        self.w = loader.load(ui_file, self)
         self.w.show()
         ui_file.close()
 
         # Link sliders and initialize
-        lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)
+        lightsettingsClass.__init__(self)
 
         # Initial count number of images
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
 
+        # Link buttons
         self.w.button_openImageFolder.clicked.connect(self.openFolder)
         self.w.button_ExitProgram.clicked.connect(self.ExitProgram) 
-        
+        self.w.Start_pause_watching.clicked.connect(self.on_button_press)
 
+        ## Set update timer
+        self.__acquisition_timer = QTimer()
         timer = QTimer(self)
         timer.timeout.connect(self.update_image)
         timer.start((1/updatefps)*1000)
@@ -82,41 +84,34 @@ class visionbox(QMainWindow):
         lightInputs[0][2] = self.w.check_Top_White.isChecked()
         lightInputs[1][2] = self.w.check_Left_White.isChecked()
         lightInputs[2][2] = self.w.check_Right_White.isChecked()
-        print("UpdateDone", lightInputs)
+        print(lightInputs)
 
     def ExitProgram(self):
         errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=1, debug= False)
         
     def openFolder(self):
-        #subprocess.Popen(r'explorer /select,"C:\path\of\folder\file"')
         show_in_file_manager('/home/dgslr/ProgramFiles/SCP_images')
+
     def on_button_press(self):
         global cnt, errorMsgBit, ExtendedPath, file_count
         cnt += 1
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
         self.w.num_img.setText(files[-1])
-        if False: #nt > file_count:
-            errorMsgBit = 1
 
     def update_image(self):
         global cnt, file_count, Brightness_value, RGB_val
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
-
         cnt = file_count
         files = natsorted(files)
         self.w.num_img.setText(files[-1])
         ExtendedPath = scp_path + "img" + str(cnt) + ".jpg"
-        #print(ExtendedPath)
         label = self.w.imglabel
         pixmap =QPixmap(ExtendedPath)
         label.setPixmap(pixmap)
         label.show()
-        self.w.SliderVal_but_text_intensity.setText(str(Brightness_value))
-        self.w.SliderVal_but_text_red.setText(str(RGB_val[0]))
-        self.w.SliderVal_but_text_green.setText(str(RGB_val[1]))
-        self.w.SliderVal_but_text_blue.setText(str(RGB_val[2]))
+        lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
 
     def on_slider_change(self):
         global RGB_val, Brightness_value
@@ -127,15 +122,15 @@ class visionbox(QMainWindow):
         RGB_val[2] = self.w.slider_blue.value()
 
     def getItem(self, slidertype):  # slidertype := [intensity', 'red', 'green', 'blue']
-        global Brightness,RGB_val
+        global Brightness_value,RGB_val
         items_1 = ("0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100")
         items_2 = ("0", "25", "51", "77", "102", "128", "153", "178", "204", "229", "255")
         items = items_1 if slidertype == "intensity" else items_2
         #item, ok = QInputDialog.getInt(self, "select input", "enter a number", self.w.slider_intensity.value())
-        item, ok = QInputDialog.getItem(self, "select input", "enter a number", items, 0, False)
+        item, ok = QInputDialog.getItem(self, "select input", "Enter a number", items, 0, False)
         if ok:
             if (slidertype == "intensity"):
-                Brightness = int(item)
+                Brightness_value = int(item)
                 self.w.slider_intensity.setValue(int(item))
             elif (slidertype == "red"):
                 RGB_val[0] = int(item)
@@ -149,7 +144,6 @@ class visionbox(QMainWindow):
             else:
                 errorMsgBit = 1
 
-# test
 if __name__ == "__main__":
     app = QApplication([])
     widget = visionbox()
