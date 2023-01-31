@@ -12,7 +12,7 @@ from showinfm import show_in_file_manager
 from PySide2.QtWidgets import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog
 from PySide2.QtCore import QFile, QTimer, QSize
 from PySide2.QtUiTools import QUiLoader
-from PySide2.QtGui import QPixmap, QTouchEvent
+from PySide2.QtGui import QPixmap, QTouchEvent, QIcon
 from functools import partial
 import time
 from ErrorHandler import *
@@ -58,12 +58,14 @@ class visionbox(QMainWindow):
 
         # Link sliders and initialize
         lightsettingsClass.__init__(self)
+        self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
 
+        
         # Initial count number of images
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
         if globalImageUpdate: self.w.Start_pause_watching.setText(str("Start"))
-        
+
         # Link buttons
         self.w.button_openImageFolder.clicked.connect(self.openFolder)
         self.w.button_ExitProgram.clicked.connect(self.ExitProgram) 
@@ -97,6 +99,7 @@ class visionbox(QMainWindow):
 
     def on_button_press(self):
         global globalImageUpdate
+        self.w.Start_pause_watching.setIcon(QIcon('start_icon.png'))
         if self.w.Start_pause_watching.isChecked():
             self.w.Start_pause_watching.setText(str("Start"))
             globalImageUpdate = True

@@ -43,12 +43,6 @@
    <property name="text">
     <string>Start Watchting</string>
    </property>
-   <property name="icon">
-    <iconset>
-     <activeoff>pause_icon.png</activeoff>
-     <activeon>play_icon.png</activeon>
-    </iconset>
-   </property>
    <property name="iconSize">
     <size>
      <width>30</width>
