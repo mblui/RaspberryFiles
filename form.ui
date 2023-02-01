@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>827</width>
-    <height>583</height>
+    <width>900</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -28,8 +28,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>370</y>
+     <x>790</x>
+     <y>450</y>
      <width>101</width>
      <height>41</height>
     </rect>
@@ -53,10 +53,10 @@
   <widget class="QLabel" name="imglabel">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>50</y>
-     <width>741</width>
-     <height>291</height>
+     <x>20</x>
+     <y>90</y>
+     <width>861</width>
+     <height>341</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -70,25 +70,6 @@
    </property>
    <property name="scaledContents">
     <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>0</y>
-     <width>241</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>20</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>DGS Vision Box</string>
    </property>
   </widget>
   <widget class="QLabel" name="num_img">
@@ -137,8 +118,8 @@
   <widget class="QPushButton" name="button_ExitProgram">
    <property name="geometry">
     <rect>
-     <x>550</x>
-     <y>350</y>
+     <x>800</x>
+     <y>540</y>
      <width>80</width>
      <height>23</height>
     </rect>
@@ -150,8 +131,8 @@
   <widget class="QPushButton" name="button_openImageFolder">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>350</y>
+     <x>780</x>
+     <y>500</y>
      <width>131</width>
      <height>23</height>
     </rect>
@@ -163,8 +144,8 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>420</y>
+     <x>30</x>
+     <y>460</y>
      <width>332</width>
      <height>136</height>
     </rect>
@@ -533,8 +514,8 @@
   <widget class="QWidget" name="gridLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>400</y>
+     <x>370</x>
+     <y>440</y>
      <width>399</width>
      <height>160</height>
     </rect>
@@ -600,30 +581,6 @@
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0" alignment="Qt::AlignRight">
-     <widget class="QLabel" name="num_img_15">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Blue:</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::RichText</enum>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
@@ -835,13 +792,37 @@
       </property>
      </widget>
     </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="num_img_15">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Blue:</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QPushButton" name="button_ExportFilesZIP">
    <property name="geometry">
     <rect>
-     <x>429</x>
-     <y>350</y>
+     <x>790</x>
+     <y>570</y>
      <width>111</width>
      <height>23</height>
     </rect>
@@ -850,8 +831,103 @@
     <string>Export files (ZIP)</string>
    </property>
   </widget>
-  <zorder>imglabel</zorder>
+  <widget class="QLabel" name="imglabel_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>163</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>DGS_startup.jpeg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-10</y>
+     <width>831</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>10</y>
+     <width>171</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Date and time:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>20</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Vision Box</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>40</y>
+     <width>231</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>01/01/2023 00:00:00</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
+  <zorder>imglabel</zorder>
   <zorder>Start_pause_watching</zorder>
   <zorder>num_img</zorder>
   <zorder>totalImg</zorder>
@@ -860,6 +936,10 @@
   <zorder>gridLayoutWidget</zorder>
   <zorder>gridLayoutWidget_2</zorder>
   <zorder>button_ExportFilesZIP</zorder>
+  <zorder>imglabel_2</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label_5</zorder>
  </widget>
  <resources/>
  <connections/>

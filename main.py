@@ -19,6 +19,7 @@ from ErrorHandler import *
 from LinkSliders import *
 from natsort import natsorted 
 import zipfile, shutil
+from datetime import datetime
 
 # Set path to directory with images 1
 dir_path = r'/home/dgslr/ProgramFiles/'
@@ -32,6 +33,7 @@ updatefps = 10
 cnt = int(1)
 globalImageUpdate = False
 Brightness_value = int(50)
+current_date_time = "default"
 errorMsgBit = int(0)
 ExtendedPath = ""
 RGB_val= [0,0,0]
@@ -76,9 +78,9 @@ class visionbox(QMainWindow):
         ## Set update timer
         self.__acquisition_timer = QTimer()
         timer = QTimer(self)
-        timer.timeout.connect(self.update_image)
+        timer.timeout.connect(partial(self.update_image, debugval=False))     # Second arguement = Debug
         timer.start((1/updatefps)*1000)
-        self.update_image()
+        self.update_image(debugval=False)
 
     def onCheckboxChange(self):
         lightInputs[0][0] = self.w.check_Top_Enable.isChecked()
@@ -96,15 +98,28 @@ class visionbox(QMainWindow):
         errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=1, debug= False)
         
     def openFolder(self):
-        show_in_file_manager('/home/dgslr/ProgramFiles/SCP_images')
+        show_in_file_manager(scp_path)
 
     def on_export_files_zip(self):
         global file_count
         #shutil.make_archive("test archive", "tar", root_dir='/home/dgslr/ProgramFiles/', ),
-        print(shutil.make_archive(base_name="testArchive", format= "tar", root_dir='/home/dgslr/ProgramFiles/SCP_images/', base_dir='/home/dgslr/ProgramFiles/'))
-        
+        ## Generate Name
+        name = "testfile"
+        name = name + str(".zip")
+
+        self.make_archiveZip(source=scp_path, destination= dir_path + name)
         print("FileCount", file_count)
 
+    def make_archiveZip(self, source, destination):
+        base = os.path.basename(destination)
+        name = base.split('.')[0]
+        print(base, name)
+        format = base.split('.')[1]
+        archive_from = os.path.dirname(source)
+        archive_to = os.path.basename(source.strip(os.sep))
+        print(source, destination, archive_from, archive_to)
+        shutil.make_archive(name, format, archive_from, archive_to)
+        shutil.move('%s.%s'%(name,format), destination)
 
     def on_button_press(self):
         global globalImageUpdate
@@ -122,9 +137,9 @@ class visionbox(QMainWindow):
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
 
-    def update_image(self):
-        global cnt, file_count, Brightness_value, RGB_val, globalImageUpdate
-        print(globalImageUpdate)
+    def update_image(self, debugval):
+        global cnt, file_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time
+        if debugval: print(globalImageUpdate)
         if globalImageUpdate:
             _,_,files = next(os.walk(scp_path))
             file_count = len(files)
@@ -137,6 +152,11 @@ class visionbox(QMainWindow):
             label.setPixmap(pixmap)
             label.show()
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
+        current_date_time = datetime.now()
+        current_date_time = current_date_time.strftime("%B %d, %Y %H:%M:%S")
+        print("Current Date and Time = ", current_date_time)
+
+        print()
 
     def on_slider_change(self):
         global RGB_val, Brightness_value
