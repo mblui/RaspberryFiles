@@ -1,7 +1,3 @@
-# TODO
-# Add mutually exclusive to buttons
-# Add actions to buttons
-
 # This Python file uses the following encoding: utf-8
 import sys
 import os
@@ -60,7 +56,6 @@ class visionbox(QMainWindow):
         self.w.show()
         ui_file.close()
 
-
         # Link sliders and initialize
         lightsettingsClass.__init__(self)
         self.on_button_press()      ## initialse start/pause button
@@ -79,7 +74,7 @@ class visionbox(QMainWindow):
         ## Set update timer
         self.__acquisition_timer = QTimer()
         timer = QTimer(self)
-        timer.timeout.connect(partial(self.update_image, debugval=False))     # Second arguement = Debug
+        timer.timeout.connect(partial(self.update_image, debugval=False))     
         timer.start((1/updatefps)*1000)
         self.update_image(debugval=False)
 
@@ -102,7 +97,7 @@ class visionbox(QMainWindow):
         show_in_file_manager(scp_path)
 
     def on_export_files_zip(self):
-        global file_count
+        global file_count, current_date_time
         # Generate Name
         name = current_date_time.replace(" ", "_").replace("/", "_")
         name = "RecordedImages" + name + str(".zip")
@@ -157,9 +152,11 @@ class visionbox(QMainWindow):
             file_count = len(files)
             cnt = file_count
             files = natsorted(files)
+            print(files)
             if len(files)>0:
                 self.w.num_img.setText(files[-1])
-                ExtendedPath = scp_path + "img" + str(cnt) + ".jpg"
+                ExtendedPath = scp_path + str(files[-1])
+                print(ExtendedPath)
                 label = self.w.imglabel
                 pixmap =QPixmap(ExtendedPath)
                 label.setPixmap(pixmap)
