@@ -109,6 +109,7 @@ class visionbox(QMainWindow):
         print("FileCount", file_count)
 
     def make_archiveZip(self, source, destination):
+        img_backup_succesfull = False
         try: 
             base = os.path.basename(destination)
             name = base.split('.')[0]
@@ -118,10 +119,18 @@ class visionbox(QMainWindow):
             print(source, destination, archive_from, archive_to)
             shutil.make_archive(name, format, archive_from, archive_to)
             shutil.move('%s.%s'%(name,format), destination)
+            img_backup_succesfull = True 
         except Exception as e:
             errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=2, debug= False)   
         
-        print("can the code come to this point?")
+        print("imgbackup", img_backup_succesfull)
+        # if backup is succesfull
+        if img_backup_succesfull: 
+            os.chdir(dir_path + "SCP_images")
+            #[os.remove(f) for f in os.listdir()]        
+            [print(f) for f in os.listdir()]       
+            [os.remove(f) for f in os.listdir()]       
+            print("Done") 
 
     def on_button_press(self):
         global globalImageUpdate
@@ -147,12 +156,13 @@ class visionbox(QMainWindow):
             file_count = len(files)
             cnt = file_count
             files = natsorted(files)
-            self.w.num_img.setText(files[-1])
-            ExtendedPath = scp_path + "img" + str(cnt) + ".jpg"
-            label = self.w.imglabel
-            pixmap =QPixmap(ExtendedPath)
-            label.setPixmap(pixmap)
-            label.show()
+            if len(files)>0:
+                self.w.num_img.setText(files[-1])
+                ExtendedPath = scp_path + "img" + str(cnt) + ".jpg"
+                label = self.w.imglabel
+                pixmap =QPixmap(ExtendedPath)
+                label.setPixmap(pixmap)
+                label.show()
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
         current_date_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         self.w.text_date_time.setText(str(current_date_time))

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>900</width>
-    <height>641</height>
+    <height>700</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -22,34 +22,6 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
-  <widget class="QPushButton" name="Start_pause_watching">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>790</x>
-     <y>450</y>
-     <width>101</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Start</string>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>30</width>
-     <height>30</height>
-    </size>
-   </property>
-  </widget>
   <widget class="QLabel" name="imglabel">
    <property name="geometry">
     <rect>
@@ -76,10 +48,15 @@
    <property name="geometry">
     <rect>
      <x>240</x>
-     <y>440</y>
+     <y>430</y>
      <width>121</width>
-     <height>16</height>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>img0101.jpg</string>
@@ -95,13 +72,14 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>440</y>
-     <width>201</width>
-     <height>16</height>
+     <y>430</y>
+     <width>231</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <pointsize>12</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -113,32 +91,6 @@
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="button_ExitProgram">
-   <property name="geometry">
-    <rect>
-     <x>800</x>
-     <y>540</y>
-     <width>80</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Exit</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="button_openImageFolder">
-   <property name="geometry">
-    <rect>
-     <x>780</x>
-     <y>500</y>
-     <width>131</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Open Image Folder</string>
    </property>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget">
@@ -517,7 +469,7 @@
      <x>370</x>
      <y>440</y>
      <width>399</width>
-     <height>193</height>
+     <height>220</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
@@ -591,8 +543,8 @@
      <widget class="QSlider" name="slider_green">
       <property name="styleSheet">
        <string notr="true">.QSlider {
-    min-height: 35px;
-    max-height: 35px;
+    min-height: 50px;
+    max-height: 50	px;
 	min-width: 100px;
 	max-width:100px;
 }</string>
@@ -646,6 +598,18 @@
     </item>
     <item row="0" column="2">
      <widget class="QPushButton" name="SliderVal_but_text_intensity">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>1</width>
+        <height>1</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
@@ -664,8 +628,8 @@
       </property>
       <property name="styleSheet">
        <string notr="true">.QSlider {
-    min-height: 35px;
-    max-height: 35px;
+    min-height: 50px;
+    max-height: 50	px;
 	min-width: 100px;
 	max-width:100px;
 }</string>
@@ -734,8 +698,8 @@
       </property>
       <property name="styleSheet">
        <string notr="true">.QSlider {
-    min-height: 35px;
-    max-height: 35px;
+    min-height: 50px;
+    max-height: 50	px;
 	min-width: 100px;
 	max-width:100px;
 }</string>
@@ -765,8 +729,8 @@
      <widget class="QSlider" name="slider_intensity">
       <property name="styleSheet">
        <string notr="true">.QSlider {
-    min-height: 35px;
-    max-height: 35px;
+    min-height: 50px;
+    max-height: 50	px;
 	min-width: 100px;
 	max-width:100px;
 }</string>
@@ -818,36 +782,26 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="button_ExportFilesZIP">
-   <property name="geometry">
-    <rect>
-     <x>790</x>
-     <y>570</y>
-     <width>111</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Export files (ZIP)</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="imglabel_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
+     <x>0</x>
+     <y>0</y>
      <width>163</width>
      <height>70</height>
     </rect>
    </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(180, 180, 180);</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>DGS_startup.jpeg</pixmap>
+    <pixmap>DGS_final White letters.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -857,13 +811,16 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-10</y>
+     <y>0</y>
      <width>831</width>
-     <height>81</height>
+     <height>71</height>
     </rect>
    </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(180, 180, 180);</string>
    </property>
    <property name="text">
     <string/>
@@ -926,20 +883,72 @@
     <string>01/01/2023 00:00:00</string>
    </property>
   </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>490</y>
+     <width>160</width>
+     <height>122</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QPushButton" name="Start_pause_watching">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Start</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="button_openImageFolder">
+      <property name="text">
+       <string>Open Image Folder</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="button_ExitProgram">
+      <property name="text">
+       <string>Exit</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="button_ExportFilesZIP">
+      <property name="text">
+       <string>Export files (ZIP)</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <zorder>imglabel</zorder>
   <zorder>label</zorder>
-  <zorder>Start_pause_watching</zorder>
   <zorder>num_img</zorder>
   <zorder>totalImg</zorder>
-  <zorder>button_ExitProgram</zorder>
-  <zorder>button_openImageFolder</zorder>
   <zorder>gridLayoutWidget</zorder>
   <zorder>gridLayoutWidget_2</zorder>
-  <zorder>button_ExportFilesZIP</zorder>
   <zorder>imglabel_2</zorder>
   <zorder>label_2</zorder>
   <zorder>label_4</zorder>
   <zorder>text_date_time</zorder>
+  <zorder>verticalLayoutWidget</zorder>
  </widget>
  <resources/>
  <connections/>
