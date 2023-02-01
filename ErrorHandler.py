@@ -36,30 +36,17 @@ class errorMsgHandlerClass(QMessageBox):
             reply = QMessageBox.question(self, 'Quit', 'Are you sure you want to quit?',  QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
             if reply == QMessageBox.Yes:
                 sys.exit()
-            else:
-                print("...")
- #           return True, errorMsgBit
 
-            # dlg = QMessageBox()
-            # dlg.setWindowTitle("Program exit?")
-            # dlg.setText("Are you sure to exit current program?")
-            # button = dlg.exec_()
-            # if button == QMessageBox.Ok:
-            #     errorMsgBit = 0
-            #     sys.exit()    
-            # return True, errorMsgBit
-
-    # ERROR 2: ....
+    # ERROR 2: Error while exporting to ZIP
         elif errorMsgBit == 2:
-            print("...")
-            #dlg = QMessageBox()
-            #dlg.setWindowTitle("Program exit?")
-            #dlg.setText("Are you sure to exit current program?")
-            #button = dlg.exec_()
-            #if button == QMessageBox.Ok:
-            #    cnt = 0
-            #    errorMsgBit = 0
-            #return errorMsgBit, True
+            dlg = QMessageBox()
+            dlg.setWindowTitle("Error")
+            dlg.setText("Error occured while extracting files to ZIP?")
+            button = dlg.exec_()
+            if button == QMessageBox.Ok:
+                cnt = 0
+                errorMsgBit = 0
+            return errorMsgBit, True
 
     # ERROR @: ....
         elif errorMsgBit == 2:  

@@ -102,24 +102,26 @@ class visionbox(QMainWindow):
 
     def on_export_files_zip(self):
         global file_count
-        #shutil.make_archive("test archive", "tar", root_dir='/home/dgslr/ProgramFiles/', ),
-        ## Generate Name
-        name = "testfile"
-        name = name + str(".zip")
-
-        self.make_archiveZip(source=scp_path, destination= dir_path + name)
+        # Generate Name
+        name = current_date_time.replace(" ", "_").replace("/", "_")
+        name = "RecordedImages" + name + str(".zip")
+        self.make_archiveZip(source=dir_path + "SCP_images", destination= dir_path + name)
         print("FileCount", file_count)
 
     def make_archiveZip(self, source, destination):
-        base = os.path.basename(destination)
-        name = base.split('.')[0]
-        print(base, name)
-        format = base.split('.')[1]
-        archive_from = os.path.dirname(source)
-        archive_to = os.path.basename(source.strip(os.sep))
-        print(source, destination, archive_from, archive_to)
-        shutil.make_archive(name, format, archive_from, archive_to)
-        shutil.move('%s.%s'%(name,format), destination)
+        try: 
+            base = os.path.basename(destination)
+            name = base.split('.')[0]
+            format = base.split('.')[1]
+            archive_from = os.path.dirname(source)
+            archive_to = os.path.basename(source.strip(os.sep))
+            print(source, destination, archive_from, archive_to)
+            shutil.make_archive(name, format, archive_from, archive_to)
+            shutil.move('%s.%s'%(name,format), destination)
+        except Exception as e:
+            errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=2, debug= False)   
+        
+        print("can the code come to this point?")
 
     def on_button_press(self):
         global globalImageUpdate
