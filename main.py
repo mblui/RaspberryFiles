@@ -18,6 +18,8 @@ import time
 from ErrorHandler import *
 from LinkSliders import *
 from natsort import natsorted 
+import zipfile, shutil
+
 # Set path to directory with images 1
 dir_path = r'/home/dgslr/ProgramFiles/'
 scp_path = dir_path + "SCP_images/"
@@ -28,7 +30,7 @@ updatefps = 10
 
 # ---- --- Define Global variables/ Initial values
 cnt = int(1)
-globalImageUpdate = True
+globalImageUpdate = False
 Brightness_value = int(50)
 errorMsgBit = int(0)
 ExtendedPath = ""
@@ -58,19 +60,18 @@ class visionbox(QMainWindow):
 
         # Link sliders and initialize
         lightsettingsClass.__init__(self)
-        self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
-
+        self.on_button_press()      ## initialse start/pause button
         
         # Initial count number of images
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
-        if globalImageUpdate: self.w.Start_pause_watching.setText(str("Start"))
 
         # Link buttons
         self.w.button_openImageFolder.clicked.connect(self.openFolder)
         self.w.button_ExitProgram.clicked.connect(self.ExitProgram) 
         self.w.Start_pause_watching.clicked.connect(self.on_button_press)
         self.w.Start_pause_watching.setCheckable(True)
+        self.w.button_ExportFilesZIP.clicked.connect(self.on_export_files_zip)
     
         ## Set update timer
         self.__acquisition_timer = QTimer()
@@ -97,24 +98,33 @@ class visionbox(QMainWindow):
     def openFolder(self):
         show_in_file_manager('/home/dgslr/ProgramFiles/SCP_images')
 
+    def on_export_files_zip(self):
+        global file_count
+        #shutil.make_archive("test archive", "tar", root_dir='/home/dgslr/ProgramFiles/', ),
+        print(shutil.make_archive(base_name="testArchive", format= "tar", root_dir='/home/dgslr/ProgramFiles/SCP_images/', base_dir='/home/dgslr/ProgramFiles/'))
+        
+        print("FileCount", file_count)
+
+
     def on_button_press(self):
         global globalImageUpdate
-        self.w.Start_pause_watching.setIcon(QIcon('start_icon.png'))
         if self.w.Start_pause_watching.isChecked():
             self.w.Start_pause_watching.setText(str("Start"))
-            globalImageUpdate = True
+            self.w.Start_pause_watching.setIcon(QIcon('play_icon.png'))
+            globalImageUpdate = False
         else:
             self.w.Start_pause_watching.setText(str("Pause"))
-            globalImageUpdate = False
+            self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
+            globalImageUpdate = True
 
         global cnt, errorMsgBit, ExtendedPath, file_count
         cnt += 1
         _,_,files = next(os.walk(scp_path))
         file_count = len(files)
-        #self.w.num_img.setText(files[-1])
 
     def update_image(self):
         global cnt, file_count, Brightness_value, RGB_val, globalImageUpdate
+        print(globalImageUpdate)
         if globalImageUpdate:
             _,_,files = next(os.walk(scp_path))
             file_count = len(files)
