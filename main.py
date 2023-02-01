@@ -33,7 +33,7 @@ updatefps = 10
 cnt = int(1)
 globalImageUpdate = False
 Brightness_value = int(50)
-current_date_time = "default"
+current_date_time = "01/01/2023 00:00:00"
 errorMsgBit = int(0)
 ExtendedPath = ""
 RGB_val= [0,0,0]
@@ -152,11 +152,8 @@ class visionbox(QMainWindow):
             label.setPixmap(pixmap)
             label.show()
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
-        t = datetime.now() 
-        #print(t.strftime("%d/%m/%Y %H:%M:%S"))
-        #print("Current Date and Time = ", current_date_time)
-
-        print()
+        current_date_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        self.w.text_date_time.setText(str(current_date_time))
 
     def on_slider_change(self):
         global RGB_val, Brightness_value
