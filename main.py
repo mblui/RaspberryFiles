@@ -26,7 +26,7 @@ dir_path = r'/home/dgslr/ProgramFiles/'
 scp_path = dir_path + "SCP_images/"
 
 # --- --- Define inputs ---
-windowsize = [800, 600] # [width,heights]
+windowsize = [930, 650] # [width,heights]
 updatefps = 10
 
 # ---- --- Define Global variables/ Initial values
@@ -152,9 +152,9 @@ class visionbox(QMainWindow):
             label.setPixmap(pixmap)
             label.show()
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
-        current_date_time = datetime.now()
-        current_date_time = current_date_time.strftime("%B %d, %Y %H:%M:%S")
-        print("Current Date and Time = ", current_date_time)
+        t = datetime.now() 
+        #print(t.strftime("%d/%m/%Y %H:%M:%S"))
+        #print("Current Date and Time = ", current_date_time)
 
         print()
 
