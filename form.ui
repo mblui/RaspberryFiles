@@ -148,35 +148,59 @@
   <widget class="QWidget" name="gridLayoutWidget_3">
    <property name="geometry">
     <rect>
-     <x>1510</x>
-     <y>400</y>
-     <width>399</width>
-     <height>220</height>
+     <x>1585</x>
+     <y>570</y>
+     <width>321</width>
+     <height>241</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_4">
-    <item row="0" column="3">
-     <widget class="QLabel" name="l_text_4">
+    <item row="2" column="2">
+     <widget class="QPushButton" name="SliderVal_but_text_green">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>15</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="text">
-       <string>[0-100]</string>
+       <string>100</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QSlider" name="slider_blue">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">.QSlider {
+    min-height: 50px;
+    max-height: 50	px;
+	min-width: 100px;
+	max-width:100px;
+}</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
      </widget>
     </item>
     <item row="0" column="2">
      <widget class="QPushButton" name="SliderVal_but_text_intensity">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -186,6 +210,89 @@
         <width>1</width>
         <height>1</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>100</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="num_img_15">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Blue:</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QPushButton" name="SliderVal_but_text_blue">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>100</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QSlider" name="slider_green">
+      <property name="styleSheet">
+       <string notr="true">.QSlider {
+    min-height: 50px;
+    max-height: 50	px;
+	min-width: 100px;
+	max-width:100px;
+}</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QPushButton" name="SliderVal_but_text_red">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
@@ -258,22 +365,6 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="2">
-     <widget class="QPushButton" name="SliderVal_but_text_red">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>100</string>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="1">
      <widget class="QSlider" name="slider_red">
       <property name="sizePolicy">
@@ -319,157 +410,14 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="3">
-     <widget class="QLabel" name="r_text_4">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>[0-255]</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="num_img_15">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Blue:</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::RichText</enum>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="2">
-     <widget class="QPushButton" name="SliderVal_but_text_green">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>100</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QSlider" name="slider_green">
-      <property name="styleSheet">
-       <string notr="true">.QSlider {
-    min-height: 50px;
-    max-height: 50	px;
-	min-width: 100px;
-	max-width:100px;
-}</string>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QSlider" name="slider_blue">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">.QSlider {
-    min-height: 50px;
-    max-height: 50	px;
-	min-width: 100px;
-	max-width:100px;
-}</string>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="2">
-     <widget class="QPushButton" name="SliderVal_but_text_blue">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="text">
-       <string>100</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="3">
-     <widget class="QLabel" name="g_text_2">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>[0-255]</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="3">
-     <widget class="QLabel" name="b_text_2">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>[0-255]</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget_4">
    <property name="geometry">
     <rect>
-     <x>1630</x>
-     <y>670</y>
-     <width>217</width>
+     <x>1580</x>
+     <y>470</y>
+     <width>321</width>
      <height>91</height>
     </rect>
    </property>
@@ -481,14 +429,14 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>100</width>
+        <width>50</width>
         <height>30</height>
        </size>
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
-        <bold>true</bold>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
        </font>
       </property>
       <property name="text">
@@ -510,6 +458,11 @@
         <height>30</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Open Image Folder</string>
       </property>
@@ -523,6 +476,11 @@
         <height>30</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Exit</string>
       </property>
@@ -532,9 +490,14 @@
      <widget class="QPushButton" name="button_ExportFilesZIP">
       <property name="minimumSize">
        <size>
-        <width>100</width>
+        <width>200</width>
         <height>30</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
       </property>
       <property name="text">
        <string>Export files (ZIP)</string>
@@ -546,9 +509,9 @@
   <widget class="QWidget" name="gridLayoutWidget_5">
    <property name="geometry">
     <rect>
-     <x>1620</x>
+     <x>1580</x>
      <y>220</y>
-     <width>315</width>
+     <width>321</width>
      <height>241</height>
     </rect>
    </property>
@@ -623,6 +586,12 @@
         <pointsize>15</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {
+     width: 40px;
+     height: 40px;
+ }</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -649,8 +618,8 @@
       </property>
       <property name="styleSheet">
        <string notr="true">QCheckBox::indicator {
-     width: 140px;
-     height: 140px;
+     width: 40px;
+     height: 40px;
  }</string>
       </property>
       <property name="text">
@@ -676,6 +645,12 @@
        <font>
         <pointsize>15</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {
+     width: 40px;
+     height: 40px;
+ }</string>
       </property>
       <property name="text">
        <string/>
@@ -725,6 +700,12 @@
         <pointsize>15</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {
+     width: 40px;
+     height: 40px;
+ }</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -772,6 +753,12 @@
        <font>
         <pointsize>15</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {
+     width: 40px;
+     height: 40px;
+ }</string>
       </property>
       <property name="text">
        <string/>
@@ -821,6 +808,12 @@
         <pointsize>15</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {
+     width: 40px;
+     height: 40px;
+ }</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -845,6 +838,12 @@
         <pointsize>15</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {
+     width: 40px;
+     height: 40px;
+ }</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -863,6 +862,12 @@
         <pointsize>15</pointsize>
         <kerning>true</kerning>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {
+     width: 40px;
+     height: 40px;
+ }</string>
       </property>
       <property name="text">
        <string/>
@@ -887,6 +892,12 @@
        <font>
         <pointsize>15</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox::indicator {
+     width: 40px;
+     height: 40px;
+ }</string>
       </property>
       <property name="text">
        <string/>
@@ -922,9 +933,9 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>1620</x>
+     <x>1580</x>
      <y>120</y>
-     <width>256</width>
+     <width>321</width>
      <height>80</height>
     </rect>
    </property>
