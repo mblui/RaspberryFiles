@@ -26,7 +26,7 @@ dir_path = r'/home/dgslr/ProgramFiles/'
 scp_path = dir_path + "SCP_images/"
 
 # --- --- Define inputs ---
-windowsize = [930, 650] # [width,heights]
+windowsize = [930, 650, 1] # [width,heights, Fullsize = 1/0]
 updatefps = 10
 
 # ---- --- Define Global variables/ Initial values
@@ -49,7 +49,7 @@ class visionbox(QMainWindow):
         global file_count, globalImageUpdate
         super().__init__(parent)
         self.setWindowTitle("Vision Box")
-        self.setFixedSize(QSize(windowsize[0], windowsize[1]))
+        self.showMaximized() if windowsize[1] else self.setFixedSize(QSize(windowsize[0], windowsize[1]))
 
         # Load GUI
         loader = QUiLoader()
@@ -59,6 +59,7 @@ class visionbox(QMainWindow):
         self.w = loader.load(ui_file, self)
         self.w.show()
         ui_file.close()
+
 
         # Link sliders and initialize
         lightsettingsClass.__init__(self)
