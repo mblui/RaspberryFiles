@@ -27,6 +27,7 @@ updatefps = 1
 
 # ---- --- Define Global variables/ Initial values
 cnt = int(1)
+AvailableUserProfiles = ["Only-view",  "DGS admin"]
 User = "default"            # [Default, DGS]
 Password_admin = "1466"
 maxImagesBits = 6           # Maxum number of images in the folder (in bits) -->  000000
@@ -149,9 +150,14 @@ class visionbox(QMainWindow):
 
     def on_lock_unlock_button(self):
         if self.w.lock_unlock_button.isChecked():
+            self.w.text_current_user.setText(str(AvailableUserProfiles[1]))
             self.w.lock_unlock_button.setIcon(QIcon('lock_icon.png'))
+
         else:
-            self.w.lock_unlock_button.setIcon(QIcon('unlock_icon.png'))
+            _,output = errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=3, debug= False)
+            if str(output) == "1466":
+                self.w.text_current_user.setText(str(AvailableUserProfiles[0]))
+                self.w.lock_unlock_button.setIcon(QIcon('unlock_icon.png'))
 
 
     def on_next_previous_image(self,value):

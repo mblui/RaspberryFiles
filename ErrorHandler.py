@@ -48,9 +48,15 @@ class errorMsgHandlerClass(QMessageBox):
                 errorMsgBit = 0
             return errorMsgBit, True
 
-    # ERROR @: ....
-        elif errorMsgBit == 2:  
-            print("...")
+    # ERROR @: Change admin rights
+        elif errorMsgBit == 3:
+            dlg = QMessageBox()
+            dlg.setWindowTitle("Switch permission")
+            dlg.setText("Enter password?")
+            button = dlg.exec_()
+            if button == QMessageBox.Ok:
+                errorMsgBit = 0
+            return errorMsgBit, True
 
         else:
             print("No errors found")
