@@ -50,12 +50,10 @@ class errorMsgHandlerClass(QMessageBox):
 
     # ERROR @: Change admin rights
         elif errorMsgBit == 3:
-            dlg = QMessageBox()
-            dlg.setWindowTitle("Switch permission")
-            dlg.setText("Enter password?")
-            button = dlg.exec_()
-            if button == QMessageBox.Ok:
-                errorMsgBit = 0
+            text, ok = QInputDialog.getText(self, 'Input Dialog', 'Enter text:')
+            if ok:
+                if text == "1466":
+                    errorMsgBit = 0
             return errorMsgBit, True
 
         else:
