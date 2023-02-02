@@ -150,10 +150,8 @@ class visionbox(QMainWindow):
     def on_lock_unlock_button(self):
         if self.w.lock_unlock_button.isChecked():
             self.w.lock_unlock_button.setIcon(QIcon('lock_icon.png'))
-            print(".1.")
         else:
-            self.w.lock_unlock_button.setIcon(QIcon('lock_icon.png'))
-            print(".2.")   
+            self.w.lock_unlock_button.setIcon(QIcon('unlock_icon.png'))
 
 
     def on_next_previous_image(self,value):

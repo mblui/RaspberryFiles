@@ -496,9 +496,9 @@ QSlider::handle:horizontal {
    <property name="geometry">
     <rect>
      <x>1510</x>
-     <y>480</y>
+     <y>470</y>
      <width>321</width>
-     <height>104</height>
+     <height>119</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_5">
@@ -507,7 +507,7 @@ QSlider::handle:horizontal {
       <property name="minimumSize">
        <size>
         <width>200</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="font">
@@ -525,7 +525,7 @@ QSlider::handle:horizontal {
       <property name="minimumSize">
        <size>
         <width>100</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="font">
@@ -543,7 +543,7 @@ QSlider::handle:horizontal {
       <property name="minimumSize">
        <size>
         <width>100</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="font">
@@ -1225,40 +1225,6 @@ QSlider::handle:horizontal {
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="2">
-     <widget class="QLabel" name="lock_unlock">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>60</width>
-        <height>60</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>60</width>
-        <height>60</height>
-       </size>
-      </property>
-      <property name="autoFillBackground">
-       <bool>true</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap>DGS_startup.jpeg</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="Label">
       <property name="font">
@@ -1273,21 +1239,7 @@ QSlider::handle:horizontal {
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QLabel" name="text_current_user">
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-        <italic>true</italic>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Default</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="3">
+    <item row="0" column="2">
      <widget class="QPushButton" name="lock_unlock_button">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1301,8 +1253,34 @@ QSlider::handle:horizontal {
         <height>60</height>
        </size>
       </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>60</width>
+        <height>60</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="text_current_user">
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <italic>true</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Default</string>
       </property>
      </widget>
     </item>
