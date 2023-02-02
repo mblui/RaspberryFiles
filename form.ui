@@ -1220,7 +1220,7 @@ QSlider::handle:horizontal {
     <rect>
      <x>721</x>
      <y>10</y>
-     <width>251</width>
+     <width>272</width>
      <height>62</height>
     </rect>
    </property>
@@ -1284,6 +1284,25 @@ QSlider::handle:horizontal {
       </property>
       <property name="text">
        <string>Default</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="lock_unlock_button">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>60</horstretch>
+        <verstretch>60</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>60</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
       </property>
      </widget>
     </item>

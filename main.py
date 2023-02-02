@@ -27,6 +27,8 @@ updatefps = 1
 
 # ---- --- Define Global variables/ Initial values
 cnt = int(1)
+User = "default"            # [Default, DGS]
+Password_admin = "1466"
 maxImagesBits = 6           # Maxum number of images in the folder (in bits) -->  000000
 globalImageUpdate = False
 Brightness_value = int(50)
@@ -48,7 +50,6 @@ class visionbox(QMainWindow):
         super().__init__(parent)
         self.setWindowTitle("Vision Box")
         self.showMaximized() if windowsize[2] else self.setFixedSize(QSize(windowsize[0], windowsize[1]))
-
         # Load GUI
         loader = QUiLoader()
         path = os.path.join(os.path.dirname(__file__), "form.ui")
@@ -60,12 +61,13 @@ class visionbox(QMainWindow):
 
         # Link sliders and initialize
         lightsettingsClass.__init__(self)
-        self.on_button_press()      ## initialse start/pause button
+        #self.on_button_press()      ## initialse start/pause button
         
         # Initial count number of images
         img_files, img_count = self.getAvailableImagesInFolder()
 
         # Link buttons
+        self.on_lock_unlock_button()
         self.w.button_openImageFolder.clicked.connect(self.openFolder)
         self.w.button_ExitProgram.clicked.connect(self.ExitProgram) 
         self.w.Start_pause_watching.clicked.connect(self.on_button_press)
@@ -73,7 +75,8 @@ class visionbox(QMainWindow):
         self.w.button_ExportFilesZIP.clicked.connect(self.on_export_files_zip)
         self.w.button_previous_img.clicked.connect(partial(self.on_next_previous_image,-1))
         self.w.button_next_img.clicked.connect(partial(self.on_next_previous_image, 1))
-        
+        self.w.lock_unlock.clicked.connect(self.on_lock_unlock_button)
+
         ## Set update timer
         self.__acquisition_timer = QTimer()
         timer = QTimer(self)
@@ -142,6 +145,13 @@ class visionbox(QMainWindow):
             self.w.Start_pause_watching.setText(str("Pause"))
             self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
             globalImageUpdate = True
+
+    def on_lock_unlock_button(self):
+        if self.w.lock_unlock_button.isChecked():
+            print(".1.")
+        else:
+            print(".2.")   
+
 
     def on_next_previous_image(self,value):
         global img_to_display_cnt
