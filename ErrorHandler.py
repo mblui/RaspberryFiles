@@ -15,14 +15,14 @@ from functools import partial
 # Error message bits
 # 0     =   no error
 # 1     =   Exit program 1
-# 2     =   ...
-# 3     =   ...
+# 2     =   Error while exporting to ZIP
+# 3     =   Change current User
 # 4     =   ...
 # 5     =   ...
 # 6     =   ...
 # 7     =   ...
 
-class errorMsgHandlerClass(QMessageBox):
+class MsgHandlerClass(QMessageBox):
     def __init__(self):
         super().__init__()
 
@@ -48,7 +48,7 @@ class errorMsgHandlerClass(QMessageBox):
                 errorMsgBit = 0
             return errorMsgBit, True
 
-    # ERROR @: Change admin rights
+    # ERROR 3: Change admin rights
         elif errorMsgBit == 3:
             text, ok = QInputDialog.getText(self, 'Input Dialog', 'Enter text:')
             if ok:
