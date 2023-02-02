@@ -1083,13 +1083,25 @@ QSlider::handle:horizontal {
     <rect>
      <x>1510</x>
      <y>130</y>
-     <width>401</width>
+     <width>408</width>
      <height>80</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
      <widget class="QLabel" name="totalImg">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>250</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <pointsize>15</pointsize>
@@ -1139,6 +1151,18 @@ QSlider::handle:horizontal {
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="totalImg_2">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>1</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <pointsize>15</pointsize>
