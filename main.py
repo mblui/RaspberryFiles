@@ -75,7 +75,8 @@ class visionbox(QMainWindow):
         self.w.button_ExportFilesZIP.clicked.connect(self.on_export_files_zip)
         self.w.button_previous_img.clicked.connect(partial(self.on_next_previous_image,-1))
         self.w.button_next_img.clicked.connect(partial(self.on_next_previous_image, 1))
-        self.w.lock_unlock.clicked.connect(self.on_lock_unlock_button)
+        self.w.lock_unlock_button.clicked.connect(self.on_lock_unlock_button)
+        self.w.lock_unlock_button.setCheckable(True)
 
         ## Set update timer
         self.__acquisition_timer = QTimer()
@@ -118,7 +119,7 @@ class visionbox(QMainWindow):
             format = base.split('.')[1]
             archive_from = os.path.dirname(source)
             archive_to = os.path.basename(source.strip(os.sep))
-            print(source, destination, archive_from, archive_to)
+            #print(source, destination, archive_from, archive_to)
             shutil.make_archive(name, format, archive_from, archive_to)
             shutil.move('%s.%s'%(name,format), destination)
             img_backup_succesfull = True 
@@ -131,7 +132,7 @@ class visionbox(QMainWindow):
             #[os.remove(f) for f in os.listdir()]        
             [print(f) for f in os.listdir()]       
             [os.remove(f) for f in os.listdir()]       
-            print("Done")
+            #Pprint("Done")
         img_files, img_count = self.getAvailableImagesInFolder() 
         # TODO Add dialog to show that export is succesfull with name ... 
 
@@ -148,8 +149,10 @@ class visionbox(QMainWindow):
 
     def on_lock_unlock_button(self):
         if self.w.lock_unlock_button.isChecked():
+            self.w.lock_unlock_button.setIcon(QIcon('lock_icon.png'))
             print(".1.")
         else:
+            self.w.lock_unlock_button.setIcon(QIcon('lock_icon.png'))
             print(".2.")   
 
 
@@ -157,7 +160,7 @@ class visionbox(QMainWindow):
         global img_to_display_cnt
         self.w.Start_pause_watching.setChecked(True)
         self.on_button_press()
-        print("editvalue1", img_to_display_cnt)
+        #print("editvalue1", img_to_display_cnt)
         if img_to_display_cnt >= 0 and  img_to_display_cnt < img_count:
             img_to_display_cnt = img_to_display_cnt + value
 
@@ -172,7 +175,7 @@ class visionbox(QMainWindow):
         else:
             if globalImageUpdate:
                 img_to_display_cnt = img_count-1 ## show latest image
-            print("editvalue", img_to_display_cnt)
+            #print("editvalue", img_to_display_cnt)
             img_to_display = img_files[img_to_display_cnt]
             self.w.num_img.setText(img_to_display)
             ExtendedPath = scp_path + str(img_to_display)
