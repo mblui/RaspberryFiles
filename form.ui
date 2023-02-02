@@ -149,7 +149,7 @@
    <property name="geometry">
     <rect>
      <x>1515</x>
-     <y>570</y>
+     <y>600</y>
      <width>391</width>
      <height>270</height>
     </rect>
@@ -496,7 +496,7 @@ QSlider::handle:horizontal {
    <property name="geometry">
     <rect>
      <x>1510</x>
-     <y>470</y>
+     <y>480</y>
      <width>321</width>
      <height>104</height>
     </rect>
@@ -1088,8 +1088,11 @@ QSlider::handle:horizontal {
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_3">
-    <item row="0" column="0">
+    <item row="0" column="0" alignment="Qt::AlignLeft">
      <widget class="QLabel" name="totalImg">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -1098,8 +1101,8 @@ QSlider::handle:horizontal {
       </property>
       <property name="minimumSize">
        <size>
-        <width>250</width>
-        <height>0</height>
+        <width>150</width>
+        <height>1</height>
        </size>
       </property>
       <property name="font">
@@ -1109,7 +1112,7 @@ QSlider::handle:horizontal {
        </font>
       </property>
       <property name="text">
-       <string>Current displayed image: </string>
+       <string>Displayed image: </string>
       </property>
       <property name="textFormat">
        <enum>Qt::RichText</enum>
@@ -1129,7 +1132,7 @@ QSlider::handle:horizontal {
       </property>
       <property name="minimumSize">
        <size>
-        <width>150</width>
+        <width>100</width>
         <height>36</height>
        </size>
       </property>
@@ -1149,7 +1152,7 @@ QSlider::handle:horizontal {
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
+    <item row="2" column="0" alignment="Qt::AlignLeft">
      <widget class="QLabel" name="totalImg_2">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1159,8 +1162,8 @@ QSlider::handle:horizontal {
       </property>
       <property name="minimumSize">
        <size>
-        <width>200</width>
-        <height>1</height>
+        <width>150</width>
+        <height>0</height>
        </size>
       </property>
       <property name="font">
