@@ -1083,7 +1083,7 @@ QSlider::handle:horizontal {
     <rect>
      <x>1510</x>
      <y>130</y>
-     <width>350</width>
+     <width>401</width>
      <height>80</height>
     </rect>
    </property>
@@ -1117,7 +1117,7 @@ QSlider::handle:horizontal {
       </property>
       <property name="minimumSize">
        <size>
-        <width>100</width>
+        <width>150</width>
         <height>36</height>
        </size>
       </property>

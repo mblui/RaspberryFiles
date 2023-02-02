@@ -27,6 +27,7 @@ updatefps = 1
 
 # ---- --- Define Global variables/ Initial values
 cnt = int(1)
+maxImagesBits = 6           # Maxum number of images in the folder (in bits) -->  000000
 globalImageUpdate = False
 Brightness_value = int(50)
 current_date_time = "01/01/2023 00:00:00"
@@ -155,7 +156,7 @@ class visionbox(QMainWindow):
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
         if debugval: print(globalImageUpdate)
         img_files, img_count = self.getAvailableImagesInFolder() 
-        self.w.number_of_images.setText(str(img_count))
+        self.w.number_of_images.setText(str(img_count).zfill(maxImagesBits))
         if len(img_files)<1:
             self.w.num_img.setText("No files in folder to display")
         else:
