@@ -70,7 +70,9 @@ class visionbox(QMainWindow):
         self.w.Start_pause_watching.clicked.connect(self.on_button_press)
         self.w.Start_pause_watching.setCheckable(True)
         self.w.button_ExportFilesZIP.clicked.connect(self.on_export_files_zip)
-    
+        self.w.button_previous_img.clicked.connect(self.update_image)
+        self.w.button_next_img.clicked.connect(self.update_image)
+        
         ## Set update timer
         self.__acquisition_timer = QTimer()
         timer = QTimer(self)
@@ -139,28 +141,26 @@ class visionbox(QMainWindow):
             self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
             globalImageUpdate = True
 
-        global cnt, errorMsgBit, ExtendedPath, file_count
-        cnt += 1
-        _,_,files = next(os.walk(scp_path))
-        file_count = len(files)
-
     def update_image(self, debugval):
         global cnt, file_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time
         if debugval: print(globalImageUpdate)
-        if globalImageUpdate:
-            _,_,files = next(os.walk(scp_path))
-            file_count = len(files)
-            cnt = file_count
-            files = natsorted(files)
-            print(files)
-            if len(files)>0:
-                self.w.num_img.setText(files[-1])
-                ExtendedPath = scp_path + str(files[-1])
-                print(ExtendedPath)
-                label = self.w.imglabel
-                pixmap =QPixmap(ExtendedPath)
-                label.setPixmap(pixmap)
-                label.show()
+        _,_,files = next(os.walk(scp_path))
+        file_count = len(files)
+        files = natsorted(files)
+        if globalImageUpdate and len(files)>0:
+            #print(files)
+            self.w.num_img.setText(files[-1])
+            ExtendedPath = scp_path + str(files[-1])
+        elif len(files)>0: 
+            print("Code running here")
+            self.w.num_img.setText("Error")
+            ExtendedPath = scp_path + str(files[-1])   
+        print(ExtendedPath)
+        label = self.w.imglabel
+        pixmap =QPixmap(ExtendedPath)
+        label.setPixmap(pixmap)
+        label.show()
+
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
         current_date_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         self.w.text_date_time.setText(str(current_date_time))
