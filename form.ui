@@ -208,10 +208,10 @@ QSlider::handle:horizontal {
 }
 
 QSlider::handle:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.3);
+    background-color:rgba(153, 153, 153,0.5);
 }
 QSlider::groove:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.15);
+    background-color:rgba(153, 153, 153,0.4);
 }</string>
       </property>
       <property name="orientation">
@@ -320,10 +320,10 @@ QSlider::handle:horizontal {
 }
 
 QSlider::handle:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.3);
+    background-color:rgba(153, 153, 153,0.5);
 }
 QSlider::groove:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.15);
+    background-color:rgba(153, 153, 153,0.4);
 }</string>
       </property>
       <property name="orientation">
@@ -432,10 +432,10 @@ QSlider::handle:horizontal {
 }
 
 QSlider::handle:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.3);
+    background-color:rgba(153, 153, 153,0.5);
 }
 QSlider::groove:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.15);
+    background-color:rgba(153, 153, 153,0.4);
 }</string>
       </property>
       <property name="orientation">
@@ -502,10 +502,10 @@ QSlider::handle:horizontal {
 }
 
 QSlider::handle:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.3);
+    background-color:rgba(153, 153, 153,0.5);
 }
 QSlider::groove:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.15);
+    background-color:rgba(153, 153, 153,0.4);
 }</string>
       </property>
       <property name="orientation">
@@ -518,9 +518,9 @@ QSlider::groove:horizontal:disabled {
   <widget class="QWidget" name="gridLayoutWidget_4">
    <property name="geometry">
     <rect>
-     <x>1510</x>
+     <x>1520</x>
      <y>470</y>
-     <width>321</width>
+     <width>311</width>
      <height>119</height>
     </rect>
    </property>

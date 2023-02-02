@@ -89,10 +89,10 @@ class visionbox(QMainWindow):
         self.w.button_openImageFolder.setEnabled(value)
         #self.w.button_ExitProgram.setEnabled(False)
         #self.w.lock_unlock_button.setEnabled(False)
-        self.w.Start_pause_watching.setEnabled(value)
+        #self.w.Start_pause_watching.setEnabled(value)
         self.w.button_ExportFilesZIP.setEnabled(value)
-        self.w.button_previous_img.setEnabled(value)
-        self.w.button_next_img.setEnabled(value)
+        #self.w.button_previous_img.setEnabled(value)
+        #self.w.button_next_img.setEnabled(value)
         self.w.check_Top_Enable.setEnabled(value)
         self.w.check_Left_Enable.setEnabled(value)
         self.w.check_Right_Enable.setEnabled(value)
@@ -121,8 +121,6 @@ class visionbox(QMainWindow):
         self.w.text_green.setEnabled(value)
         self.w.text_blue.setEnabled(value)
 
-
-        
 
     def onCheckboxChange(self):
         lightInputs[0][0] = self.w.check_Top_Enable.isChecked()
