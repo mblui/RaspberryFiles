@@ -13,6 +13,10 @@ from PySide2.QtGui import QPixmap, QTouchEvent
 from functools import partial
 import time
 
+from LinkSliders import *
+from config import *
+from system import *
+from ErrorHandler import *
 
 #   1)  Initialise
 #   2)  Enable/Disable inputs based on User level

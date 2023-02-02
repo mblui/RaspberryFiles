@@ -11,6 +11,10 @@ from PySide2.QtUiTools import QUiLoader
 from PySide2.QtGui import QPixmap, QTouchEvent
 from functools import partial
 
+from LinkSliders import *
+from config import *
+from system import *
+from ErrorHandler import *
 
 # Error message bits
 # 0     =   no error
