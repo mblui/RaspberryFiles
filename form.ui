@@ -205,9 +205,14 @@ QSlider::handle:horizontal {
     width: 35px;
     margin: -20px 0;
     border-radius: 5px;
-
 }
-</string>
+
+QSlider::handle:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.3);
+}
+QSlider::groove:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.15);
+}</string>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -242,7 +247,7 @@ QSlider::handle:horizontal {
      </widget>
     </item>
     <item row="3" column="0">
-     <widget class="QLabel" name="num_img_15">
+     <widget class="QLabel" name="text_blue">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -312,9 +317,14 @@ QSlider::handle:horizontal {
     width: 35px;
     margin: -20px 0;
     border-radius: 5px;
-
 }
-</string>
+
+QSlider::handle:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.3);
+}
+QSlider::groove:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.15);
+}</string>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -343,7 +353,7 @@ QSlider::handle:horizontal {
      </widget>
     </item>
     <item row="0" column="0">
-     <widget class="QLabel" name="num_img_18">
+     <widget class="QLabel" name="text_brightness">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -367,7 +377,7 @@ QSlider::handle:horizontal {
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QLabel" name="num_img_16">
+     <widget class="QLabel" name="text_red">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -419,9 +429,14 @@ QSlider::handle:horizontal {
     width: 35px;
     margin: -20px 0;
     border-radius: 5px;
-
 }
-</string>
+
+QSlider::handle:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.3);
+}
+QSlider::groove:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.15);
+}</string>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -429,7 +444,7 @@ QSlider::handle:horizontal {
      </widget>
     </item>
     <item row="2" column="0">
-     <widget class="QLabel" name="num_img_17">
+     <widget class="QLabel" name="text_green">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -454,6 +469,9 @@ QSlider::handle:horizontal {
     </item>
     <item row="0" column="1">
      <widget class="QSlider" name="slider_intensity">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -481,9 +499,14 @@ QSlider::handle:horizontal {
     width: 35px;
     margin: -20px 0;
     border-radius: 5px;
-
 }
-</string>
+
+QSlider::handle:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.3);
+}
+QSlider::groove:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.15);
+}</string>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -1235,7 +1258,7 @@ QSlider::handle:horizontal {
        </font>
       </property>
       <property name="text">
-       <string>Default</string>
+       <string>Only view</string>
       </property>
      </widget>
     </item>
@@ -1278,7 +1301,7 @@ QSlider::handle:horizontal {
   <widget class="QPushButton" name="lock_unlock_button">
    <property name="geometry">
     <rect>
-     <x>1000</x>
+     <x>990</x>
      <y>20</y>
      <width>50</width>
      <height>50</height>

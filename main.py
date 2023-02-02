@@ -85,6 +85,45 @@ class visionbox(QMainWindow):
         timer.start((1/updatefps)*1000)
         self.update_image(debugval=False)
 
+    def enable_disable_inputs(self, value):
+        self.w.button_openImageFolder.setEnabled(value)
+        #self.w.button_ExitProgram.setEnabled(False)
+        #self.w.lock_unlock_button.setEnabled(False)
+        self.w.Start_pause_watching.setEnabled(value)
+        self.w.button_ExportFilesZIP.setEnabled(value)
+        self.w.button_previous_img.setEnabled(value)
+        self.w.button_next_img.setEnabled(value)
+        self.w.check_Top_Enable.setEnabled(value)
+        self.w.check_Left_Enable.setEnabled(value)
+        self.w.check_Right_Enable.setEnabled(value)
+        self.w.check_Top_RGB.setEnabled(value)
+        self.w.check_Left_RGB.setEnabled(value)
+        self.w.check_Right_RGB.setEnabled(value)
+        self.w.check_Top_White.setEnabled(value)
+        self.w.check_Left_White.setEnabled(value)
+        self.w.check_Right_White.setEnabled(value)
+        self.w.slider_red.setEnabled(value)
+        self.w.slider_green.setEnabled(value)
+        self.w.slider_blue.setEnabled(value)
+        self.w.slider_intensity.setEnabled(value)
+        self.w.SliderVal_but_text_intensity.setEnabled(value)
+        self.w.SliderVal_but_text_red.setEnabled(value)
+        self.w.SliderVal_but_text_green.setEnabled(value)
+        self.w.SliderVal_but_text_blue.setEnabled(value)
+        self.w.text_right.setEnabled(value)
+        self.w.text_left.setEnabled(value)
+        self.w.text_top.setEnabled(value)
+        self.w.text_enable.setEnabled(value)
+        self.w.text_rgb.setEnabled(value)
+        self.w.text_white.setEnabled(value)
+        self.w.text_brightness.setEnabled(value)
+        self.w.text_red.setEnabled(value)
+        self.w.text_green.setEnabled(value)
+        self.w.text_blue.setEnabled(value)
+
+
+        
+
     def onCheckboxChange(self):
         lightInputs[0][0] = self.w.check_Top_Enable.isChecked()
         lightInputs[1][0] = self.w.check_Left_Enable.isChecked()
@@ -150,10 +189,12 @@ class visionbox(QMainWindow):
     def on_lock_unlock_button(self):
         if self.w.lock_unlock_button.isChecked():
             _,output = errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=3, debug= False)
-            if str(output) == "1466":
+            if output:
+                self.enable_disable_inputs(value=1) #True
                 self.w.text_current_user.setText(str(AvailableUserProfiles[0]))
                 self.w.lock_unlock_button.setIcon(QIcon('unlock_icon.png'))
         else:
+            self.enable_disable_inputs(value=0) #False
             self.w.text_current_user.setText(str(AvailableUserProfiles[1]))
             self.w.lock_unlock_button.setIcon(QIcon('lock_icon.png'))
 

@@ -52,6 +52,7 @@ class errorMsgHandlerClass(QMessageBox):
         elif errorMsgBit == 3:
             text, ok = QInputDialog.getText(self, 'Input Dialog', 'Enter text:')
             if ok:
+                print("input = ", text)
                 if text == "1466":
                     errorMsgBit = 0
             return errorMsgBit, True
