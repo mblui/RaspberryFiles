@@ -248,7 +248,9 @@ if __name__ == "__main__":
 
 class CustomDialog(QDialog):
     def __init__(self):
+        global insertedText
         super().__init__()
+        insertedText = ""
 
         self.setWindowTitle("Virtual Keyboard")
 
@@ -287,8 +289,6 @@ class CustomDialog(QDialog):
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
     def showww(self, key):
-        print(key)
-        #result = str(eval(expression, {}, {}))
-        #except Exception:
-        #    result = ERROR_MSG
-        #return result
+        global insertedText
+        insertedText.append(str(key))
+        print(insertedText)
