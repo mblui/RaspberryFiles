@@ -48,7 +48,7 @@ class visionbox(QMainWindow):
         self.w = loader.load(ui_file, self)
         self.w.show()
         ui_file.close()
-
+        print(self.w)
         self.print_on_GUI_terminal(text_to_print="--> Program is started!",  color='default')
         # Link sliders and initialize
         lightsettingsClass.__init__(self)
