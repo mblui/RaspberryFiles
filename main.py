@@ -163,7 +163,7 @@ class visionbox(QMainWindow):
             self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
             globalImageUpdate = True
         
-        CustomDialog.__init__()
+        CustomDialog.__init__(self)
 
 
     def on_lock_unlock_button(self,debug=debugArray[7]):
