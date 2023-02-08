@@ -25,7 +25,7 @@ class systemClass:
 
     def ExitProgram(widget):
         print("In Exit program")
-        print(visionbox)
+        print(visionbox.__init__)
         print(widget)
         #errorMsgHandlerClass.errorMsgHandler(self,errorMsgBit=1, debug= False) 
 
