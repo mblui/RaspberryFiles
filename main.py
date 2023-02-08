@@ -164,6 +164,7 @@ class visionbox(QMainWindow):
             globalImageUpdate = True
         
         hoi = CustomDialog()
+        hoi.exec()
 
 
     def on_lock_unlock_button(self,debug=debugArray[7]):
