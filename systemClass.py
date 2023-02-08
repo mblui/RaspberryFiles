@@ -23,6 +23,5 @@ class systemClass:
         print("...")
 
     def ExitProgram(self):
-        print("EXITTTT")
-        #errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=1, debug= False) 
+        errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=1, debug= False) 
 
