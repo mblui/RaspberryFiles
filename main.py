@@ -165,11 +165,11 @@ class visionbox(QMainWindow):
 
 
     def on_lock_unlock_button(self,debug=debugArray[7]):
-        global insertedText
+        #global insertedText
         if self.w.lock_unlock_button.isChecked():
             unlock = CustomDialog()
             returnvalue = unlock.exec() 
-            print("OUPUT:", insertedText)
+            print("OUPUT:", returnvalue)
             #if output:
             #   self.enable_disable_inputs(value=1) #True
             #    self.w.text_current_user.setText(str(AvailableUserProfiles[0]))
@@ -251,7 +251,7 @@ class CustomDialog(QDialog):
     def __init__(self):
         global insertedText
         super().__init__()
-        insertedText = ""
+        self.insertedText = ""
 
         self.setWindowTitle("Virtual Keyboard")
 
@@ -291,10 +291,10 @@ class CustomDialog(QDialog):
         self.setLayout(self.layout)
 
     def showww(self, key):
-        global insertedText
+        self.insertedText
         insertedText = insertedText + str(key)
         self.keyinputDisplay.setText(insertedText)
-        print(insertedText)
+        print(self.insertedText)
 
 
 ##############    # ERROR @: Change admin rights
