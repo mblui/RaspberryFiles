@@ -44,11 +44,11 @@ class systemClass(QMessageBox):
         # Generate Name
         name = current_date_time.replace(" ", "_").replace("/", "_")
         name = "RecordedImages" + name + str(".zip")
-        self.make_archiveZip(self, source=dir_path + "SCP_images", destination= dir_path + name)
-        self.print_on_GUI_terminal(text_to_print="Export of ZIP succesfull!, name = " + str(name),  color='green') 
+        source = source=dir_path + "SCP_images"
+        destination= dir_path + name
+        #self.make_archiveZip(self, source=dir_path + "SCP_images", destination= dir_path + name)
 
-    def make_archiveZip(self, source, destination, debug = False):
-        global img_files, img_count
+    #def make_archiveZip(self, source, destination, debug = False):
         img_backup_succesfull = False
         try: 
             base = os.path.basename(destination)
@@ -69,4 +69,4 @@ class systemClass(QMessageBox):
             if debug: [print(f) for f in os.listdir()]       
             [os.remove(f) for f in os.listdir()]       
         img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
-        
+        self.print_on_GUI_terminal(text_to_print="Export of ZIP succesfull!, name = " + str(name),  color='green') 
