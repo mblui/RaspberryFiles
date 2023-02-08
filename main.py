@@ -168,7 +168,7 @@ class visionbox(QMainWindow):
         if self.w.lock_unlock_button.isChecked():
             unlock = CustomDialog()
             unlock.exec()
-            print("OUPUT:", unlock)
+            print("OUPUT:", unlock.buttonBox)
             #if output:
             #   self.enable_disable_inputs(value=1) #True
             #    self.w.text_current_user.setText(str(AvailableUserProfiles[0]))
@@ -288,6 +288,7 @@ class CustomDialog(QDialog):
         self.layout.addLayout(buttonsLayout)
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
+
     def showww(self, key):
         global insertedText
         insertedText = insertedText + str(key)
