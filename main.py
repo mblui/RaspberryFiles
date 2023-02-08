@@ -31,6 +31,7 @@ from datetime import datetime
 from config         import *    #   Load configuration and initial values
 from ErrorHandler   import *    #   Defines the error handling
 from LinkSliders    import *    #   Defines input/outputs    
+from systemClass    import *    #   Defines general system fuctions
 
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
@@ -47,20 +48,19 @@ class visionbox(QMainWindow):
         self.w = loader.load(ui_file, self)
         self.w.show()
         ui_file.close()
-        
-        self.print_on_GUI_terminal(text_to_print="Program is started!",  color='default')
+
+        self.print_on_GUI_terminal(text_to_print="--> Program is started!",  color='default')
         # Link sliders and initialize
         lightsettingsClass.__init__(self)
         #self.on_button_press()      ## initialse start/pause button
         
-
         # Initial count number of images
         img_files, img_count = self.getAvailableImagesInFolder()
 
         # Link buttons
         self.on_lock_unlock_button()
         self.w.button_openImageFolder.clicked.connect(self.openFolder)
-        self.w.button_ExitProgram.clicked.connect(self.ExitProgram) 
+        self.w.button_ExitProgram.clicked.connect(systemClass.ExitProgram(self))
         self.w.Start_pause_watching.clicked.connect(self.on_button_press)
         self.w.Start_pause_watching.setCheckable(True)
         self.w.button_ExportFilesZIP.clicked.connect(self.on_export_files_zip)
@@ -140,9 +140,6 @@ class visionbox(QMainWindow):
         lightInputs[1][2] = self.w.check_Left_White.isChecked()
         lightInputs[2][2] = self.w.check_Right_White.isChecked()
         if debug: print(lightInputs)
-
-    def ExitProgram(self):
-        errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=1, debug= False)
         
     def openFolder(self):
         show_in_file_manager(scp_path)

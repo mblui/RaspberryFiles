@@ -19,17 +19,17 @@ class lightsettingsClass:
     def __init__(self, RGB_value = [0,0,0], Brightness = 10):
         ## Create groups
         RGB_white_Group1 = QButtonGroup(self.w)
-        RGB_white_Group1.addButton(self.w.check_Top_RGB, 1)      # ID = 1
-        RGB_white_Group1.addButton(self.w.check_Top_White,2)      # ID = 2 
+        RGB_white_Group1.addButton(self.w.check_Top_RGB, 1)         # ID = 1
+        RGB_white_Group1.addButton(self.w.check_Top_White,2)        # ID = 2 
         RGB_white_Group1.setExclusive(True)
         
         RGB_white_Group2 = QButtonGroup(self.w)
-        RGB_white_Group2.addButton(self.w.check_Left_RGB, 1)      # ID = 1
-        RGB_white_Group2.addButton(self.w.check_Left_White,2)      # ID = 2 
+        RGB_white_Group2.addButton(self.w.check_Left_RGB, 1)        # ID = 1
+        RGB_white_Group2.addButton(self.w.check_Left_White,2)       # ID = 2 
         RGB_white_Group2.setExclusive(True)
 
         RGB_white_Group3 = QButtonGroup(self.w)
-        RGB_white_Group3.addButton(self.w.check_Right_RGB, 1)      # ID = 1
+        RGB_white_Group3.addButton(self.w.check_Right_RGB, 1)       # ID = 1
         RGB_white_Group3.addButton(self.w.check_Right_White,2)      # ID = 2 
         RGB_white_Group3.setExclusive(True)
 
