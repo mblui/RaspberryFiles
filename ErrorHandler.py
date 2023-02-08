@@ -36,7 +36,7 @@ class errorMsgHandlerClass(QMessageBox):
             txt = "program is exit"
             reply = QMessageBox.question(self, 'Quit', 'Are you sure you want to quit?',  QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
             if reply == QMessageBox.Yes:
-                self.print_on_GUI_terminal(text_to_print="Program is closed!",  color='default')
+                self.print_on_GUI_terminal(text_to_print="--> Program is closed!",  color='default')
                 sys.exit()
             return errorMsgBit, True
 
