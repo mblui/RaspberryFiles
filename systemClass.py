@@ -15,11 +15,11 @@ from PySide2.QtGui import QPixmap, QTouchEvent
 from functools import partial
 import time
 
-from config         import *    #   Load configuration and initial values
-from ErrorHandler   import *    #   Defines the error handling
-from LinkSliders    import *    #   Defines input/outputs    
+from config                 import *    #   Load configuration and initial values
+from ErrorHandler           import *    #   Defines the error handling
+from lightsettingsClass     import *    #   Defines input/outputs    
 #from systemClass    import *    #   Defines general system fuctions
-from main           import *
+from main                   import *
 
 class systemClass(QMessageBox):
     ## --- --- Exit Program  --- --- --- ---
