@@ -32,7 +32,7 @@ pos_led_top     = [20,  25]
 pos_led_left    = [30,  35]
 pos_led_right   = [40,  45]
 max_pixels_manual = 60
-num_pixels = min (max(pos_led_top, pos_led_left, pos_led_right),  max_pixels_manual)
+num_pixels = 60 #min (max(pos_led_top, pos_led_left, pos_led_right),  max_pixels_manual)
 
 
 # Define maximum allowed number of images
