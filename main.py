@@ -292,7 +292,7 @@ class CustomDialog(QDialog):
 
     def showww(self, key):
         self.insertedText = self.insertedText + str(key)
-        self.keyinputDisplay.setText(insertedText)
+        self.keyinputDisplay.setText(self.insertedText)
         print(self.insertedText)
 
 
