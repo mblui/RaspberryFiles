@@ -12,11 +12,10 @@ from functools import partial               # To pass multiple arguments in a fu
 from showinfm import show_in_file_manager   # To open folder when button pressed
 
 # Import PySide package
-from PySide2.QtWidgets  import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog, QGridLayout, QPushButton, QLineEdit, QDialog, QVBoxLayout, QDialogButtonBox
+from PySide2.QtWidgets  import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog, QGridLayout, QPushButton, QLineEdit, QDialog, QVBoxLayout, QDialogButtonBox, QTextEdit
 from PySide2.QtCore     import * #QFile, QTimer, QSize
 from PySide2.QtUiTools  import QUiLoader
-from PySide2.QtGui      import QPixmap, QTouchEvent, QIcon, QColor, QTextline
-
+from PySide2.QtGui      import QPixmap, QTouchEvent, QIcon, QColor
 # Import common image packages
 import cv2
 
@@ -261,7 +260,7 @@ class CustomDialog(QDialog):
 
         self.layout = QVBoxLayout()
         message = QLabel("Something happened, is that OK?")
-        keyinputDisplay = QTextline()
+        keyinputDisplay = QTextEdit()
         self.layout.add(keyinputDisplay)
         self.layout.addWidget(message)
         #############################################
