@@ -39,7 +39,7 @@ debugArray = [      0,      # Debug 0:  update image
                     0,      # Debug 11: getAvailableImagesInFolder
                     0,      # Debug 12: lightsettingsClass.__init__
                     0,      # Debug 13: lightsettingsClass.lightsettings
-                    0,      # Debug 14:   
+                    0,      # Debug 14: print_on_GUI_terminal  
                     0,      # Debug 15:   
                     0,      # Debug 16:   
                     0,      # Debug 17:   

@@ -79,7 +79,7 @@ class visionbox(QMainWindow):
         self.update_image()
         self.print_on_GUI_terminal(text_to_print="Init done!",  color='default')
 
-    def print_on_GUI_terminal(self, text_to_print, debug, color = 'default'):
+    def print_on_GUI_terminal(self, text_to_print, debug=debugArray[14], color = 'default'):
         global current_date_time
         self.w.textBrowser.setReadOnly(True)
         current_date_time = str(datetime.now().strftime("%d/%m/%Y   %H:%M:%S"))
