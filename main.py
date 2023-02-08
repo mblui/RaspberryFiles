@@ -83,7 +83,7 @@ class visionbox(QMainWindow):
         #self.w.textBrowser.append(message)
         color = 'r'
         if color == 'r' or color =='red':
-            self.w.textBrowser.append(f"<p style='color:red'>{message}</p>")
+            self.w.textBrowser.append(f"<span style="color:blue;font-weight:bold;">{message}</span>")
         elif color == 'g' or color =='green':
             self.w.textBrowser.append(f"<p style='color:green'>{message}</p>")
         else:
