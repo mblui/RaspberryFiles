@@ -146,38 +146,36 @@ class visionbox(QMainWindow):
         #show_in_file_manager(scp_path)
 
     def on_export_files_zip(self):
-        #global img_count, current_date_time
-        ## Generate Name
-        #name = current_date_time.replace(" ", "_").replace("/", "_")
-        #name = "RecordedImages" + name + str(".zip")
-        print("TODO")
-        #self.make_archiveZip(source=dir_path + "SCP_images", destination= dir_path + name)
+        global img_count, current_date_time
+        # Generate Name
+        name = current_date_time.replace(" ", "_").replace("/", "_")
+        name = "RecordedImages" + name + str(".zip")
+        self.make_archiveZip(source=dir_path + "SCP_images", destination= dir_path + name)
 
     def make_archiveZip(self, source, destination):
         global img_files, img_count
         img_backup_succesfull = False
-        # #try: 
-        #     base = os.path.basename(destination)
-        #     name = base.split('.')[0]
-        #     format = base.split('.')[1]
-        #     archive_from = os.path.dirname(source)
-        #     archive_to = os.path.basename(source.strip(os.sep))
-        #     #print(source, destination, archive_from, archive_to)
-        #     shutil.make_archive(name, format, archive_from, archive_to)
-        #     shutil.move('%s.%s'%(name,format), destination)
-        #     img_backup_succesfull = True 
-        # except Exception as e:
-        #     errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=2, debug= False)   
-        print("TODO")
-
-        # # if backup is succesfull
-        # if img_backup_succesfull: 
-        #     os.chdir(dir_path + "SCP_images")
-        #     #[os.remove(f) for f in os.listdir()]        
-        #     [print(f) for f in os.listdir()]       
-        #     [os.remove(f) for f in os.listdir()]       
-        #     #Pprint("Done")
-        # img_files, img_count = self.getAvailableImagesInFolder() 
+        try: 
+            base = os.path.basename(destination)
+            name = base.split('.')[0]
+            format = base.split('.')[1]
+            archive_from = os.path.dirname(source)
+            archive_to = os.path.basename(source.strip(os.sep))
+            #print(source, destination, archive_from, archive_to)
+            shutil.make_archive(name, format, archive_from, archive_to)
+            shutil.move('%s.%s'%(name,format), destination)
+            img_backup_succesfull = True 
+        except Exception as e:
+            errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=2, debug= False)   
+        
+        # if backup is succesfull
+        if img_backup_succesfull: 
+            os.chdir(dir_path + "SCP_images")
+            #[os.remove(f) for f in os.listdir()]        
+            [print(f) for f in os.listdir()]       
+            [os.remove(f) for f in os.listdir()]       
+            #Pprint("Done")
+        img_files, img_count = self.getAvailableImagesInFolder() 
         # TODO Add dialog to show that export is succesfull with name ... 
 
     def on_button_press(self):
@@ -228,12 +226,11 @@ class visionbox(QMainWindow):
             #print("editvalue", img_to_display_cnt)
             img_to_display = img_files[img_to_display_cnt]
             self.w.num_img.setText(img_to_display)
-            print("TODO")
-            #ExtendedPath = scp_path + str(img_to_display)
-            #label = self.w.imglabel
-            #pixmap =QPixmap(ExtendedPath)
-            #label.setPixmap(pixmap)
-            #label.show()
+            ExtendedPath = scp_path + str(img_to_display)
+            label = self.w.imglabel
+            pixmap =QPixmap(ExtendedPath)
+            label.setPixmap(pixmap)
+            label.show()
 
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
         ## TODO place timerupdate on separate Qtimer --> now its randomly updating.
@@ -249,12 +246,10 @@ class visionbox(QMainWindow):
         RGB_val[2] = self.w.slider_blue.value()
 
     def getAvailableImagesInFolder(self):
-        #_,_,files = next(os.walk(scp_path))
-        files =[]
+        _,_,files = next(os.walk(scp_path))
         img_count = len(files)
         img_files = natsorted(files)
         print("img_count", img_count, "img_files", img_files)
-        print("TODO")
         return img_files, img_count
 
     def getItem(self, slidertype):  # slidertype := [intensity', 'red', 'green', 'blue']
