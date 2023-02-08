@@ -16,12 +16,13 @@ import time
 from config         import *    #   Load configuration and initial values
 from ErrorHandler   import *    #   Defines the error handling
 from LinkSliders    import *    #   Defines input/outputs    
-from systemClass    import *    #   Defines general system fuctions
+#from systemClass    import *    #   Defines general system fuctions
 
 class systemClass:
     def __init__(self, RGB_value = [0,0,0], Brightness = 10):
         print("...")
 
     def ExitProgram(self):
-        errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=1, debug= False) 
+        print("EXITTTT")
+        #errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=1, debug= False) 
 
