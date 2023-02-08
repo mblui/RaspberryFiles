@@ -32,12 +32,12 @@ class LED_strips:
         ## Set light for left led panel
         for i in range(pos_led_left[0],pos_led_left[1]):
             val = int(inputMatrix[1][0]*150)
-            pixels[i] = (0,0, val, 0)         ## WRGB
+            pixels[i] = (0,0, 0, val)         ## WRGB
             
         ## Set light for right led panel
         for i in range(pos_led_right[0],pos_led_right[1]):
             val = int(inputMatrix[2][0]*150)
-            pixels[i] = (0,val, 0, 0)         ## WRGB
+            pixels[i] = (0,0,0,val)         ## WRGB
             
 
         # Comment this line out if you have RGBW/GRBW NeoPixels
