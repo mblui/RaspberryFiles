@@ -56,7 +56,7 @@ class visionbox(QMainWindow):
         # Link sliders and initialize
         lightsettingsClass.__init__(self)
         LED_strips.__init__(self)
-        #self.on_button_press()      ## initialse start/pause button
+        self.on_button_press      ## initialse start/pause button
         
         # Initial count number of images
         img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
@@ -151,6 +151,7 @@ class visionbox(QMainWindow):
         show_in_file_manager(scp_path)
 
     def on_button_press(self, debug=debugArray[6]):
+        print("i have been here")
         global globalImageUpdate
         if self.w.Start_pause_watching.isChecked():
             self.w.Start_pause_watching.setText(str("Start"))
