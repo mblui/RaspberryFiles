@@ -74,7 +74,7 @@ class visionbox(QMainWindow):
         timer.timeout.connect(partial(self.update_image, debugval=False))     
         timer.start((1/updatefps)*1000)
         self.update_image(debugval=False)
-        self.printterminal("Init succesfully!")
+        self.printterminal("Init done!")
 
     def printterminal(self, text2print, color = 'b'):
         self.w.textBrowser.setReadOnly(True)
@@ -126,7 +126,7 @@ class visionbox(QMainWindow):
         self.w.text_green.setEnabled(value)
         self.w.text_blue.setEnabled(value)
 
-    def onCheckboxChange(self):
+    def onCheckboxChange(self, debug = False):
         lightInputs[0][0] = self.w.check_Top_Enable.isChecked()
         lightInputs[1][0] = self.w.check_Left_Enable.isChecked()
         lightInputs[2][0] = self.w.check_Right_Enable.isChecked()
@@ -136,7 +136,7 @@ class visionbox(QMainWindow):
         lightInputs[0][2] = self.w.check_Top_White.isChecked()
         lightInputs[1][2] = self.w.check_Left_White.isChecked()
         lightInputs[2][2] = self.w.check_Right_White.isChecked()
-        print(lightInputs)
+        if debug: print(lightInputs)
 
     def ExitProgram(self):
         errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=1, debug= False)
@@ -151,7 +151,7 @@ class visionbox(QMainWindow):
         name = "RecordedImages" + name + str(".zip")
         self.make_archiveZip(source=dir_path + "SCP_images", destination= dir_path + name)
 
-    def make_archiveZip(self, source, destination):
+    def make_archiveZip(self, source, destination, debug = False):
         global img_files, img_count
         img_backup_succesfull = False
         try: 
@@ -169,11 +169,9 @@ class visionbox(QMainWindow):
         
         # if backup is succesfull
         if img_backup_succesfull: 
-            os.chdir(dir_path + "SCP_images")
-            #[os.remove(f) for f in os.listdir()]        
-            [print(f) for f in os.listdir()]       
+            os.chdir(dir_path + "SCP_images")     
+            if debug: [print(f) for f in os.listdir()]       
             [os.remove(f) for f in os.listdir()]       
-            #Pprint("Done")
         img_files, img_count = self.getAvailableImagesInFolder() 
         # TODO Add dialog to show that export is succesfull with name ... 
 
@@ -207,14 +205,13 @@ class visionbox(QMainWindow):
         global img_to_display_cnt
         self.w.Start_pause_watching.setChecked(True)
         self.on_button_press()
-        #print("editvalue1", img_to_display_cnt)
         if img_to_display_cnt >= 0 and  img_to_display_cnt < img_count:
             img_to_display_cnt = img_to_display_cnt + value
         self.printterminal("on_next_previous_image succesfully!")
            
-    def update_image(self, debugval):
+    def update_image(self, debug = False):
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
-        if debugval: print(globalImageUpdate)
+        if debug: print(globalImageUpdate)
         img_files, img_count = self.getAvailableImagesInFolder() 
         self.w.number_of_images.setText(str(img_count).zfill(maxImagesBits))
         if len(img_files)<1:
@@ -222,7 +219,6 @@ class visionbox(QMainWindow):
         else:
             if globalImageUpdate:
                 img_to_display_cnt = img_count-1 ## show latest image
-            #print("editvalue", img_to_display_cnt)
             img_to_display = img_files[img_to_display_cnt]
             self.w.num_img.setText(img_to_display)
             ExtendedPath = scp_path + str(img_to_display)
@@ -244,11 +240,11 @@ class visionbox(QMainWindow):
         RGB_val[1] = self.w.slider_green.value()
         RGB_val[2] = self.w.slider_blue.value()
 
-    def getAvailableImagesInFolder(self):
+    def getAvailableImagesInFolder(self, debug = False):
         _,_,files = next(os.walk(scp_path))
         img_count = len(files)
         img_files = natsorted(files)
-        print("img_count", img_count, "img_files", img_files)
+        if debug: print("img_count", img_count, "img_files", img_files)
         return img_files, img_count
 
     def getItem(self, slidertype):  # slidertype := [intensity', 'red', 'green', 'blue']
@@ -256,7 +252,6 @@ class visionbox(QMainWindow):
         items_1 = ("0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100")
         items_2 = ("0", "25", "51", "77", "102", "128", "153", "178", "204", "229", "255")
         items = items_1 if slidertype == "intensity" else items_2
-        #item, ok = QInputDialog.getInt(self, "select input", "enter a number", self.w.slider_intensity.value())
         item, ok = QInputDialog.getItem(self, "select input", "Enter a number", items, 0, False)
         if ok:
             if (slidertype == "intensity"):
