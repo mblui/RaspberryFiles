@@ -167,7 +167,7 @@ class visionbox(QMainWindow):
         DISPLAY_HEIGHT = 35
         BUTTON_SIZE = 40
         
-        dlg = QDialog(self)
+        dlg = QDialog()
         layout = QVBoxLayout()
         dlg.setLayout()
         
