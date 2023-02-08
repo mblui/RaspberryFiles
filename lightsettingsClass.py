@@ -61,7 +61,7 @@ class lightsettingsClass:
 
         ## Settings Checkboxes
             ## Enable/disable:
-        self.w.check_Top_Enable.toggled.connect(lambda: systemClass.on_export_files_zip(self, debug=True))
+        self.w.check_Top_Enable.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False)) 
         #.onCheckboxChange(self,debug=True))
         self.w.check_Left_Enable.toggled.connect(self.onCheckboxChange)
         self.w.check_Right_Enable.toggled.connect(self.onCheckboxChange)
