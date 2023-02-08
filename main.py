@@ -262,8 +262,6 @@ class CustomDialog(QDialog):
         self.layout = QVBoxLayout()
         message = QLabel("Something happened, is that OK?")
         self.layout.addWidget(message)
-        self.layout.addWidget(self.buttonBox)
-        self.setLayout(self.layout)
         #############################################
         WINDOW_SIZE = 235
         DISPLAY_HEIGHT = 35
@@ -284,26 +282,5 @@ class CustomDialog(QDialog):
                 buttonsLayout.addWidget(self.buttonMap[key], row, col)
 
         self.layout.addLayout(buttonsLayout)
-
-        
-        # dlg = QDialog()
-        # layout = QVBoxLayout()
-        # dlg.setLayout()
-        
-        # buttonMap = {}
-        # buttonsLayout = QGridLayout()
-        # keyBoard = [
-        #     ["7", "8", "9", "/", "C"],
-        #     ["4", "5", "6", "*", "("],
-        #     ["1", "2", "3", "-", ")"],
-        #     ["0", "00", ".", "+", "="],
-        # ]
-
-        # for row, keys in enumerate(keyBoard):
-        #     for col, key in enumerate(keys):
-        #         buttonMap[key] = QPushButton(key)
-        #         buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
-        #         buttonsLayout.addWidget(buttonMap[key], row, col)
-
-        # layout.addLayout(buttonsLayout)
-        # dlg.exec()
+        self.layout.addWidget(self.buttonBox)
+        self.setLayout(self.layout)
