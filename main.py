@@ -147,6 +147,7 @@ class visionbox(QMainWindow):
         name = current_date_time.replace(" ", "_").replace("/", "_")
         name = "RecordedImages" + name + str(".zip")
         self.make_archiveZip(source=dir_path + "SCP_images", destination= dir_path + name)
+        self.print_on_GUI_terminal(text_to_print="Export of ZIP succesfull!, name = " + str(name),  color='green') 
 
     def make_archiveZip(self, source, destination, debug = False):
         global img_files, img_count
@@ -170,7 +171,7 @@ class visionbox(QMainWindow):
             if debug: [print(f) for f in os.listdir()]       
             [os.remove(f) for f in os.listdir()]       
         img_files, img_count = self.getAvailableImagesInFolder() 
-        # TODO Add dialog to show that export is succesfull with name ... 
+
 
     def on_button_press(self):
         global globalImageUpdate
@@ -182,7 +183,6 @@ class visionbox(QMainWindow):
             self.w.Start_pause_watching.setText(str("Pause"))
             self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
             globalImageUpdate = True
-        self.print_on_GUI_terminal(text_to_print="on_button_press succesfully!", color='default')
 
 
     def on_lock_unlock_button(self):
@@ -196,7 +196,6 @@ class visionbox(QMainWindow):
             self.enable_disable_inputs(value=0) #False
             self.w.text_current_user.setText(str(AvailableUserProfiles[1]))
             self.w.lock_unlock_button.setIcon(QIcon('lock_icon.png'))
-        self.print_on_GUI_terminal(text_to_print="on_lock_unlock_button succesfully!", color='default')
 
     def on_next_previous_image(self,value):
         global img_to_display_cnt
