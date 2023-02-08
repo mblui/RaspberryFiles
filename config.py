@@ -25,7 +25,7 @@ Brightness_value = int(50)                  # Default brightness value      rang
 # Define maximum allowed number of images
 maxImagesBits = 6                           # Maxum number of images in the folder (in bits) -->  000000
 
-debugArray = [      0,      # Debug update image
+debugArray = [      1,      # Debug update image
                     0,      #
                     0,      #      
                     0,      #
