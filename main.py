@@ -162,17 +162,17 @@ class visionbox(QMainWindow):
             self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
             globalImageUpdate = True
         
-        hoi = CustomDialog()
-        hoi.exec()
 
 
     def on_lock_unlock_button(self,debug=debugArray[7]):
         if self.w.lock_unlock_button.isChecked():
-            _,output = errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=3, debug= False)
-            if output:
-                self.enable_disable_inputs(value=1) #True
-                self.w.text_current_user.setText(str(AvailableUserProfiles[0]))
-                self.w.lock_unlock_button.setIcon(QIcon('unlock_icon.png'))
+            unlock = CustomDialog()
+            unlock.exec()
+            print("OUPUT:", unlock)
+            #if output:
+            #   self.enable_disable_inputs(value=1) #True
+            #    self.w.text_current_user.setText(str(AvailableUserProfiles[0]))
+            #    self.w.lock_unlock_button.setIcon(QIcon('unlock_icon.png'))
         else:
             self.enable_disable_inputs(value=0) #False
             self.w.text_current_user.setText(str(AvailableUserProfiles[1]))
@@ -293,3 +293,15 @@ class CustomDialog(QDialog):
         insertedText = insertedText + str(key)
         self.keyinputDisplay.setText(insertedText)
         print(insertedText)
+
+
+##############    # ERROR @: Change admin rights
+        # elif errorMsgBit == 3:
+        #     text, ok = QInputDialog.getText(self, 'Input Dialog', 'Enter text:')
+        #     if ok:
+        #         if text == "1466":
+        #             errorMsgBit = 0
+        #             self.print_on_GUI_terminal(text_to_print="Succesfull change of admin rights!",  color='green')
+        #             return errorMsgBit, True
+        #         self.print_on_GUI_terminal(text_to_print="Wrong Password!",  color='red')
+        #         return errorMsgBit, False

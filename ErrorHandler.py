@@ -53,17 +53,6 @@ class errorMsgHandlerClass(QMessageBox):
                 errorMsgBit = 0
             return errorMsgBit, True
 
-    # ERROR @: Change admin rights
-        elif errorMsgBit == 3:
-            text, ok = QInputDialog.getText(self, 'Input Dialog', 'Enter text:')
-            if ok:
-                if text == "1466":
-                    errorMsgBit = 0
-                    self.print_on_GUI_terminal(text_to_print="Succesfull change of admin rights!",  color='green')
-                    return errorMsgBit, True
-                self.print_on_GUI_terminal(text_to_print="Wrong Password!",  color='red')
-                return errorMsgBit, False
-
         else:
             print("No errors found")
             return errorMsgBit, True 
