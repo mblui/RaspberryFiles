@@ -264,10 +264,26 @@ class CustomDialog(QDialog):
         self.layout.addWidget(message)
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
+        #############################################
+        self.buttonMap = {}
+        buttonsLayout = QGridLayout()
+        keyBoard = [
+            ["7", "8", "9", "/", "C"],
+            ["4", "5", "6", "*", "("],
+            ["1", "2", "3", "-", ")"],
+            ["0", "00", ".", "+", "="],
+        ]
 
-        #         WINDOW_SIZE = 235
-        # DISPLAY_HEIGHT = 35
-        # BUTTON_SIZE = 40
+        for row, keys in enumerate(keyBoard):
+            for col, key in enumerate(keys):
+                self.buttonMap[key] = QPushButton(key)
+                self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
+                buttonsLayout.addWidget(self.buttonMap[key], row, col)
+
+        layout.addLayout(buttonsLayout)
+        WINDOW_SIZE = 235
+        DISPLAY_HEIGHT = 35
+        BUTTON_SIZE = 40
         
         # dlg = QDialog()
         # layout = QVBoxLayout()
