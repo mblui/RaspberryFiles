@@ -292,6 +292,7 @@ class CustomDialog(QDialog):
         self.setLayout(self.layout)
 
     def showww(self, key):
+        print("key", key)
         if key == "del":
             self.insertedText = self.insertedText[:len(self.insertedText)-1] 
         else:
