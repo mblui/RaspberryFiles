@@ -168,7 +168,10 @@ class visionbox(QMainWindow):
         BUTTON_SIZE = 40
         
         dlg = QDialog(self)
+        layout = QVBoxLayout()
+        dlg.setLayout()
         
+
         buttonMap = {}
         buttonsLayout = QGridLayout()
         keyBoard = [
@@ -184,7 +187,8 @@ class visionbox(QMainWindow):
                 buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
                 buttonsLayout.addWidget(buttonMap[key], row, col)
 
-        dlg.addLayout(buttonsLayout)
+        layout.addLayout(buttonsLayout)
+        dlg.exec()
 
 
     def on_lock_unlock_button(self,debug=debugArray[7]):
