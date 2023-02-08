@@ -25,5 +25,5 @@ class systemClass:
     def ExitProgram(self):
         print("In Exit program")
         print(self.w)
-        errorMsgHandlerClass.errorMsgHandler(self,errorMsgBit=1, debug= False) 
+        #errorMsgHandlerClass.errorMsgHandler(self,errorMsgBit=1, debug= False) 
 
