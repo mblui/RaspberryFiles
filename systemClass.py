@@ -23,9 +23,9 @@ class systemClass(QMessageBox):
     def __init__(self, RGB_value = [0,0,0], Brightness = 10):
         print("...")
 
-    def ExitProgram(widget):
+    def ExitProgram(self):
         print("In Exit program")
         print(visionbox.__init__)
-        print(widget)
+        print(self.w)
         #errorMsgHandlerClass.errorMsgHandler(self,errorMsgBit=1, debug= False) 
 
