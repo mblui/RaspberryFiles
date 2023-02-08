@@ -262,7 +262,6 @@ class CustomDialog(QDialog):
         message = QLabel("Something happened, is that OK?")
         keyinputDisplay = QLineEdit()
         keyinputDisplay.setReadOnly(True)
-        keyinputDisplay.set
         self.layout.addWidget(keyinputDisplay)
         self.layout.addWidget(message)
         #############################################
