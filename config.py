@@ -1,5 +1,7 @@
 from PySide2.QtGui      import QColor
-
+import time
+import board
+import neopixel
 ## ------------------------------ Inputs ------------------------------
 # Set Path directories 
 dir_path =  r'/home/dgslr/ProgramFiles/'
@@ -11,6 +13,7 @@ windowsize = [1920, 850, 1]     # [width,heights, Fullsize = 1/0]
 ## Set update FPSdf
 updatefps = 1
 
+
 ## Define user/Admin settings
 AvailableUserProfiles = ["DGS admin", "View only"]
 Password_admin  = "1466"
@@ -21,6 +24,16 @@ color_default   = QColor(0,0,0)
 # Led light related variables
 RGB_val= [0,0,0]                            # Default RGB value             range: [0-255]
 Brightness_value = int(50)                  # Default brightness value      range: [0-100]
+pixel_pin = board.D18
+ORDER = neopixel.GRBW
+num_pixels = 60
+
+pos_led_top     = [20,  25]           
+pos_led_left    = [30,  35]
+pos_led_right   = [40,  45]
+max_pixels_manual = 60
+num_pixels = min (max(pos_led_top, pos_led_left, pos_led_right),  max_pixels_manual)
+
 
 # Define maximum allowed number of images
 maxImagesBits = 6                           # Maxum number of images in the folder (in bits) -->  000000

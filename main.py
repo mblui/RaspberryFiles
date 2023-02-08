@@ -33,7 +33,7 @@ from ErrorHandler       import *    #   Defines the error handling
 from lightsettingsClass import *    #   Defines input/outputs    
 from systemClass        import *    #   Defines general system fuctions
 #from main               import *
-from LEDstrips import *
+from LED_strips         import *
 
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
@@ -55,6 +55,7 @@ class visionbox(QMainWindow):
         
         # Link sliders and initialize
         lightsettingsClass.__init__(self)
+        LED_strips.__init__(self)
         #self.on_button_press()      ## initialse start/pause button
         
         # Initial count number of images
@@ -144,6 +145,7 @@ class visionbox(QMainWindow):
         lightInputs[1][2] = self.w.check_Left_White.isChecked()
         lightInputs[2][2] = self.w.check_Right_White.isChecked()
         if debug: print(lightInputs)
+
         
     def openFolder(self, debug=debugArray[5]):
         show_in_file_manager(scp_path)
