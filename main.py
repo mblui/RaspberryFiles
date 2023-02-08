@@ -12,10 +12,10 @@ from functools import partial               # To pass multiple arguments in a fu
 from showinfm import show_in_file_manager   # To open folder when button pressed
 
 # Import PySide package
-from PySide2.QtWidgets  import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog, QGridLayout, QPushButton, QLineEdit, QDialog, QVBoxLayout, QDialogButtonBox, QTextline
+from PySide2.QtWidgets  import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog, QGridLayout, QPushButton, QLineEdit, QDialog, QVBoxLayout, QDialogButtonBox
 from PySide2.QtCore     import * #QFile, QTimer, QSize
 from PySide2.QtUiTools  import QUiLoader
-from PySide2.QtGui      import QPixmap, QTouchEvent, QIcon, QColor
+from PySide2.QtGui      import QPixmap, QTouchEvent, QIcon, QColor, QTextline
 
 # Import common image packages
 import cv2
