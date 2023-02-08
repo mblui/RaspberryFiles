@@ -13,6 +13,7 @@ from PySide2.QtGui import QPixmap, QTouchEvent
 from functools import partial
 import time
 from main import *
+from systemClass import *
 
 
 class lightsettingsClass:
@@ -60,7 +61,7 @@ class lightsettingsClass:
 
         ## Settings Checkboxes
             ## Enable/disable:
-        self.w.check_Top_Enable.toggled.connect(lambda: visionbox.on_export_files_zip(self, debug=True))
+        self.w.check_Top_Enable.toggled.connect(lambda: systemClass.on_export_files_zip(self, debug=True))
         #.onCheckboxChange(self,debug=True))
         self.w.check_Left_Enable.toggled.connect(self.onCheckboxChange)
         self.w.check_Right_Enable.toggled.connect(self.onCheckboxChange)
