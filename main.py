@@ -74,9 +74,9 @@ class visionbox(QMainWindow):
         timer.timeout.connect(partial(self.update_image, debug=False))     
         timer.start((1/updatefps)*1000)
         self.update_image(debug=False)
-        self.printterminal("Init done!")
+        self.print_on_GUI_terminal(text_to_print="Init done!",  color='default')
 
-    def printterminal(self, text2print, color = 'default'):
+    def print_on_GUI_terminal(self, text_to_print, color = 'default'):
         self.w.textBrowser.setReadOnly(True)
         current_date_time = str(datetime.now().strftime("%d/%m/%Y   %H:%M:%S"))
 
@@ -84,7 +84,7 @@ class visionbox(QMainWindow):
         if      color == 'r' or color =='red':      self.w.textBrowser.setTextColor(color_red)
         elif    color == 'g' or color =='green':    self.w.textBrowser.setTextColor(color_green)
         else:                                       self.w.textBrowser.setTextColor(color_default)
-        self.w.textBrowser.append(current_date_time + "  " + str(text2print))
+        self.w.textBrowser.append(current_date_time + "  " + str(text_to_print))
         
 
     def enable_disable_inputs(self, value):
@@ -182,7 +182,7 @@ class visionbox(QMainWindow):
             self.w.Start_pause_watching.setText(str("Pause"))
             self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
             globalImageUpdate = True
-        self.printterminal("on_button_press succesfully!")
+        self.print_on_GUI_terminal(text_to_print="on_button_press succesfully!", color='default')
 
 
     def on_lock_unlock_button(self):
@@ -196,7 +196,7 @@ class visionbox(QMainWindow):
             self.enable_disable_inputs(value=0) #False
             self.w.text_current_user.setText(str(AvailableUserProfiles[1]))
             self.w.lock_unlock_button.setIcon(QIcon('lock_icon.png'))
-        self.printterminal("on_lock_unlock_button succesfully!")
+        self.print_on_GUI_terminal(text_to_print="on_lock_unlock_button succesfully!", color='default')
 
     def on_next_previous_image(self,value):
         global img_to_display_cnt
@@ -204,7 +204,7 @@ class visionbox(QMainWindow):
         self.on_button_press()
         if img_to_display_cnt >= 0 and  img_to_display_cnt < img_count:
             img_to_display_cnt = img_to_display_cnt + value
-        self.printterminal("on_next_previous_image succesfully!")
+        self.print_on_GUI_terminal("on_next_previous_image succesfully!")
            
     def update_image(self, debug = False):
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt

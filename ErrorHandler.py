@@ -44,7 +44,7 @@ class errorMsgHandlerClass(QMessageBox):
             dlg = QMessageBox()
             dlg.setWindowTitle("Error")
             dlg.setText("Error occured while extracting files to ZIP?")
-            txt = "Error occured while extracting files to ZIP"
+            self.print_on_GUI_terminal(text_to_print="Error occured while extracting files to ZIP",  color='red')
             button = dlg.exec_()
             if button == QMessageBox.Ok:
                 cnt = 0
@@ -59,7 +59,7 @@ class errorMsgHandlerClass(QMessageBox):
                 if text == "1466":
                     errorMsgBit = 0
                     return errorMsgBit, True
-                self.printterminal("Wrong Password!")
+                self.print_on_GUI_terminal(text_to_print="Wrong Password!",  color='red')
                 return errorMsgBit, False
 
         else:
