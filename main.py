@@ -271,14 +271,14 @@ class CustomDialog(QDialog):
         self.layout.addWidget(self.keyinputDisplay)
         self.layout.addWidget(message)
         #############################################
-        BUTTON_SIZE = 40
+        BUTTON_SIZE = 60
         self.buttonMap = {}
         buttonsLayout = QGridLayout()
         keyBoard = [
-            ["7", "8", "9"],
-            ["4", "5", "6"],
-            ["1", "2", "3"],
-            ["del", "0", "del"],
+            ["7",       "8",    "9"],
+            ["4",       "5",    "6"],
+            ["1",       "2",    "3"],
+            ["del",     "0",    "del"],
         ]
 
         for row, keys in enumerate(keyBoard):
@@ -292,10 +292,6 @@ class CustomDialog(QDialog):
         self.setLayout(self.layout)
 
     def showww(self, key):
-        print("key", key)
-        if key == "del":
-            self.insertedText = self.insertedText[:len(self.insertedText)-1] 
-        else:
-            self.insertedText = self.insertedText + str(key)
+        if key == "del":    self.insertedText = self.insertedText[:len(self.insertedText)-1] 
+        else:               self.insertedText = self.insertedText + str(key)
         self.keyinputDisplay.setText(self.insertedText)
-        #print(self.insertedText)
