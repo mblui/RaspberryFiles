@@ -34,7 +34,7 @@ from systemClass        import *    #   Defines general system fuctions
 #from main               import *
 from LED_strips         import *
 
-
+from functools import partial
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
         # global img_files, img_count, globalImageUpdate
