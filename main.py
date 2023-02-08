@@ -276,7 +276,7 @@ class CustomDialog(QDialog):
             ["7", "8", "9"],
             ["4", "5", "6"],
             ["1", "2", "3"],
-            ["0", "00", "="],
+            ["", "0", ""],
         ]
 
         for row, keys in enumerate(keyBoard):
@@ -291,5 +291,5 @@ class CustomDialog(QDialog):
     def showww(self, key):
         global insertedText
         insertedText = insertedText + str(key)
-        self.keyinputDisplay.text(insertedText)
+        self.keyinputDisplay.setText(insertedText)
         print(insertedText)
