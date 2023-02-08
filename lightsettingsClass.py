@@ -62,19 +62,18 @@ class lightsettingsClass:
         ## Settings Checkboxes
             ## Enable/disable:
         self.w.check_Top_Enable.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False)) 
-        #.onCheckboxChange(self,debug=True))
-        self.w.check_Left_Enable.toggled.connect(self.onCheckboxChange)
-        self.w.check_Right_Enable.toggled.connect(self.onCheckboxChange)
+        self.w.check_Left_Enable.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
+        self.w.check_Right_Enable.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
             
             ## RGB
-        self.w.check_Top_RGB.toggled.connect(self.onCheckboxChange)
-        self.w.check_Left_RGB.toggled.connect(self.onCheckboxChange)
-        self.w.check_Right_RGB.toggled.connect(self.onCheckboxChange)
+        self.w.check_Top_RGB.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
+        self.w.check_Left_RGB.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
+        self.w.check_Right_RGB.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
             
             ## White:
-        self.w.check_Top_White.toggled.connect(self.onCheckboxChange)
-        self.w.check_Left_White.toggled.connect(self.onCheckboxChange)
-        self.w.check_Right_White.toggled.connect(self.onCheckboxChange)
+        self.w.check_Top_White.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
+        self.w.check_Left_White.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
+        self.w.check_Right_White.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
             
         ## Connecting sliders to actions
         self.w.slider_red.sliderMoved.connect(self.on_slider_change)

@@ -74,9 +74,9 @@ class visionbox(QMainWindow):
         ## Set update timer
         self.__acquisition_timer = QTimer()
         timer = QTimer(self)
-        timer.timeout.connect(partial(self.update_image, debug=False))     
+        timer.timeout.connect(partial(self.update_image, debug=debugArray[0]))     
         timer.start((1/updatefps)*1000)
-        self.update_image(debug=False)
+        self.update_image(debug=debugArray[0])
         self.print_on_GUI_terminal(text_to_print="Init done!",  color='default')
 
     def print_on_GUI_terminal(self, text_to_print, color = 'default'):
