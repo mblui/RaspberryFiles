@@ -27,5 +27,5 @@ class systemClass(QMessageBox):
         print("In Exit program")
         print(visionbox.__init__)
         print(self.w)
-        #errorMsgHandlerClass.errorMsgHandler(self,errorMsgBit=1, debug= False) 
+        errorMsgHandlerClass.errorMsgHandler(self,errorMsgBit=1, debug= False) 
 
