@@ -14,7 +14,6 @@ from functools import partial
 import time
 
 
-
 class lightsettingsClass:
     def __init__(self, RGB_value = [0,0,0], Brightness = 10):
         ## Create groups
