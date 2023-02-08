@@ -1,3 +1,4 @@
+from PySide2.QtGui      import QColor
 
 ## ------------------------------ Inputs ------------------------------
 # Set Path directories 
@@ -12,8 +13,11 @@ updatefps = 1
 
 ## Define user/Admin settings
 AvailableUserProfiles = ["DGS admin", "View only"]
-Password_admin = "1466"
-
+Password_admin  = "1466"
+color_green     = QColor(0,153,0)
+color_red       = QColor(255,0,0)
+color_black     = QColor(0,0,0)
+color_default   = QColor(0,0,0)
 # Led light related variables
 RGB_val= [0,0,0]                            # Default RGB value             range: [0-255]
 Brightness_value = int(50)                  # Default brightness value      range: [0-100]
