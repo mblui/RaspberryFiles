@@ -79,12 +79,17 @@ class visionbox(QMainWindow):
     def print_on_GUI_terminal(self, text_to_print, color = 'default'):
         self.w.textBrowser.setReadOnly(True)
         current_date_time = str(datetime.now().strftime("%d/%m/%Y   %H:%M:%S"))
-
+        message = current_date_time + "  " + str(text_to_print)
         # Set colors      
         if      color == 'r' or color =='red':      self.w.textBrowser.setTextColor(color_red)
         elif    color == 'g' or color =='green':    self.w.textBrowser.setTextColor(color_green)
         else:                                       self.w.textBrowser.setTextColor(color_default)
-        self.w.textBrowser.append(current_date_time + "  " + str(text_to_print))
+        self.w.textBrowser.append(message)
+        ## Also write Gui_terminal to txt file
+
+        with open("/home/dgslr/ProgramFiles/log_file.txt","a") as file:
+            file.write("\n")
+            file.write(message)
         
 
     def enable_disable_inputs(self, value):
