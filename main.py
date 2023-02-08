@@ -167,13 +167,9 @@ class visionbox(QMainWindow):
         DISPLAY_HEIGHT = 35
         BUTTON_SIZE = 40
         
-        self.display = QDialog(self)
-        self.display.setFixedHeight(DISPLAY_HEIGHT)
-        self.display.setAlignment(Qt.AlignmentFlag.AlignRight)
-        self.display.setReadOnly(True)
-        self.generalLayout.addWidget(self.display)
+        dlg = QDialog(self)
         
-        self.buttonMap = {}
+        buttonMap = {}
         buttonsLayout = QGridLayout()
         keyBoard = [
             ["7", "8", "9", "/", "C"],
@@ -184,11 +180,11 @@ class visionbox(QMainWindow):
 
         for row, keys in enumerate(keyBoard):
             for col, key in enumerate(keys):
-                self.buttonMap[key] = QPushButton(key)
-                self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
-                buttonsLayout.addWidget(self.buttonMap[key], row, col)
+                buttonMap[key] = QPushButton(key)
+                buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
+                buttonsLayout.addWidget(buttonMap[key], row, col)
 
-        self.generalLayout.addLayout(buttonsLayout)
+        dlg.addLayout(buttonsLayout)
 
 
     def on_lock_unlock_button(self,debug=debugArray[7]):
