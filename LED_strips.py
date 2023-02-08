@@ -18,7 +18,7 @@ class LED_strips:
         pixels.show()
     
     def apply_signal_to_leds(self):
-        global pixels
+        global pixels, lightInputs
         print("i'm here2")
         #if previous == current 
         #    doNothing = 1
@@ -27,17 +27,20 @@ class LED_strips:
 
         ## Set light for main/top panel
         for i in range(pos_led_top[0],pos_led_top[1]):
-            pixels[i] = (0,0,150,0) 
+            val = int(lightInputs[0][0]*150)
+            pixels[i] = (0,0,val,0) 
             time.sleep(0.01)
 
         ## Set light for left led panel
         for i in range(pos_led_left[0],pos_led_left[1]):
-            pixels[i] = (0,150,0,0) 
+            val = int(lightInputs[1][0]*150)
+            pixels[i] = (0,0,val,0) 
             time.sleep(0.01)    
 
         ## Set light for right led panel
         for i in range(pos_led_right[0],pos_led_right[1]):
-            pixels[i] = (150,0,0,0) 
+            val = int(lightInputs[2][0]*150)
+            pixels[i] = (0,0,val,0) 
             time.sleep(0.01)
 
 
