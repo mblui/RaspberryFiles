@@ -79,7 +79,7 @@ class visionbox(QMainWindow):
     def printterminal(self, text2print, color = 'b'):
         self.w.textBrowser.setReadOnly(True)
         current_date_time = str(datetime.now().strftime("%d/%m/%Y   %H:%M:%S"))
-        message = current_date_time + "    " + str(text2print)
+        message = current_date_time + "&nbsp;&nbsp;" + str(text2print)
         self.w.textBrowser.append(message)
         color = 'r'
         if color == 'r' or color =='red':
