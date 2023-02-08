@@ -169,7 +169,7 @@ class visionbox(QMainWindow):
         
         self.display = QLineEdit()
         self.display.setFixedHeight(DISPLAY_HEIGHT)
-        self.display.setAlignment(Qtcore.Qt.AlignmentFlag.AlignRight)
+        self.display.setAlignment(Qt.AlignmentFlag.AlignRight)
         self.display.setReadOnly(True)
         self.generalLayout.addWidget(self.display)
         
