@@ -271,8 +271,6 @@ class CustomDialog(QDialog):
         self.layout.addWidget(self.keyinputDisplay)
         self.layout.addWidget(message)
         #############################################
-        WINDOW_SIZE = 235
-        DISPLAY_HEIGHT = 35
         BUTTON_SIZE = 40
         self.buttonMap = {}
         buttonsLayout = QGridLayout()
@@ -280,7 +278,7 @@ class CustomDialog(QDialog):
             ["7", "8", "9"],
             ["4", "5", "6"],
             ["1", "2", "3"],
-            ["", "0", ""],
+            ["del", "0", "del"],
         ]
 
         for row, keys in enumerate(keyBoard):
@@ -294,18 +292,9 @@ class CustomDialog(QDialog):
         self.setLayout(self.layout)
 
     def showww(self, key):
-        self.insertedText = self.insertedText + str(key)
+        if key == "del":
+            self.insertedText = self.insertedText[:len(self.insertedText)-1] 
+        else:
+            self.insertedText = self.insertedText + str(key)
         self.keyinputDisplay.setText(self.insertedText)
         #print(self.insertedText)
-
-
-##############    # ERROR @: Change admin rights
-        # elif errorMsgBit == 3:
-        #     text, ok = QInputDialog.getText(self, 'Input Dialog', 'Enter text:')
-        #     if ok:
-        #         if text == "1466":
-        #             errorMsgBit = 0
-        #             self.print_on_GUI_terminal(text_to_print="Succesfull change of admin rights!",  color='green')
-        #             return errorMsgBit, True
-        #         self.print_on_GUI_terminal(text_to_print="Wrong Password!",  color='red')
-        #         return errorMsgBit, False
