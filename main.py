@@ -260,7 +260,9 @@ class CustomDialog(QDialog):
 
         self.layout = QVBoxLayout()
         message = QLabel("Something happened, is that OK?")
-        keyinputDisplay = QTextEdit()
+        keyinputDisplay = QLineEdit()
+        keyinputDisplay.setReadOnly(True)
+        keyinputDisplay.set
         self.layout.addWidget(keyinputDisplay)
         self.layout.addWidget(message)
         #############################################
