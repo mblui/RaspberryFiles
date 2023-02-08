@@ -32,7 +32,7 @@ from config         import *    #   Load configuration and initial values
 from ErrorHandler   import *    #   Defines the error handling
 from LinkSliders    import *    #   Defines input/outputs    
 from systemClass    import *    #   Defines general system fuctions
-
+from main import *
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
         # global img_files, img_count, globalImageUpdate
@@ -60,7 +60,7 @@ class visionbox(QMainWindow):
         # Link buttons
         self.on_lock_unlock_button()
         self.w.button_openImageFolder.clicked.connect(self.openFolder)
-        self.w.button_ExitProgram.clicked.connect(systemClass.ExitProgram(self))
+        self.w.button_ExitProgram.clicked.connect(systemClass.ExitProgram(widget = self.w))
         self.w.Start_pause_watching.clicked.connect(self.on_button_press)
         self.w.Start_pause_watching.setCheckable(True)
         self.w.button_ExportFilesZIP.clicked.connect(self.on_export_files_zip)

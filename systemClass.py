@@ -23,8 +23,9 @@ class systemClass:
     def __init__(self, RGB_value = [0,0,0], Brightness = 10):
         print("...")
 
-    def ExitProgram():
+    def ExitProgram(widget):
         print("In Exit program")
         print(visionbox)
+        print(widget)
         #errorMsgHandlerClass.errorMsgHandler(self,errorMsgBit=1, debug= False) 
 
