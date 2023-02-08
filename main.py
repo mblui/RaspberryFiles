@@ -265,6 +265,9 @@ class CustomDialog(QDialog):
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
         #############################################
+        WINDOW_SIZE = 235
+        DISPLAY_HEIGHT = 35
+        BUTTON_SIZE = 40
         self.buttonMap = {}
         buttonsLayout = QGridLayout()
         keyBoard = [
@@ -281,9 +284,7 @@ class CustomDialog(QDialog):
                 buttonsLayout.addWidget(self.buttonMap[key], row, col)
 
         layout.addLayout(buttonsLayout)
-        WINDOW_SIZE = 235
-        DISPLAY_HEIGHT = 35
-        BUTTON_SIZE = 40
+
         
         # dlg = QDialog()
         # layout = QVBoxLayout()
