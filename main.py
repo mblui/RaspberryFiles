@@ -78,8 +78,9 @@ class visionbox(QMainWindow):
 
     def printterminal(self, text2print, color = 'b'):
         self.w.textBrowser.setReadOnly(True)
-        current_date_time = str(datetime.now().strftime("%d/%m/%Y"  "%H:%M:%S")) 
+        current_date_time = str(datetime.now().strftime("%d/%m/%Y   %H:%M:%S"))
         message = current_date_time + "  " + str(text2print)
+        
         color = 'r'
         self.w.textBrowser.setTextColor(QColor(255, 0, 0))
         self.w.textBrowser.append(message)
