@@ -55,7 +55,8 @@ class visionbox(QMainWindow):
         #self.on_button_press()      ## initialse start/pause button
         
         # Initial count number of images
-        img_files, img_count = self.getAvailableImagesInFolder()
+        # TODO img_files, img_count = self.getAvailableImagesInFolder()
+        img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
 
         # Link buttons
         self.on_lock_unlock_button()
@@ -173,7 +174,9 @@ class visionbox(QMainWindow):
             os.chdir(dir_path + "SCP_images")     
             if debug: [print(f) for f in os.listdir()]       
             [os.remove(f) for f in os.listdir()]       
-        img_files, img_count = self.getAvailableImagesInFolder() 
+        # TODO img_files, img_count = self.getAvailableImagesInFolder() 
+        img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
+        
 
 
     def on_button_press(self):
@@ -210,7 +213,9 @@ class visionbox(QMainWindow):
     def update_image(self, debug = False):
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
         if debug: print(globalImageUpdate)
-        img_files, img_count = self.getAvailableImagesInFolder() 
+        # TODO img_files, img_count = self.getAvailableImagesInFolder() 
+        img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
+        
         self.w.number_of_images.setText(str(img_count).zfill(maxImagesBits))
         if len(img_files)<1:
             self.w.num_img.setText("No files in folder to display")
@@ -237,13 +242,6 @@ class visionbox(QMainWindow):
         RGB_val[0] = self.w.slider_red.value()
         RGB_val[1] = self.w.slider_green.value()
         RGB_val[2] = self.w.slider_blue.value()
-
-    def getAvailableImagesInFolder(self, debug = False):
-        _,_,files = next(os.walk(scp_path))
-        img_count = len(files)
-        img_files = natsorted(files)
-        if debug: print("img_count", img_count, "img_files", img_files)
-        return img_files, img_count
 
     def getItem(self, slidertype):  # slidertype := [intensity', 'red', 'green', 'blue']
         global Brightness_value,RGB_val

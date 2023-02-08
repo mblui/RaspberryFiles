@@ -3,6 +3,8 @@ import sys
 import os
 import cv2
 import subprocess
+# Import array sorting package
+from natsort import natsorted 
 import numpy as np
 from showinfm import show_in_file_manager
 
@@ -20,12 +22,15 @@ from LinkSliders    import *    #   Defines input/outputs
 from main import *
 
 class systemClass(QMessageBox):
-    def __init__(self, RGB_value = [0,0,0], Brightness = 10):
+    def __init__(self):
         print("...")
 
     def ExitProgram(self):
-        print("In Exit program")
-        print(visionbox.__init__)
-        print(self.w)
         errorMsgHandlerClass.errorMsgHandler(self,errorMsgBit=1, debug= False) 
 
+    def getAvailableImagesInFolder(self, debug = False):
+        _,_,files = next(os.walk(scp_path))
+        img_count = len(files)
+        img_files = natsorted(files)
+        if debug: print("img_count", img_count, "img_files", img_files)
+        return img_files, img_count
