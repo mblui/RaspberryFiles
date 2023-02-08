@@ -166,6 +166,13 @@ class visionbox(QMainWindow):
         WINDOW_SIZE = 235
         DISPLAY_HEIGHT = 35
         BUTTON_SIZE = 40
+        
+        self.display = QLineEdit()
+        self.display.setFixedHeight(DISPLAY_HEIGHT)
+        self.display.setAlignment(Qt.AlignmentFlag.AlignRight)
+        self.display.setReadOnly(True)
+        self.generalLayout.addWidget(self.display)
+        
         self.buttonMap = {}
         buttonsLayout = QGridLayout()
         keyBoard = [
