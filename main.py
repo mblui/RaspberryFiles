@@ -145,8 +145,7 @@ class visionbox(QMainWindow):
         lightInputs[1][2] = self.w.check_Left_White.isChecked()
         lightInputs[2][2] = self.w.check_Right_White.isChecked()
         if debug: print(lightInputs)
-  
-
+        LED_strips.apply_signal_to_leds(self, lightInputs)
         
     def openFolder(self, debug=debugArray[5]):
         show_in_file_manager(scp_path)
@@ -184,7 +183,6 @@ class visionbox(QMainWindow):
            
     def update_image(self, debug=debugArray[0]):
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
-        LED_strips.apply_signal_to_leds(self)
         if debug: print(globalImageUpdate)
         img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
         
@@ -214,6 +212,7 @@ class visionbox(QMainWindow):
         RGB_val[0] = self.w.slider_red.value()
         RGB_val[1] = self.w.slider_green.value()
         RGB_val[2] = self.w.slider_blue.value()
+        LED_strips.apply_signal_to_leds(self, lightInputs)
 
     def getItem(self, slidertype, debug=debugArray[10]):  # slidertype := [intensity', 'red', 'green', 'blue']
         global Brightness_value,RGB_val
