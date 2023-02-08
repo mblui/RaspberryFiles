@@ -236,4 +236,5 @@ if __name__ == "__main__":
     app = QApplication([])
     widget = visionbox()
     widget.show()
+    widget.print_on_GUI_terminal(text_to_print="--> Program is closed!",  color='default')
     sys.exit(app.exec_())
