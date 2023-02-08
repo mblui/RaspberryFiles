@@ -284,10 +284,10 @@ class CustomDialog(QDialog):
                 buttonsLayout.addWidget(self.buttonMap[key], row, col)
                 self.buttonMap[key].clicked.connect(self.showww)
         self.layout.addLayout(buttonsLayout)
-        self.layout.addWidget(self.buttonBox)
+        self.layout.addWidget(partial(self.buttonBox, key))
         self.setLayout(self.layout)
-    def showww(self):
-        print(self)
+    def showww(self, key):
+        print(key)
         #result = str(eval(expression, {}, {}))
         #except Exception:
         #    result = ERROR_MSG
