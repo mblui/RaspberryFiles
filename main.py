@@ -170,6 +170,8 @@ class visionbox(QMainWindow):
             unlock = CustomDialog()
             returnvalue = unlock.exec() 
             print("OUPUT:", returnvalue)
+            print("OUPUT:", unlock.insertedText)
+            
             #if output:
             #   self.enable_disable_inputs(value=1) #True
             #    self.w.text_current_user.setText(str(AvailableUserProfiles[0]))
