@@ -24,12 +24,12 @@ from main                   import *
 class systemClass(QMessageBox):
     ## --- --- Exit Program  --- --- --- ---
     def ExitProgram(self):
-        errorMsgHandlerClass.errorMsgHandler(self,errorMsgBit=1, debug= False) 
+        errorMsgHandlerClass.errorMsgHandler(self,errorMsgBit=1) 
 
     ###############################################################################################
     ## Get available images in folder and sort
     ###############################################################################################
-    def getAvailableImagesInFolder(self, debug = False):
+    def getAvailableImagesInFolder(self, debug=debugArray[11]):
         _,_,files = next(os.walk(scp_path))
         img_count = len(files)
         img_files = natsorted(files)
@@ -39,16 +39,13 @@ class systemClass(QMessageBox):
     ###############################################################################################
     ## Make archive of images                          
     ###############################################################################################
-    def on_export_files_zip(self, time, debug = False):
+    def on_export_files_zip(self, time, debug=debugArray[1]):
         # Generate Name
         name = time.replace(" ", "_").replace("/", "_")
         name = "Export_files_zip_" + name + str(".zip")
         if debug:   print("Exportfilename: ", name)
         source = source=dir_path + "SCP_images"
         destination= dir_path + name
-        #self.make_archiveZip(self, source=dir_path + "SCP_images", destination= dir_path + name)
-
-    #def make_archiveZip(self, source, destination, debug = False):
         img_backup_succesfull = False
         try: 
             base = os.path.basename(destination)

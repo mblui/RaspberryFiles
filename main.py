@@ -65,7 +65,7 @@ class visionbox(QMainWindow):
         self.w.button_ExitProgram.clicked.connect(lambda: systemClass.ExitProgram(self))
         self.w.Start_pause_watching.clicked.connect(self.on_button_press)
         self.w.Start_pause_watching.setCheckable(True)
-        self.w.button_ExportFilesZIP.clicked.connect(lambda: systemClass.on_export_files_zip(self, time=current_date_time, debug=True))
+        self.w.button_ExportFilesZIP.clicked.connect(lambda: systemClass.on_export_files_zip(self, time=current_date_time))
         self.w.button_previous_img.clicked.connect(partial(self.on_next_previous_image,-1))
         self.w.button_next_img.clicked.connect(partial(self.on_next_previous_image, 1))
         self.w.lock_unlock_button.clicked.connect(self.on_lock_unlock_button)
@@ -74,12 +74,12 @@ class visionbox(QMainWindow):
         ## Set update timer
         self.__acquisition_timer = QTimer()
         timer = QTimer(self)
-        timer.timeout.connect(partial(self.update_image, debug=debugArray[0]))     
+        timer.timeout.connect(partial(self.update_image))     
         timer.start((1/updatefps)*1000)
-        self.update_image(debug=debugArray[0])
+        self.update_image()
         self.print_on_GUI_terminal(text_to_print="Init done!",  color='default')
 
-    def print_on_GUI_terminal(self, text_to_print, color = 'default'):
+    def print_on_GUI_terminal(self, text_to_print, debug, color = 'default'):
         global current_date_time
         self.w.textBrowser.setReadOnly(True)
         current_date_time = str(datetime.now().strftime("%d/%m/%Y   %H:%M:%S"))
@@ -96,7 +96,7 @@ class visionbox(QMainWindow):
             file.write(message)
         
 
-    def enable_disable_inputs(self, value):
+    def enable_disable_inputs(self, value, debug=debugArray[3]):
         self.w.button_openImageFolder.setEnabled(value)
         #self.w.button_ExitProgram.setEnabled(False)
         #self.w.lock_unlock_button.setEnabled(False)
@@ -132,7 +132,7 @@ class visionbox(QMainWindow):
         self.w.text_green.setEnabled(value)
         self.w.text_blue.setEnabled(value)
 
-    def onCheckboxChange(self, debug = False):
+    def onCheckboxChange(self, debug=debugArray[4]):
         lightInputs[0][0] = self.w.check_Top_Enable.isChecked()
         lightInputs[1][0] = self.w.check_Left_Enable.isChecked()
         lightInputs[2][0] = self.w.check_Right_Enable.isChecked()
@@ -142,13 +142,12 @@ class visionbox(QMainWindow):
         lightInputs[0][2] = self.w.check_Top_White.isChecked()
         lightInputs[1][2] = self.w.check_Left_White.isChecked()
         lightInputs[2][2] = self.w.check_Right_White.isChecked()
-        print("debugval", debug)
         if debug: print(lightInputs)
         
-    def openFolder(self):
+    def openFolder(self, debug=debugArray[5]):
         show_in_file_manager(scp_path)
 
-    def on_button_press(self):
+    def on_button_press(self, debug=debugArray[6]):
         global globalImageUpdate
         if self.w.Start_pause_watching.isChecked():
             self.w.Start_pause_watching.setText(str("Start"))
@@ -160,7 +159,7 @@ class visionbox(QMainWindow):
             globalImageUpdate = True
 
 
-    def on_lock_unlock_button(self):
+    def on_lock_unlock_button(self,debug=debugArray[7]):
         if self.w.lock_unlock_button.isChecked():
             _,output = errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=3, debug= False)
             if output:
@@ -172,14 +171,14 @@ class visionbox(QMainWindow):
             self.w.text_current_user.setText(str(AvailableUserProfiles[1]))
             self.w.lock_unlock_button.setIcon(QIcon('lock_icon.png'))
 
-    def on_next_previous_image(self,value):
+    def on_next_previous_image(self,value, debug=debugArray[8]):
         global img_to_display_cnt
         self.w.Start_pause_watching.setChecked(True)
         self.on_button_press()
         if img_to_display_cnt >= 0 and  img_to_display_cnt < img_count:
             img_to_display_cnt = img_to_display_cnt + value
            
-    def update_image(self, debug = False):
+    def update_image(self, debug=debugArray[0]):
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
         if debug: print(globalImageUpdate)
         img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
@@ -203,7 +202,7 @@ class visionbox(QMainWindow):
         current_date_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         self.w.text_date_time.setText(str(current_date_time))
 
-    def on_slider_change(self):
+    def on_slider_change(self, debug=debugArray[9]):
         global RGB_val, Brightness_value
         # Update RGBvalue
         Brightness_value = self.w.slider_intensity.value()
@@ -211,7 +210,7 @@ class visionbox(QMainWindow):
         RGB_val[1] = self.w.slider_green.value()
         RGB_val[2] = self.w.slider_blue.value()
 
-    def getItem(self, slidertype):  # slidertype := [intensity', 'red', 'green', 'blue']
+    def getItem(self, slidertype, debug=debugArray[10]):  # slidertype := [intensity', 'red', 'green', 'blue']
         global Brightness_value,RGB_val
         items_1 = ("0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100")
         items_2 = ("0", "25", "51", "77", "102", "128", "153", "178", "204", "229", "255")

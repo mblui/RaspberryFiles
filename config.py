@@ -25,14 +25,29 @@ Brightness_value = int(50)                  # Default brightness value      rang
 # Define maximum allowed number of images
 maxImagesBits = 6                           # Maxum number of images in the folder (in bits) -->  000000
 
-debugArray = [      1,      # Debug update image
-                    0,      #
-                    0,      #      
-                    0,      #
-                    0,      #
-                    0,      #
-                    0,      #
-                    0    ]  #
+debugArray = [      0,      # Debug 0:  update image
+                    0,      # Debug 1:  on_export_files_zip
+                    0,      # Debug 2:  errorhandler     
+                    0,      # Debug 3:  enable_disable_inputs
+                    0,      # Debug 4:  onCheckboxChange  
+                    0,      # Debug 5:  openFolder
+                    0,      # Debug 6:  on_button_press  
+                    0,      # Debug 7:  on_lock_unlock_button
+                    0,      # Debug 8:  on_next_previous_image
+                    0,      # Debug 9:  on_slider_change
+                    0,      # Debug 10: getItem
+                    0,      # Debug 11: getAvailableImagesInFolder
+                    0,      # Debug 12: lightsettingsClass.__init__
+                    0,      # Debug 13: lightsettingsClass.lightsettings
+                    0,      # Debug 14:   
+                    0,      # Debug 15:   
+                    0,      # Debug 16:   
+                    0,      # Debug 17:   
+                    0,      # Debug 18:   
+                    0,      # Debug 19:   
+                    0,      # Debug 20:   
+            ]
+
 
 ## ------------------------------ Initilisation ------------------------------
 # Error handling

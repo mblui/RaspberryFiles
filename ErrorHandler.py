@@ -11,7 +11,7 @@ from PySide2.QtUiTools import QUiLoader
 from PySide2.QtGui import QPixmap, QTouchEvent
 from functools import partial
 
-
+from config import *
 # Error message bits
 # 0     =   no error
 # 1     =   Exit program 1
@@ -26,9 +26,8 @@ class errorMsgHandlerClass(QMessageBox):
     def __init__(self):
         super().__init__()
 
-    def errorMsgHandler(self, errorMsgBit , cnt=0, debug = 0):
-        if debug:
-            print("Item is:", errorMsgBit, "Errorbit:", errorMsgBit, "Count:", cnt)
+    def errorMsgHandler(self, errorMsgBit , debug=debugArray[2], cnt=0):
+        if debug:print("Item is:", errorMsgBit, "Errorbit:", errorMsgBit, "Count:", cnt)
 
     # ERROR 1:  Program exit is pressend
         if errorMsgBit == 1:

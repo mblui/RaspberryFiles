@@ -17,7 +17,7 @@ from systemClass import *
 
 
 class lightsettingsClass:
-    def __init__(self, RGB_value = [0,0,0], Brightness = 10):
+    def __init__(self, debug=debugArray[12], RGB_value = [0,0,0], Brightness = 10):
         ## Create groups
         RGB_white_Group1 = QButtonGroup(self.w)
         RGB_white_Group1.addButton(self.w.check_Top_RGB, 1)         # ID = 1
@@ -61,19 +61,19 @@ class lightsettingsClass:
 
         ## Settings Checkboxes
             ## Enable/disable:
-        self.w.check_Top_Enable.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False)) 
-        self.w.check_Left_Enable.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
-        self.w.check_Right_Enable.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
+        self.w.check_Top_Enable.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug)) 
+        self.w.check_Left_Enable.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug))
+        self.w.check_Right_Enable.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug))
             
             ## RGB
-        self.w.check_Top_RGB.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
-        self.w.check_Left_RGB.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
-        self.w.check_Right_RGB.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
+        self.w.check_Top_RGB.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug))
+        self.w.check_Left_RGB.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug))
+        self.w.check_Right_RGB.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug))
             
             ## White:
-        self.w.check_Top_White.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
-        self.w.check_Left_White.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
-        self.w.check_Right_White.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug=False))
+        self.w.check_Top_White.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug))
+        self.w.check_Left_White.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug))
+        self.w.check_Right_White.toggled.connect(lambda: visionbox.onCheckboxChange(self, debug))
             
         ## Connecting sliders to actions
         self.w.slider_red.sliderMoved.connect(self.on_slider_change)
@@ -85,7 +85,7 @@ class lightsettingsClass:
         self.w.SliderVal_but_text_green.clicked.connect(partial(self.getItem,"green"))
         self.w.SliderVal_but_text_blue.clicked.connect(partial(self.getItem,"blue"))
 
-    def lightsettings(self, RGB_value = [0,0,0], Brightness = 10):
+    def lightsettings(self, debug=debugArray[13], RGB_value = [0,0,0], Brightness = 10):
                 ## Settings of sliders
             ## Slider Red value
         self.w.SliderVal_but_text_red.setText(str(RGB_value[0]))
