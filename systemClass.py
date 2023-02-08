@@ -40,7 +40,7 @@ class systemClass(QMessageBox):
     ## Make archive of images                          
     ###############################################################################################
     def on_export_files_zip(self, time, debug = False):
-        if debug:   print("on_export_files_zippert")
+        if debug:   print("on_export_files_zippert", time)
         # Generate Name
         name = current_date_time.replace(" ", "_").replace("/", "_")
         name = "RecordedImages" + name + str(".zip")

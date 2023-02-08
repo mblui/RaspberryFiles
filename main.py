@@ -37,6 +37,7 @@ from main               import *
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
         # global img_files, img_count, globalImageUpdate
+        global current_date_time
         super().__init__(parent)
         self.setWindowTitle("Vision Box")
         self.showMaximized() if windowsize[2] else self.setFixedSize(QSize(windowsize[0], windowsize[1]))
@@ -79,6 +80,7 @@ class visionbox(QMainWindow):
         self.print_on_GUI_terminal(text_to_print="Init done!",  color='default')
 
     def print_on_GUI_terminal(self, text_to_print, color = 'default'):
+        global current_date_time
         self.w.textBrowser.setReadOnly(True)
         current_date_time = str(datetime.now().strftime("%d/%m/%Y   %H:%M:%S"))
         message = current_date_time + "  " + str(text_to_print)
