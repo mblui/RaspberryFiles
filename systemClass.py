@@ -44,7 +44,7 @@ class systemClass(QMessageBox):
         # Generate Name
         name = current_date_time.replace(" ", "_").replace("/", "_")
         name = "RecordedImages" + name + str(".zip")
-        self.make_archiveZip(source=dir_path + "SCP_images", destination= dir_path + name)
+        self.make_archiveZip(self, source=dir_path + "SCP_images", destination= dir_path + name)
         self.print_on_GUI_terminal(text_to_print="Export of ZIP succesfull!, name = " + str(name),  color='green') 
 
     def make_archiveZip(self, source, destination, debug = False):
