@@ -142,7 +142,7 @@ class visionbox(QMainWindow):
         lightInputs[0][2] = self.w.check_Top_White.isChecked()
         lightInputs[1][2] = self.w.check_Left_White.isChecked()
         lightInputs[2][2] = self.w.check_Right_White.isChecked()
-        print(debug)
+        print("debugval", debug)
         if debug: print(lightInputs)
         
     def openFolder(self):
