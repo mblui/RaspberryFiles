@@ -36,6 +36,7 @@ class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
         # global img_files, img_count, globalImageUpdate
         super().__init__(parent)
+        self.print_on_GUI_terminal(text_to_print="Program is started!",  color='default')
         self.setWindowTitle("Vision Box")
         self.showMaximized() if windowsize[2] else self.setFixedSize(QSize(windowsize[0], windowsize[1]))
         
