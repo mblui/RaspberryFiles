@@ -142,8 +142,7 @@ class visionbox(QMainWindow):
         errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=1, debug= False)
         
     def openFolder(self):
-        print("TODO")
-        #show_in_file_manager(scp_path)
+        show_in_file_manager(scp_path)
 
     def on_export_files_zip(self):
         global img_count, current_date_time
