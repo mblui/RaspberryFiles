@@ -64,7 +64,7 @@ class visionbox(QMainWindow):
         self.w.button_ExitProgram.clicked.connect(lambda: systemClass.ExitProgram(self))
         self.w.Start_pause_watching.clicked.connect(self.on_button_press)
         self.w.Start_pause_watching.setCheckable(True)
-        self.w.button_ExportFilesZIP.clicked.connect(lambda: systemClass.on_export_files_zip(self))
+        self.w.button_ExportFilesZIP.clicked.connect(lambda: systemClass.on_export_files_zip(self, debug=True))
         self.w.button_previous_img.clicked.connect(partial(self.on_next_previous_image,-1))
         self.w.button_next_img.clicked.connect(partial(self.on_next_previous_image, 1))
         self.w.lock_unlock_button.clicked.connect(self.on_lock_unlock_button)
