@@ -40,10 +40,10 @@ class systemClass(QMessageBox):
     ## Make archive of images                          
     ###############################################################################################
     def on_export_files_zip(self, time, debug = False):
-        if debug:   print("on_export_files_zippert", time)
         # Generate Name
-        name = current_date_time.replace(" ", "_").replace("/", "_")
+        name = time.replace(" ", "_").replace("/", "_")
         name = "RecordedImages" + name + str(".zip")
+        if debug:   print("Exportfilename: ", name)
         source = source=dir_path + "SCP_images"
         destination= dir_path + name
         #self.make_archiveZip(self, source=dir_path + "SCP_images", destination= dir_path + name)
@@ -56,7 +56,6 @@ class systemClass(QMessageBox):
             format = base.split('.')[1]
             archive_from = os.path.dirname(source)
             archive_to = os.path.basename(source.strip(os.sep))
-            #print(source, destination, archive_from, archive_to)
             shutil.make_archive(name, format, archive_from, archive_to)
             shutil.move('%s.%s'%(name,format), destination)
             img_backup_succesfull = True 
