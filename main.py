@@ -283,7 +283,7 @@ class CustomDialog(QDialog):
                 self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
                 buttonsLayout.addWidget(self.buttonMap[key], row, col)
 
-        layout.addLayout(buttonsLayout)
+        self.layout.addLayout(buttonsLayout)
 
         
         # dlg = QDialog()
