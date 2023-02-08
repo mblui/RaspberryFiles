@@ -28,11 +28,12 @@ import time
 from datetime import datetime
 
 # Import dependent scripts
-from config         import *    #   Load configuration and initial values
-from ErrorHandler   import *    #   Defines the error handling
-from LinkSliders    import *    #   Defines input/outputs    
-from systemClass    import *    #   Defines general system fuctions
-from main import *
+from config             import *    #   Load configuration and initial values
+from ErrorHandler       import *    #   Defines the error handling
+from lightsettingsClass import *    #   Defines input/outputs    
+from systemClass        import *    #   Defines general system fuctions
+from main               import *
+
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
         # global img_files, img_count, globalImageUpdate
@@ -48,14 +49,13 @@ class visionbox(QMainWindow):
         self.w = loader.load(ui_file, self)
         self.w.show()
         ui_file.close()
-        print(self.w)
         self.print_on_GUI_terminal(text_to_print="--> Program is started!",  color='default')
+        
         # Link sliders and initialize
         lightsettingsClass.__init__(self)
         #self.on_button_press()      ## initialse start/pause button
         
         # Initial count number of images
-        # TODO img_files, img_count = self.getAvailableImagesInFolder()
         img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
 
         # Link buttons
@@ -64,7 +64,7 @@ class visionbox(QMainWindow):
         self.w.button_ExitProgram.clicked.connect(lambda: systemClass.ExitProgram(self))
         self.w.Start_pause_watching.clicked.connect(self.on_button_press)
         self.w.Start_pause_watching.setCheckable(True)
-        self.w.button_ExportFilesZIP.clicked.connect(self.on_export_files_zip)
+        self.w.button_ExportFilesZIP.clicked.connect(lambda: systemClass.on_export_files_zip(self))
         self.w.button_previous_img.clicked.connect(partial(self.on_next_previous_image,-1))
         self.w.button_next_img.clicked.connect(partial(self.on_next_previous_image, 1))
         self.w.lock_unlock_button.clicked.connect(self.on_lock_unlock_button)
@@ -145,40 +145,6 @@ class visionbox(QMainWindow):
     def openFolder(self):
         show_in_file_manager(scp_path)
 
-    def on_export_files_zip(self):
-        global img_count, current_date_time
-        # Generate Name
-        name = current_date_time.replace(" ", "_").replace("/", "_")
-        name = "RecordedImages" + name + str(".zip")
-        self.make_archiveZip(source=dir_path + "SCP_images", destination= dir_path + name)
-        self.print_on_GUI_terminal(text_to_print="Export of ZIP succesfull!, name = " + str(name),  color='green') 
-
-    def make_archiveZip(self, source, destination, debug = False):
-        global img_files, img_count
-        img_backup_succesfull = False
-        try: 
-            base = os.path.basename(destination)
-            name = base.split('.')[0]
-            format = base.split('.')[1]
-            archive_from = os.path.dirname(source)
-            archive_to = os.path.basename(source.strip(os.sep))
-            #print(source, destination, archive_from, archive_to)
-            shutil.make_archive(name, format, archive_from, archive_to)
-            shutil.move('%s.%s'%(name,format), destination)
-            img_backup_succesfull = True 
-        except Exception as e:
-            errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=2, debug= False)   
-        
-        # if backup is succesfull
-        if img_backup_succesfull: 
-            os.chdir(dir_path + "SCP_images")     
-            if debug: [print(f) for f in os.listdir()]       
-            [os.remove(f) for f in os.listdir()]       
-        # TODO img_files, img_count = self.getAvailableImagesInFolder() 
-        img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
-        
-
-
     def on_button_press(self):
         global globalImageUpdate
         if self.w.Start_pause_watching.isChecked():
@@ -213,7 +179,6 @@ class visionbox(QMainWindow):
     def update_image(self, debug = False):
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
         if debug: print(globalImageUpdate)
-        # TODO img_files, img_count = self.getAvailableImagesInFolder() 
         img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
         
         self.w.number_of_images.setText(str(img_count).zfill(maxImagesBits))
