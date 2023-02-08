@@ -163,32 +163,7 @@ class visionbox(QMainWindow):
             self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
             globalImageUpdate = True
         
-        WINDOW_SIZE = 235
-        DISPLAY_HEIGHT = 35
-        BUTTON_SIZE = 40
-        
-        dlg = QDialog()
-        layout = QVBoxLayout()
-        dlg.setLayout()
-        
-
-        buttonMap = {}
-        buttonsLayout = QGridLayout()
-        keyBoard = [
-            ["7", "8", "9", "/", "C"],
-            ["4", "5", "6", "*", "("],
-            ["1", "2", "3", "-", ")"],
-            ["0", "00", ".", "+", "="],
-        ]
-
-        for row, keys in enumerate(keyBoard):
-            for col, key in enumerate(keys):
-                buttonMap[key] = QPushButton(key)
-                buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
-                buttonsLayout.addWidget(buttonMap[key], row, col)
-
-        layout.addLayout(buttonsLayout)
-        dlg.exec()
+        CustomDialog.__init__()
 
 
     def on_lock_unlock_button(self,debug=debugArray[7]):
@@ -271,3 +246,46 @@ if __name__ == "__main__":
     widget.show()
     sys.exit(app.exec_())
 
+class CustomDialog(QDialog):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("HELLO!")
+
+        QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
+
+        self.layout = QVBoxLayout()
+        message = QLabel("Something happened, is that OK?")
+        self.layout.addWidget(message)
+        self.layout.addWidget(self.buttonBox)
+        self.setLayout(self.layout)
+
+        #         WINDOW_SIZE = 235
+        # DISPLAY_HEIGHT = 35
+        # BUTTON_SIZE = 40
+        
+        # dlg = QDialog()
+        # layout = QVBoxLayout()
+        # dlg.setLayout()
+        
+        # buttonMap = {}
+        # buttonsLayout = QGridLayout()
+        # keyBoard = [
+        #     ["7", "8", "9", "/", "C"],
+        #     ["4", "5", "6", "*", "("],
+        #     ["1", "2", "3", "-", ")"],
+        #     ["0", "00", ".", "+", "="],
+        # ]
+
+        # for row, keys in enumerate(keyBoard):
+        #     for col, key in enumerate(keys):
+        #         buttonMap[key] = QPushButton(key)
+        #         buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
+        #         buttonsLayout.addWidget(buttonMap[key], row, col)
+
+        # layout.addLayout(buttonsLayout)
+        # dlg.exec()
