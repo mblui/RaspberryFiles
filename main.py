@@ -208,7 +208,6 @@ class visionbox(QMainWindow):
         self.on_button_press()
         if img_to_display_cnt >= 0 and  img_to_display_cnt < img_count:
             img_to_display_cnt = img_to_display_cnt + value
-        self.print_on_GUI_terminal("on_next_previous_image succesfully!")
            
     def update_image(self, debug = False):
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
