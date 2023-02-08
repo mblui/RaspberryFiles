@@ -1348,6 +1348,16 @@ QSlider::groove:horizontal:disabled {
     </size>
    </property>
   </widget>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>880</y>
+     <width>821</width>
+     <height>131</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>imglabel</zorder>
   <zorder>label</zorder>
   <zorder>imglabel_2</zorder>
@@ -1362,6 +1372,7 @@ QSlider::groove:horizontal:disabled {
   <zorder>gridLayoutWidget</zorder>
   <zorder>label_5</zorder>
   <zorder>lock_unlock_button</zorder>
+  <zorder>textBrowser</zorder>
  </widget>
  <resources/>
  <connections/>

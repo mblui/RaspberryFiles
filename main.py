@@ -1,55 +1,44 @@
-# This Python file uses the following encoding: utf-8
-import sys
-import os
-import cv2
-import subprocess
-from showinfm import show_in_file_manager
+##########################################################
+##  Vision box - Raspberry File main code               ##   
+##  Project:            201911                          ##
+##  Authors:            Evi Weersink, Mart Bluiminck    ##
+##  Version:            0.1                             ##
+##  Last release:       XX-XX-XXXX, by XXXX             ## 
+##########################################################
 
-from PySide2.QtWidgets import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog
-from PySide2.QtCore import QFile, QTimer, QSize
-from PySide2.QtUiTools import QUiLoader
-from PySide2.QtGui import QPixmap, QTouchEvent, QIcon
-from functools import partial
-import time
-from ErrorHandler import *
-from LinkSliders import *
+# Import system functionalities 
+import sys, os, subprocess, zipfile, shutil
+from functools import partial               # To pass multiple arguments in a function call
+from showinfm import show_in_file_manager   # To open folder when button pressed
+
+# Import PySide package
+from PySide2.QtWidgets  import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog
+from PySide2.QtCore     import QFile, QTimer, QSize
+from PySide2.QtUiTools  import QUiLoader
+from PySide2.QtGui      import QPixmap, QTouchEvent, QIcon
+
+# Import common image packages
+import cv2
+
+# Import array sorting package
 from natsort import natsorted 
-import zipfile, shutil
+
+# Import time related packages
+import time
 from datetime import datetime
 
-# Set path to directory with images 1
-dir_path = r'/home/dgslr/ProgramFiles/'
-scp_path = dir_path + "SCP_images/"
-
-# --- --- Define inputs ---
-windowsize = [1920, 850, 0] # [width,heights, Fullsize = 1/0]
-updatefps = 1
-
-# ---- --- Define Global variables/ Initial values
-cnt = int(1)
-AvailableUserProfiles = ["DGS admin", "View only"]
-Password_admin = "1466"
-maxImagesBits = 6           # Maxum number of images in the folder (in bits) -->  000000
-globalImageUpdate = False
-Brightness_value = int(50)
-current_date_time = "01/01/2023 00:00:00"
-errorMsgBit = int(0)
-ExtendedPath = ""
-RGB_val= [0,0,0]
-img_count = 0           # number of images
-img_to_display_cnt = 0  # number of displayed image     
-img_files = 0           # sorted list of images
-lightInputs = [ [0,0,0],        # Corresponding to GUI
-                [0,0,0],
-                [0,0,0]]
-# ---- ---- ---- ---- ----
+# Import dependent scripts
+from config         import *    #   Load configuration and initial values
+from ErrorHandler   import *    #   Defines the error handling
+from LinkSliders    import *    #   Defines input/outputs    
 
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
-        global img_files, img_count, globalImageUpdate
+        # global img_files, img_count, globalImageUpdate
         super().__init__(parent)
         self.setWindowTitle("Vision Box")
         self.showMaximized() if windowsize[2] else self.setFixedSize(QSize(windowsize[0], windowsize[1]))
+        
         # Load GUI
         loader = QUiLoader()
         path = os.path.join(os.path.dirname(__file__), "form.ui")
@@ -63,6 +52,7 @@ class visionbox(QMainWindow):
         lightsettingsClass.__init__(self)
         #self.on_button_press()      ## initialse start/pause button
         
+
         # Initial count number of images
         img_files, img_count = self.getAvailableImagesInFolder()
 
@@ -84,6 +74,21 @@ class visionbox(QMainWindow):
         timer.timeout.connect(partial(self.update_image, debugval=False))     
         timer.start((1/updatefps)*1000)
         self.update_image(debugval=False)
+        self.printterminal("Init succesfully!")
+
+    def printterminal(self, text2print, color = 'b'):
+        self.w.textBrowser.setReadOnly(True)
+        current_date_time = str(datetime.now().strftime("%d/%m/%Y   %H:%M:%S"))
+        message = current_date_time + "    " + str(text2print)
+        self.w.textBrowser.append(message)
+        color = 'r'
+        if color == 'r' or color =='red'
+            self.w.textBrowser.append(f"<p style='color:red'>{message}</p>")
+        elif color == 'g' or color =='green'
+            self.w.textBrowser.append(f"<p style='color:green'>{message}</p>")
+        else:
+            self.w.textBrowser.append(f"<p style='color:black'>{message}</p>")
+    
 
     def enable_disable_inputs(self, value):
         self.w.button_openImageFolder.setEnabled(value)
@@ -121,7 +126,6 @@ class visionbox(QMainWindow):
         self.w.text_green.setEnabled(value)
         self.w.text_blue.setEnabled(value)
 
-
     def onCheckboxChange(self):
         lightInputs[0][0] = self.w.check_Top_Enable.isChecked()
         lightInputs[1][0] = self.w.check_Left_Enable.isChecked()
@@ -138,39 +142,42 @@ class visionbox(QMainWindow):
         errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=1, debug= False)
         
     def openFolder(self):
-        show_in_file_manager(scp_path)
+        print("TODO")
+        #show_in_file_manager(scp_path)
 
     def on_export_files_zip(self):
-        global img_count, current_date_time
-        # Generate Name
-        name = current_date_time.replace(" ", "_").replace("/", "_")
-        name = "RecordedImages" + name + str(".zip")
-        self.make_archiveZip(source=dir_path + "SCP_images", destination= dir_path + name)
+        #global img_count, current_date_time
+        ## Generate Name
+        #name = current_date_time.replace(" ", "_").replace("/", "_")
+        #name = "RecordedImages" + name + str(".zip")
+        print("TODO")
+        #self.make_archiveZip(source=dir_path + "SCP_images", destination= dir_path + name)
 
     def make_archiveZip(self, source, destination):
         global img_files, img_count
         img_backup_succesfull = False
-        try: 
-            base = os.path.basename(destination)
-            name = base.split('.')[0]
-            format = base.split('.')[1]
-            archive_from = os.path.dirname(source)
-            archive_to = os.path.basename(source.strip(os.sep))
-            #print(source, destination, archive_from, archive_to)
-            shutil.make_archive(name, format, archive_from, archive_to)
-            shutil.move('%s.%s'%(name,format), destination)
-            img_backup_succesfull = True 
-        except Exception as e:
-            errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=2, debug= False)   
-        
-        # if backup is succesfull
-        if img_backup_succesfull: 
-            os.chdir(dir_path + "SCP_images")
-            #[os.remove(f) for f in os.listdir()]        
-            [print(f) for f in os.listdir()]       
-            [os.remove(f) for f in os.listdir()]       
-            #Pprint("Done")
-        img_files, img_count = self.getAvailableImagesInFolder() 
+        # #try: 
+        #     base = os.path.basename(destination)
+        #     name = base.split('.')[0]
+        #     format = base.split('.')[1]
+        #     archive_from = os.path.dirname(source)
+        #     archive_to = os.path.basename(source.strip(os.sep))
+        #     #print(source, destination, archive_from, archive_to)
+        #     shutil.make_archive(name, format, archive_from, archive_to)
+        #     shutil.move('%s.%s'%(name,format), destination)
+        #     img_backup_succesfull = True 
+        # except Exception as e:
+        #     errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=2, debug= False)   
+        print("TODO")
+
+        # # if backup is succesfull
+        # if img_backup_succesfull: 
+        #     os.chdir(dir_path + "SCP_images")
+        #     #[os.remove(f) for f in os.listdir()]        
+        #     [print(f) for f in os.listdir()]       
+        #     [os.remove(f) for f in os.listdir()]       
+        #     #Pprint("Done")
+        # img_files, img_count = self.getAvailableImagesInFolder() 
         # TODO Add dialog to show that export is succesfull with name ... 
 
     def on_button_press(self):
@@ -183,6 +190,8 @@ class visionbox(QMainWindow):
             self.w.Start_pause_watching.setText(str("Pause"))
             self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
             globalImageUpdate = True
+        self.printterminal("on_button_press succesfully!")
+
 
     def on_lock_unlock_button(self):
         if self.w.lock_unlock_button.isChecked():
@@ -195,6 +204,7 @@ class visionbox(QMainWindow):
             self.enable_disable_inputs(value=0) #False
             self.w.text_current_user.setText(str(AvailableUserProfiles[1]))
             self.w.lock_unlock_button.setIcon(QIcon('lock_icon.png'))
+        self.printterminal("on_lock_unlock_button succesfully!")
 
     def on_next_previous_image(self,value):
         global img_to_display_cnt
@@ -203,7 +213,7 @@ class visionbox(QMainWindow):
         #print("editvalue1", img_to_display_cnt)
         if img_to_display_cnt >= 0 and  img_to_display_cnt < img_count:
             img_to_display_cnt = img_to_display_cnt + value
-
+        self.printterminal("on_next_previous_image succesfully!")
            
     def update_image(self, debugval):
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
@@ -218,11 +228,12 @@ class visionbox(QMainWindow):
             #print("editvalue", img_to_display_cnt)
             img_to_display = img_files[img_to_display_cnt]
             self.w.num_img.setText(img_to_display)
-            ExtendedPath = scp_path + str(img_to_display)
-            label = self.w.imglabel
-            pixmap =QPixmap(ExtendedPath)
-            label.setPixmap(pixmap)
-            label.show()
+            print("TODO")
+            #ExtendedPath = scp_path + str(img_to_display)
+            #label = self.w.imglabel
+            #pixmap =QPixmap(ExtendedPath)
+            #label.setPixmap(pixmap)
+            #label.show()
 
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
         ## TODO place timerupdate on separate Qtimer --> now its randomly updating.
@@ -238,10 +249,12 @@ class visionbox(QMainWindow):
         RGB_val[2] = self.w.slider_blue.value()
 
     def getAvailableImagesInFolder(self):
-        _,_,files = next(os.walk(scp_path))
+        #_,_,files = next(os.walk(scp_path))
+        files =[]
         img_count = len(files)
         img_files = natsorted(files)
         print("img_count", img_count, "img_files", img_files)
+        print("TODO")
         return img_files, img_count
 
     def getItem(self, slidertype):  # slidertype := [intensity', 'red', 'green', 'blue']

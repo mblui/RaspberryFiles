@@ -21,7 +21,7 @@ from functools import partial
 # 5     =   ...
 # 6     =   ...
 # 7     =   ...
-
+# 999   =   System is booting
 class errorMsgHandlerClass(QMessageBox):
     def __init__(self):
         super().__init__()
@@ -33,15 +33,18 @@ class errorMsgHandlerClass(QMessageBox):
     # ERROR 1:  Program exit is pressend
         if errorMsgBit == 1:
             #dlg = QMessageBox.question(self,"Exit program?", "Are you sure to exit the current program?", QMessageBox.Yes | QMessageBox.No)
+            txt = "program is exit"
             reply = QMessageBox.question(self, 'Quit', 'Are you sure you want to quit?',  QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
             if reply == QMessageBox.Yes:
                 sys.exit()
+            return errorMsgBit, True
 
     # ERROR 2: Error while exporting to ZIP
         elif errorMsgBit == 2:
             dlg = QMessageBox()
             dlg.setWindowTitle("Error")
             dlg.setText("Error occured while extracting files to ZIP?")
+            txt = "Error occured while extracting files to ZIP"
             button = dlg.exec_()
             if button == QMessageBox.Ok:
                 cnt = 0
@@ -55,8 +58,10 @@ class errorMsgHandlerClass(QMessageBox):
                 print("input = ", text)
                 if text == "1466":
                     errorMsgBit = 0
-            return errorMsgBit, True
+                    return errorMsgBit, True
+                self.printterminal("Wrong Password!")
+                return errorMsgBit, False
 
         else:
             print("No errors found")
-            return False, errorMsgBit 
+            return errorMsgBit, True 
