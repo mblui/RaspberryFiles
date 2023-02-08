@@ -19,7 +19,7 @@ from LinkSliders    import *    #   Defines input/outputs
 #from systemClass    import *    #   Defines general system fuctions
 from main import *
 
-class systemClass(QMainWindow):
+class systemClass(QMessageBox):
     def __init__(self, RGB_value = [0,0,0], Brightness = 10):
         print("...")
 
