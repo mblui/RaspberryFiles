@@ -82,9 +82,9 @@ class visionbox(QMainWindow):
         message = current_date_time + "    " + str(text2print)
         self.w.textBrowser.append(message)
         color = 'r'
-        if color == 'r' or color =='red'
+        if color == 'r' or color =='red':
             self.w.textBrowser.append(f"<p style='color:red'>{message}</p>")
-        elif color == 'g' or color =='green'
+        elif color == 'g' or color =='green':
             self.w.textBrowser.append(f"<p style='color:green'>{message}</p>")
         else:
             self.w.textBrowser.append(f"<p style='color:black'>{message}</p>")
