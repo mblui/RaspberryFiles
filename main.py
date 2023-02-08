@@ -32,7 +32,7 @@ from config             import *    #   Load configuration and initial values
 from ErrorHandler       import *    #   Defines the error handling
 from lightsettingsClass import *    #   Defines input/outputs    
 from systemClass        import *    #   Defines general system fuctions
-from main               import *
+#from main               import *
 
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
