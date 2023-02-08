@@ -261,7 +261,7 @@ class CustomDialog(QDialog):
         self.layout = QVBoxLayout()
         message = QLabel("Something happened, is that OK?")
         keyinputDisplay = QTextEdit()
-        self.layout.add(keyinputDisplay)
+        self.layout.addWidget(keyinputDisplay)
         self.layout.addWidget(message)
         #############################################
         WINDOW_SIZE = 235
