@@ -13,7 +13,7 @@ from showinfm import show_in_file_manager   # To open folder when button pressed
 
 # Import PySide package
 from PySide2.QtWidgets  import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog, QGridLayout, QPushButton, QLineEdit
-from PySide2.QtCore     import QFile, QTimer, QSize
+from PySide2.QtCore     import * #QFile, QTimer, QSize
 from PySide2.QtUiTools  import QUiLoader
 from PySide2.QtGui      import QPixmap, QTouchEvent, QIcon, QColor
 
@@ -169,7 +169,7 @@ class visionbox(QMainWindow):
         
         self.display = QLineEdit()
         self.display.setFixedHeight(DISPLAY_HEIGHT)
-        self.display.setAlignment(Qt.AlignmentFlag.AlignRight)
+        self.display.setAlignment(Qtcore.Qt.AlignmentFlag.AlignRight)
         self.display.setReadOnly(True)
         self.generalLayout.addWidget(self.display)
         
