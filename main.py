@@ -53,11 +53,7 @@ class visionbox(QMainWindow):
         ui_file.close()
         self.print_on_GUI_terminal(text_to_print="--> Program is started!",  color='default')
         
-        # Link sliders and initialize
-        lightsettingsClass.__init__(self)
-        LED_strips.__init__(self)
-        self.on_button_press      ## initialse start/pause button
-        
+
         # Initial count number of images
         img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
 
@@ -72,7 +68,12 @@ class visionbox(QMainWindow):
         self.w.button_next_img.clicked.connect(partial(self.on_next_previous_image, 1))
         self.w.lock_unlock_button.clicked.connect(self.on_lock_unlock_button)
         self.w.lock_unlock_button.setCheckable(True)
-
+        
+        # Link sliders and initialize
+        lightsettingsClass.__init__(self)
+        LED_strips.__init__(self)
+        self.on_button_press()      ## initialse start/pause button
+        
         ## Set update timer
         self.__acquisition_timer = QTimer()
         timer = QTimer(self)
