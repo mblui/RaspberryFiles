@@ -15,7 +15,7 @@ from showinfm import show_in_file_manager   # To open folder when button pressed
 from PySide2.QtWidgets  import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog
 from PySide2.QtCore     import QFile, QTimer, QSize
 from PySide2.QtUiTools  import QUiLoader
-from PySide2.QtGui      import QPixmap, QTouchEvent, QIcon
+from PySide2.QtGui      import QPixmap, QTouchEvent, QIcon, QColor
 
 # Import common image packages
 import cv2
@@ -82,12 +82,17 @@ class visionbox(QMainWindow):
         message = current_date_time + "&nbsp;&nbsp;" + str(text2print)
         #self.w.textBrowser.append(message)
         color = 'r'
-        if color == 'r' or color =='red':
-            self.w.textBrowser.append(f"<span style="color:blue;font-weight:bold;">{message}</span>")
-        elif color == 'g' or color =='green':
-            self.w.textBrowser.append(f"<p style='color:green'>{message}</p>")
-        else:
-            self.w.textBrowser.append(f"<p style='color:black'>{message}</p>")
+        self.w.textBrowser.setTextColor(QColor(255, 0, 0))
+        self.w.textBrowser.append(message)
+        self.w.textBrowser.setTextColor(QColor(0, 255, 0))
+        self.w.textBrowser.append(message)
+        
+        # if color == 'r' or color =='red':
+        #     self.w.textBrowser.append(f"<span style="color:blue;font-weight:bold;">{message}</span>")
+        # elif color == 'g' or color =='green':
+        #     self.w.textBrowser.append(f"<p style='color:green'>{message}</p>")
+        # else:
+        #     self.w.textBrowser.append(f"<p style='color:black'>{message}</p>")
     
 
     def enable_disable_inputs(self, value):
