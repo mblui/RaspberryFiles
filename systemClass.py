@@ -69,4 +69,5 @@ class systemClass(QMessageBox):
             if debug: [print(f) for f in os.listdir()]       
             [os.remove(f) for f in os.listdir()]       
         img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
+        print("Export of ZIP succesfull!, name = " + str(name))
         self.print_on_GUI_terminal(text_to_print="Export of ZIP succesfull!, name = " + str(name),  color='green') 
