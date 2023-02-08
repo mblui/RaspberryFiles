@@ -10,12 +10,15 @@ from config import *
 
 class LED_strips:
     def __init__(self):
+        global pixels
         print("i'm here1")
         pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=1, auto_write=False, pixel_order=ORDER)
         ## Turn off pixels by default
         pixels.fill((0, 0, 0, 0))
         pixels.show()
+    
     def apply_signal_to_leds(self):
+        global pixels
         print("i'm here2")
         #if previous == current 
         #    doNothing = 1

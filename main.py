@@ -145,6 +145,7 @@ class visionbox(QMainWindow):
         lightInputs[1][2] = self.w.check_Left_White.isChecked()
         lightInputs[2][2] = self.w.check_Right_White.isChecked()
         if debug: print(lightInputs)
+  
 
         
     def openFolder(self, debug=debugArray[5]):
@@ -183,6 +184,7 @@ class visionbox(QMainWindow):
            
     def update_image(self, debug=debugArray[0]):
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
+        LED_strips.apply_signal_to_leds(self)
         if debug: print(globalImageUpdate)
         img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
         
