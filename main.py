@@ -262,9 +262,9 @@ class CustomDialog(QDialog):
 
         self.layout = QVBoxLayout()
         message = QLabel("Something happened, is that OK?")
-        keyinputDisplay = QLineEdit()
-        keyinputDisplay.setReadOnly(True)
-        self.layout.addWidget(keyinputDisplay)
+        self.keyinputDisplay = QLineEdit()
+        self.keyinputDisplay.setReadOnly(True)
+        self.layout.addWidget(self.keyinputDisplay)
         self.layout.addWidget(message)
         #############################################
         WINDOW_SIZE = 235
@@ -291,4 +291,5 @@ class CustomDialog(QDialog):
     def showww(self, key):
         global insertedText
         insertedText = insertedText + str(key)
+        self.keyinputDisplay.text(insertedText)
         print(insertedText)
