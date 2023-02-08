@@ -42,7 +42,7 @@ class systemClass(QMessageBox):
     def on_export_files_zip(self, time, debug = False):
         # Generate Name
         name = time.replace(" ", "_").replace("/", "_")
-        name = "RecordedImages" + name + str(".zip")
+        name = "Export_files_zip_" + name + str(".zip")
         if debug:   print("Exportfilename: ", name)
         source = source=dir_path + "SCP_images"
         destination= dir_path + name
