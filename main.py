@@ -169,10 +169,14 @@ class visionbox(QMainWindow):
         if self.w.lock_unlock_button.isChecked():
             unlock = CustomDialog()
             returnvalue = unlock.exec() 
-            if returnvalue and unlock.insertedText == Password_admin: 
+            if returnvalue and unlock.insertedText == Password_admin:
+                self.print_on_GUI_terminal(text_to_print="Succesfull change of admin rights!",  color='green') 
                 self.enable_disable_inputs(value=1) #True
                 self.w.text_current_user.setText(str(AvailableUserProfiles[0]))
                 self.w.lock_unlock_button.setIcon(QIcon('unlock_icon.png'))
+            else:
+                self.print_on_GUI_terminal(text_to_print="Wrong Password!",  color='red')
+                self.w.lock_unlock_button.setChecked(False)
         else:
             self.enable_disable_inputs(value=0) #False
             self.w.text_current_user.setText(str(AvailableUserProfiles[1]))
@@ -292,7 +296,7 @@ class CustomDialog(QDialog):
     def showww(self, key):
         self.insertedText = self.insertedText + str(key)
         self.keyinputDisplay.setText(self.insertedText)
-        print(self.insertedText)
+        #print(self.insertedText)
 
 
 ##############    # ERROR @: Change admin rights
