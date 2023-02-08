@@ -10,7 +10,7 @@ from PySide2.QtCore import QFile, QTimer, QSize
 from PySide2.QtUiTools import QUiLoader
 from PySide2.QtGui import QPixmap, QTouchEvent
 from functools import partial
-import numpy as np
+
 from config import *
 from LED_strips import *
 # Error message bits
@@ -37,7 +37,7 @@ class errorMsgHandlerClass(QMessageBox):
             reply = QMessageBox.question(self, 'Quit', 'Are you sure you want to quit?',  QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
             if reply == QMessageBox.Yes:
                 self.print_on_GUI_terminal(text_to_print="--> Program is closed!",  color='default')
-                LED_strips.apply_signal_to_leds(self, np.zeros(3,3))
+                LED_strips.__init__(self)
                 sys.exit()
             return errorMsgBit, True
 
