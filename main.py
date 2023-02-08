@@ -60,7 +60,7 @@ class visionbox(QMainWindow):
         # Link buttons
         self.on_lock_unlock_button()
         self.w.button_openImageFolder.clicked.connect(self.openFolder)
-        self.w.button_ExitProgram.clicked.connect(self.systemClass.ExitProgram)
+        self.w.button_ExitProgram.clicked.connect(systemClass.ExitProgram)
         self.w.Start_pause_watching.clicked.connect(self.on_button_press)
         self.w.Start_pause_watching.setCheckable(True)
         self.w.button_ExportFilesZIP.clicked.connect(self.on_export_files_zip)
