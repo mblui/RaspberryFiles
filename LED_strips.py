@@ -11,7 +11,6 @@ from config import *
 class LED_strips:
     def __init__(self):
         global pixels
-        print("i'm here1")
         pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=1, auto_write=False, pixel_order=ORDER)
         ## Turn off pixels by default
         pixels.fill((0, 0, 0, 0))
@@ -19,7 +18,6 @@ class LED_strips:
     
     def apply_signal_to_leds(self, inputMatrix):
         global pixels
-        print("i'm here2")
         #if previous == current 
         #    doNothing = 1
         #    time.sleep(0.5)
@@ -28,19 +26,19 @@ class LED_strips:
         ## Set light for main/top panel
         for i in range(pos_led_top[0],pos_led_top[1]):
             val = int(inputMatrix[0][0]*150)
-            pixels[i] = (0,0,val,0) 
+            pixels[i] = (0,0,0,val) 
             time.sleep(0.01)
 
         ## Set light for left led panel
         for i in range(pos_led_left[0],pos_led_left[1]):
             val = int(inputMatrix[1][0]*150)
-            pixels[i] = (0,0,val,0) 
+            pixels[i] = (0,0,0,val) 
             time.sleep(0.01)    
 
         ## Set light for right led panel
         for i in range(pos_led_right[0],pos_led_right[1]):
             val = int(inputMatrix[2][0]*150)
-            pixels[i] = (0,0,val,0) 
+            pixels[i] = (0,0,0,val) 
             time.sleep(0.01)
 
 

@@ -11,7 +11,7 @@ scp_path =  dir_path + "SCP_images/"
 windowsize = [1920, 850, 1]     # [width,heights, Fullsize = 1/0]
 
 ## Set update FPSdf
-updatefps = 1
+updatefps = 5
 
 
 ## Define user/Admin settings
