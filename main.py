@@ -169,13 +169,10 @@ class visionbox(QMainWindow):
         if self.w.lock_unlock_button.isChecked():
             unlock = CustomDialog()
             returnvalue = unlock.exec() 
-            print("OUPUT:", returnvalue)
-            print("OUPUT:", unlock.insertedText)
-            
-            #if output:
-            #   self.enable_disable_inputs(value=1) #True
-            #    self.w.text_current_user.setText(str(AvailableUserProfiles[0]))
-            #    self.w.lock_unlock_button.setIcon(QIcon('unlock_icon.png'))
+            if returnvalue and unlock.insertedText == Password_admin: 
+                self.enable_disable_inputs(value=1) #True
+                self.w.text_current_user.setText(str(AvailableUserProfiles[0]))
+                self.w.lock_unlock_button.setIcon(QIcon('unlock_icon.png'))
         else:
             self.enable_disable_inputs(value=0) #False
             self.w.text_current_user.setText(str(AvailableUserProfiles[1]))
