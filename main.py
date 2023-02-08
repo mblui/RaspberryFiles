@@ -12,7 +12,7 @@ from functools import partial               # To pass multiple arguments in a fu
 from showinfm import show_in_file_manager   # To open folder when button pressed
 
 # Import PySide package
-from PySide2.QtWidgets  import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog
+from PySide2.QtWidgets  import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog, QGridLayout
 from PySide2.QtCore     import QFile, QTimer, QSize
 from PySide2.QtUiTools  import QUiLoader
 from PySide2.QtGui      import QPixmap, QTouchEvent, QIcon, QColor
@@ -34,6 +34,7 @@ from lightsettingsClass import *    #   Defines input/outputs
 from systemClass        import *    #   Defines general system fuctions
 #from main               import *
 from LED_strips         import *
+
 
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
@@ -68,18 +69,18 @@ class visionbox(QMainWindow):
         self.w.button_next_img.clicked.connect(partial(self.on_next_previous_image, 1))
         self.w.lock_unlock_button.clicked.connect(self.on_lock_unlock_button)
         self.w.lock_unlock_button.setCheckable(True)
-        
-        # Link sliders and initialize
-        lightsettingsClass.__init__(self)
-        LED_strips.__init__(self)
-        self.on_button_press()      ## initialse start/pause button
+
+        # Initialise 
+        lightsettingsClass.__init__(self)       #   Link buttons and sliders to functions
+        LED_strips.__init__(self)               #   Send initial command to LED strips
+        self.on_button_press()                  #   Initialse start/pause button
         
         ## Set update timer
         self.__acquisition_timer = QTimer()
         timer = QTimer(self)
-        timer.timeout.connect(partial(self.update_image))     
+        timer.timeout.connect(partial(self.update_GUI))     
         timer.start((1/updatefps)*1000)
-        self.update_image()
+        self.update_GUI()
         self.print_on_GUI_terminal(text_to_print="Init done!",  color='default')
 
     def print_on_GUI_terminal(self, text_to_print, debug=debugArray[14], color = 'default'):
@@ -152,7 +153,6 @@ class visionbox(QMainWindow):
         show_in_file_manager(scp_path)
 
     def on_button_press(self, debug=debugArray[6]):
-        print("i have been here")
         global globalImageUpdate
         if self.w.Start_pause_watching.isChecked():
             self.w.Start_pause_watching.setText(str("Start"))
@@ -162,6 +162,26 @@ class visionbox(QMainWindow):
             self.w.Start_pause_watching.setText(str("Pause"))
             self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
             globalImageUpdate = True
+        
+        WINDOW_SIZE = 235
+        DISPLAY_HEIGHT = 35
+        BUTTON_SIZE = 40
+        self.buttonMap = {}
+        buttonsLayout = QGridLayout()
+        keyBoard = [
+            ["7", "8", "9", "/", "C"],
+            ["4", "5", "6", "*", "("],
+            ["1", "2", "3", "-", ")"],
+            ["0", "00", ".", "+", "="],
+        ]
+
+        for row, keys in enumerate(keyBoard):
+            for col, key in enumerate(keys):
+                self.buttonMap[key] = QPushButton(key)
+                self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
+                buttonsLayout.addWidget(self.buttonMap[key], row, col)
+
+        self.generalLayout.addLayout(buttonsLayout)
 
 
     def on_lock_unlock_button(self,debug=debugArray[7]):
@@ -183,7 +203,7 @@ class visionbox(QMainWindow):
         if img_to_display_cnt >= 0 and  img_to_display_cnt < img_count:
             img_to_display_cnt = img_to_display_cnt + value
            
-    def update_image(self, debug=debugArray[0]):
+    def update_GUI(self, debug=debugArray[0]):
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
         if debug: print(globalImageUpdate)
         img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
