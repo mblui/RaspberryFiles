@@ -1,240 +1,80 @@
-##########################################################
-##  Vision box - Raspberry File main code               ##   
-##  Project:            201911                          ##
-##  Authors:            Evi Weersink, Mart Bluiminck    ##
-##  Version:            0.1                             ##
-##  Last release:       XX-XX-XXXX, by XXXX             ## 
-##########################################################
+# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
+# SPDX-License-Identifier: MIT
 
-# Import system functionalities 
-import sys, os, subprocess, zipfile, shutil
-from functools import partial               # To pass multiple arguments in a function call
-from showinfm import show_in_file_manager   # To open folder when button pressed
-
-# Import PySide package
-from PySide2.QtWidgets  import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog
-from PySide2.QtCore     import QFile, QTimer, QSize
-from PySide2.QtUiTools  import QUiLoader
-from PySide2.QtGui      import QPixmap, QTouchEvent, QIcon, QColor
-
-# Import common image packages
-import cv2
-
-# Import array sorting package
-from natsort import natsorted 
-
-# Import time related packages
+# Simple test for NeoPixels on Raspberry Pi
 import time
-from datetime import datetime
-
-# Import dependent scripts
-from config             import *    #   Load configuration and initial values
-from ErrorHandler       import *    #   Defines the error handling
-from lightsettingsClass import *    #   Defines input/outputs    
-from systemClass        import *    #   Defines general system fuctions
-#from main               import *
-
-class visionbox(QMainWindow):
-    def __init__(self, parent: QWidget = None):
-        # global img_files, img_count, globalImageUpdate
-        global current_date_time
-        super().__init__(parent)
-        self.setWindowTitle("Vision Box")
-        self.showMaximized() if windowsize[2] else self.setFixedSize(QSize(windowsize[0], windowsize[1]))
-        
-        # Load GUI
-        loader = QUiLoader()
-        path = os.path.join(os.path.dirname(__file__), "form.ui")
-        ui_file = QFile(path)
-        ui_file.open(QFile.ReadOnly)
-        self.w = loader.load(ui_file, self)
-        self.w.show()
-        ui_file.close()
-        self.print_on_GUI_terminal(text_to_print="--> Program is started!",  color='default')
-        
-        # Link sliders and initialize
-        lightsettingsClass.__init__(self)
-        #self.on_button_press()      ## initialse start/pause button
-        
-        # Initial count number of images
-        img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
-
-        # Link buttons
-        self.on_lock_unlock_button()
-        self.w.button_openImageFolder.clicked.connect(self.openFolder)
-        self.w.button_ExitProgram.clicked.connect(lambda: systemClass.ExitProgram(self))
-        self.w.Start_pause_watching.clicked.connect(self.on_button_press)
-        self.w.Start_pause_watching.setCheckable(True)
-        self.w.button_ExportFilesZIP.clicked.connect(lambda: systemClass.on_export_files_zip(self, time=current_date_time))
-        self.w.button_previous_img.clicked.connect(partial(self.on_next_previous_image,-1))
-        self.w.button_next_img.clicked.connect(partial(self.on_next_previous_image, 1))
-        self.w.lock_unlock_button.clicked.connect(self.on_lock_unlock_button)
-        self.w.lock_unlock_button.setCheckable(True)
-
-        ## Set update timer
-        self.__acquisition_timer = QTimer()
-        timer = QTimer(self)
-        timer.timeout.connect(partial(self.update_image))     
-        timer.start((1/updatefps)*1000)
-        self.update_image()
-        self.print_on_GUI_terminal(text_to_print="Init done!",  color='default')
-
-    def print_on_GUI_terminal(self, text_to_print, debug=debugArray[14], color = 'default'):
-        global current_date_time
-        self.w.textBrowser.setReadOnly(True)
-        current_date_time = str(datetime.now().strftime("%d/%m/%Y   %H:%M:%S"))
-        message = current_date_time + "  " + str(text_to_print)
-        # Set colors      
-        if      color == 'r' or color =='red':      self.w.textBrowser.setTextColor(color_red)
-        elif    color == 'g' or color =='green':    self.w.textBrowser.setTextColor(color_green)
-        else:                                       self.w.textBrowser.setTextColor(color_default)
-        self.w.textBrowser.append(message)
-        ## Also write Gui_terminal to txt file
-
-        with open("/home/dgslr/ProgramFiles/log_file.txt","a") as file:
-            file.write("\n")
-            file.write(message)
-        
-
-    def enable_disable_inputs(self, value, debug=debugArray[3]):
-        self.w.button_openImageFolder.setEnabled(value)
-        #self.w.button_ExitProgram.setEnabled(False)
-        #self.w.lock_unlock_button.setEnabled(False)
-        #self.w.Start_pause_watching.setEnabled(value)
-        self.w.button_ExportFilesZIP.setEnabled(value)
-        #self.w.button_previous_img.setEnabled(value)
-        #self.w.button_next_img.setEnabled(value)
-        self.w.check_Top_Enable.setEnabled(value)
-        self.w.check_Left_Enable.setEnabled(value)
-        self.w.check_Right_Enable.setEnabled(value)
-        self.w.check_Top_RGB.setEnabled(value)
-        self.w.check_Left_RGB.setEnabled(value)
-        self.w.check_Right_RGB.setEnabled(value)
-        self.w.check_Top_White.setEnabled(value)
-        self.w.check_Left_White.setEnabled(value)
-        self.w.check_Right_White.setEnabled(value)
-        self.w.slider_red.setEnabled(value)
-        self.w.slider_green.setEnabled(value)
-        self.w.slider_blue.setEnabled(value)
-        self.w.slider_intensity.setEnabled(value)
-        self.w.SliderVal_but_text_intensity.setEnabled(value)
-        self.w.SliderVal_but_text_red.setEnabled(value)
-        self.w.SliderVal_but_text_green.setEnabled(value)
-        self.w.SliderVal_but_text_blue.setEnabled(value)
-        self.w.text_right.setEnabled(value)
-        self.w.text_left.setEnabled(value)
-        self.w.text_top.setEnabled(value)
-        self.w.text_enable.setEnabled(value)
-        self.w.text_rgb.setEnabled(value)
-        self.w.text_white.setEnabled(value)
-        self.w.text_brightness.setEnabled(value)
-        self.w.text_red.setEnabled(value)
-        self.w.text_green.setEnabled(value)
-        self.w.text_blue.setEnabled(value)
-
-    def onCheckboxChange(self, debug=debugArray[4]):
-        lightInputs[0][0] = self.w.check_Top_Enable.isChecked()
-        lightInputs[1][0] = self.w.check_Left_Enable.isChecked()
-        lightInputs[2][0] = self.w.check_Right_Enable.isChecked()
-        lightInputs[0][1] = self.w.check_Top_RGB.isChecked()
-        lightInputs[1][1] = self.w.check_Left_RGB.isChecked()
-        lightInputs[2][1] = self.w.check_Right_RGB.isChecked()
-        lightInputs[0][2] = self.w.check_Top_White.isChecked()
-        lightInputs[1][2] = self.w.check_Left_White.isChecked()
-        lightInputs[2][2] = self.w.check_Right_White.isChecked()
-        if debug: print(lightInputs)
-        
-    def openFolder(self, debug=debugArray[5]):
-        show_in_file_manager(scp_path)
-
-    def on_button_press(self, debug=debugArray[6]):
-        global globalImageUpdate
-        if self.w.Start_pause_watching.isChecked():
-            self.w.Start_pause_watching.setText(str("Start"))
-            self.w.Start_pause_watching.setIcon(QIcon('play_icon.png'))
-            globalImageUpdate = False
-        else:
-            self.w.Start_pause_watching.setText(str("Pause"))
-            self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
-            globalImageUpdate = True
+import board
+import neopixel
 
 
-    def on_lock_unlock_button(self,debug=debugArray[7]):
-        if self.w.lock_unlock_button.isChecked():
-            _,output = errorMsgHandlerClass.errorMsgHandler(self, errorMsgBit=3, debug= False)
-            if output:
-                self.enable_disable_inputs(value=1) #True
-                self.w.text_current_user.setText(str(AvailableUserProfiles[0]))
-                self.w.lock_unlock_button.setIcon(QIcon('unlock_icon.png'))
-        else:
-            self.enable_disable_inputs(value=0) #False
-            self.w.text_current_user.setText(str(AvailableUserProfiles[1]))
-            self.w.lock_unlock_button.setIcon(QIcon('lock_icon.png'))
+# Choose an open pin connected to the Data In of the NeoPixel strip, i.e. board.D18
+# NeoPixels must be connected to D10, D12, D18 or D21 to work.
+pixel_pin = board.D18
 
-    def on_next_previous_image(self,value, debug=debugArray[8]):
-        global img_to_display_cnt
-        self.w.Start_pause_watching.setChecked(True)
-        self.on_button_press()
-        if img_to_display_cnt >= 0 and  img_to_display_cnt < img_count:
-            img_to_display_cnt = img_to_display_cnt + value
-           
-    def update_image(self, debug=debugArray[0]):
-        global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
-        if debug: print(globalImageUpdate)
-        img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
-        
-        self.w.number_of_images.setText(str(img_count).zfill(maxImagesBits))
-        if len(img_files)<1:
-            self.w.num_img.setText("No files in folder to display")
-        else:
-            if globalImageUpdate:
-                img_to_display_cnt = img_count-1 ## show latest image
-            img_to_display = img_files[img_to_display_cnt]
-            self.w.num_img.setText(img_to_display)
-            ExtendedPath = scp_path + str(img_to_display)
-            label = self.w.imglabel
-            pixmap =QPixmap(ExtendedPath)
-            label.setPixmap(pixmap)
-            label.show()
+# The number of NeoPixels
+num_pixels = 60
 
-        lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
-        ## TODO place timerupdate on separate Qtimer --> now its randomly updating.
-        current_date_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-        self.w.text_date_time.setText(str(current_date_time))
+# The order of the pixel colors - RGB or GRB. Some NeoPixels have red and green reversed!
+# For RGBW NeoPixels, simply change the ORDER to RGBW or GRBW.
+ORDER = neopixel.GRBW
 
-    def on_slider_change(self, debug=debugArray[9]):
-        global RGB_val, Brightness_value
-        # Update RGBvalue
-        Brightness_value = self.w.slider_intensity.value()
-        RGB_val[0] = self.w.slider_red.value()
-        RGB_val[1] = self.w.slider_green.value()
-        RGB_val[2] = self.w.slider_blue.value()
+pixels = neopixel.NeoPixel(
+    pixel_pin, num_pixels, brightness=0.3, auto_write=False, pixel_order=ORDER
+)
 
-    def getItem(self, slidertype, debug=debugArray[10]):  # slidertype := [intensity', 'red', 'green', 'blue']
-        global Brightness_value,RGB_val
-        items_1 = ("0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100")
-        items_2 = ("0", "25", "51", "77", "102", "128", "153", "178", "204", "229", "255")
-        items = items_1 if slidertype == "intensity" else items_2
-        item, ok = QInputDialog.getItem(self, "select input", "Enter a number", items, 0, False)
-        if ok:
-            if (slidertype == "intensity"):
-                Brightness_value = int(item)
-                self.w.slider_intensity.setValue(int(item))
-            elif (slidertype == "red"):
-                RGB_val[0] = int(item)
-                self.w.slider_red.setValue(int(item))
-            elif (slidertype == "green"):
-                RGB_val[1] = int(item)
-                self.w.slider_green.setValue(int(item))
-            elif(slidertype == "blue"):
-                RGB_val[2] = int(item)
-                self.w.slider_blue.setValue(int(item))
-            else:
-                errorMsgBit = 1
 
-if __name__ == "__main__":
-    app = QApplication([])
-    widget = visionbox()
-    widget.show()
-    sys.exit(app.exec_())
+def wheel(pos):
+    # Input a value 0 to 255 to get a color value.
+    # The colours are a transition r - g - b - back to r.
+    if pos < 0 or pos > 255:
+        r = g = b = 0
+    elif pos < 85:
+        r = int(pos * 3)
+        g = int(255 - pos * 3)
+        b = 0
+    elif pos < 170:
+        pos -= 85
+        r = int(255 - pos * 3)
+        g = 0
+        b = int(pos * 3)
+    else:
+        pos -= 170
+        r = 0
+        g = int(pos * 3)
+        b = int(255 - pos * 3)
+    return (r, g, b) if ORDER in (neopixel.RGB, neopixel.GRB) else (r, g, b, 0)
 
+
+def rainbow_cycle(wait):
+    for j in range(255):
+        for i in range(num_pixels):
+            pixel_index = (i * 256 // num_pixels) + j
+            pixels[i] = wheel(pixel_index & 255)
+        pixels.show()
+        time.sleep(wait)
+
+
+while True:
+    # Comment this line out if you have RGBW/GRBW NeoPixels
+    #pixels.fill((255, 0, 0))
+    
+    # Uncomment this line if you have RGBW/GRBW NeoPixels
+    pixels.fill((255, 0, 0, 0))
+    pixels.show()
+    time.sleep(1)
+
+    # Comment this line out if you have RGBW/GRBW NeoPixels
+    #pixels.fill((0, 255, 0))
+    # Uncomment this line if you have RGBW/GRBW NeoPixels
+    pixels.fill((0, 0, 0, 0))
+    pixels.show()
+    time.sleep(1)
+
+    # Comment this line out if you have RGBW/GRBW NeoPixels
+    #pixels.fill((0, 0, 255))
+    # Uncomment this line if you have RGBW/GRBW NeoPixels
+    # pixels.fill((0, 0, 255, 0))
+    #pixels.show()
+    #time.sleep(1)
+
+    #rainbow_cycle(0.001)  # rainbow cycle with 1ms delay per step
