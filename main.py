@@ -215,7 +215,7 @@ class visionbox(QMainWindow):
 
     def getItem(self, slidertype, debug=debugArray[10]):  # slidertype := [intensity', 'red', 'green', 'blue']
         global Brightness_value,RGB_val
-        items_1 = ("0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "105")
+        items_1 = ("0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100")
         items_2 = ("0", "25", "51", "77", "102", "128", "153", "178", "204", "229", "255")
         items = items_1 if slidertype == "intensity" else items_2
         item, ok = QInputDialog.getItem(self, "select input", "Enter a number", items, 0, False)
