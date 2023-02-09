@@ -35,6 +35,7 @@ class errorMsgHandlerClass(QMessageBox):
             #dlg = QMessageBox.question(self,"Exit program?", "Are you sure to exit the current program?", QMessageBox.Yes | QMessageBox.No)
             txt = "program is exit"
             reply = QMessageBox.question(self, 'Quit', 'Are you sure you want to quit?',  QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+            reply.setFont(QFont('Times', default_font_size_buttons))
             if reply == QMessageBox.Yes:
                 self.print_on_GUI_terminal(text_to_print="--> Program is closed!",  color='default')
                 LED_strips.__init__(self)
@@ -44,6 +45,7 @@ class errorMsgHandlerClass(QMessageBox):
     # ERROR 2: Error while exporting to ZIP
         elif errorMsgBit == 2:
             dlg = QMessageBox()
+            dlg.setFont(QFont('Times', default_font_size_buttons))
             dlg.setWindowTitle("Error")
             dlg.setText("Error occured while extracting files to ZIP?")
             self.print_on_GUI_terminal(text_to_print="Error occured while extracting files to ZIP",  color='red')

@@ -261,7 +261,7 @@ class CustomDialog(QDialog):
         QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
 
         self.buttonBox = QDialogButtonBox(QBtn)
-        self.buttonBox.setFont(QFont('Times', default_font_size))
+        self.buttonBox.setFont(QFont('Times', default_font_size_buttons))
         self.buttonBox.accepted.connect(self.accept)
         self.buttonBox.rejected.connect(self.reject)
 
