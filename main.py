@@ -261,11 +261,12 @@ class CustomDialog(QDialog):
         QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
 
         self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.setFont(QFont('Times', default_font_size))
         self.buttonBox.accepted.connect(self.accept)
         self.buttonBox.rejected.connect(self.reject)
 
         self.layout = QVBoxLayout()
-        message = QLabel("Please enter Admin Password.")
+        message = QLabel("Please enter password.")
         message.setFont(QFont('Times', default_font_size))
         self.keyinputDisplay = QLineEdit()
         font = self.keyinputDisplay.font()      # lineedit current font
