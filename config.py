@@ -28,7 +28,7 @@ Brightness_value = 50                           # Default brightness value      
 pixel_pin = board.D18
 ORDER = neopixel.GRBW
 num_pixels = 60
-max_brightness = 1;                             #[0-1]
+max_brightness = 255;                             #[0-1]
 
 pos_led_top     = np.array([20,  25])           
 pos_led_left    = np.array([30,  35])
@@ -49,7 +49,7 @@ debugArray = [      0,      # Debug 0:  update image
                     0,      # Debug 6:  on_button_press  
                     0,      # Debug 7:  on_lock_unlock_button
                     0,      # Debug 8:  on_next_previous_image
-                    1,      # Debug 9:  on_slider_change
+                    0,      # Debug 9:  on_slider_change
                     0,      # Debug 10: getItem
                     0,      # Debug 11: getAvailableImagesInFolder
                     0,      # Debug 12: lightsettingsClass.__init__
