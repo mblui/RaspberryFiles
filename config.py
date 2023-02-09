@@ -27,7 +27,7 @@ Brightness_value = int(50)                  # Default brightness value      rang
 pixel_pin = board.D18
 ORDER = neopixel.GRBW
 num_pixels = 60
-max_brightness = 255;           #[0-255]
+max_brightness = 1;                             #[0-1]
 
 pos_led_top     = [20,  25]           
 pos_led_left    = [30,  35]
