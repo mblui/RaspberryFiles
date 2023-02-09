@@ -5,10 +5,10 @@ import cv2
 import subprocess
 from showinfm import show_in_file_manager
 
-from PySide2.QtWidgets import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog
-from PySide2.QtCore import QFile, QTimer, QSize
-from PySide2.QtUiTools import QUiLoader
-from PySide2.QtGui import QPixmap, QTouchEvent
+from PySide2.QtWidgets  import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog, QGridLayout, QPushButton, QLineEdit, QDialog, QVBoxLayout, QDialogButtonBox, QTextEdit
+from PySide2.QtCore     import * #QFile, QTimer, QSize
+from PySide2.QtUiTools  import QUiLoader
+from PySide2.QtGui      import QPixmap, QTouchEvent, QIcon, QColor, QFont
 from functools import partial
 
 from config import *
@@ -31,16 +31,7 @@ class errorMsgHandlerClass(QMessageBox):
         if debug:print("Item is:", errorMsgBit, "Errorbit:", errorMsgBit, "Count:", cnt)
 
     # ERROR 1:  Program exit is pressend
-        if errorMsgBit == 1:
-            #dlg = QMessageBox.question(self,"Exit program?", "Are you sure to exit the current program?", QMessageBox.Yes | QMessageBox.No)
-            txt = "program is exit"
-            reply = QMessageBox.question(self, 'Quit', 'Are you sure you want to quit?',  QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
-            reply.setFont(QFont('Times', default_font_size_buttons))
-            if reply == QMessageBox.Yes:
-                self.print_on_GUI_terminal(text_to_print="--> Program is closed!",  color='default')
-                LED_strips.__init__(self)
-                sys.exit()
-            return errorMsgBit, True
+
 
     # ERROR 2: Error while exporting to ZIP
         elif errorMsgBit == 2:

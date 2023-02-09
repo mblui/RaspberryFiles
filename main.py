@@ -258,6 +258,7 @@ class CustomDialog(QDialog):
         super().__init__()
         self.insertedText = ""
 
+        self.setWindowTitle("")
         QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
 
         self.buttonBox = QDialogButtonBox(QBtn)
@@ -300,3 +301,4 @@ class CustomDialog(QDialog):
         if key == "del":    self.insertedText = self.insertedText[:len(self.insertedText)-1] 
         else:               self.insertedText = self.insertedText + str(key)
         self.keyinputDisplay.setText(self.insertedText)
+

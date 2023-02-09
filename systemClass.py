@@ -11,7 +11,7 @@ from showinfm import show_in_file_manager
 from PySide2.QtWidgets import QApplication, QWidget, QMessageBox, QLabel, QMainWindow, QInputDialog, QButtonGroup
 from PySide2.QtCore import QFile, QTimer, QSize
 from PySide2.QtUiTools import QUiLoader
-from PySide2.QtGui import QPixmap, QTouchEvent
+from PySide2.QtGui import QPixmap, QTouchEvent, QFont
 from functools import partial
 import time
 
@@ -24,7 +24,12 @@ from main                   import *
 class systemClass(QMessageBox):
     ## --- --- Exit Program  --- --- --- ---
     def ExitProgram(self):
-        errorMsgHandlerClass.errorMsgHandler(self,errorMsgBit=1) 
+        exit = ExitDialog()
+        returnvalue = exit.exec() 
+        if returnvalue:
+                self.print_on_GUI_terminal(text_to_print="--> Program is closed!",  color='default')
+                LED_strips.__init__(self)
+                sys.exit()
 
     ###############################################################################################
     ## Get available images in folder and sort
@@ -67,3 +72,24 @@ class systemClass(QMessageBox):
         img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
         print("Export of ZIP succesfull!, name = " + str(name))
         self.print_on_GUI_terminal(text_to_print="Export of ZIP succesfull!, name = " + str(name),  color='green') 
+
+
+class ExitDialog(QDialog):
+    def __init__(self):
+        global insertedText
+        super().__init__()
+
+        self.setWindowTitle("Quit")
+        QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.setFont(QFont('Times', default_font_size_buttons))
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
+
+        self.layout = QVBoxLayout()
+        message = QLabel("Are you sure you want to quit?")
+        message.setFont(QFont('Times', default_font_size))
+        self.layout.addWidget(message)
+        self.layout.addWidget(self.buttonBox)
+        self.setLayout(self.layout)
