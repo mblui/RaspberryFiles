@@ -10,7 +10,8 @@ from config import *
 
 class LED_strips:
     def __init__(self):
-        global pixels
+        global pixels, val
+        val=[0,0,0,0]
         pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=1, auto_write=False, pixel_order=ORDER)
         ## Turn off pixels by default
         pixels.fill((0, 0, 0, 0))       ## WRGB
@@ -18,7 +19,7 @@ class LED_strips:
         time.sleep(0.1)
     
     def apply_signal_to_leds(self, inputMatrix, RGB_val, brightness_val, debug=debugArray[15]):
-        global pixels
+        global pixels, val
         #if previous == current 
         #    doNothing = 1
         #    time.sleep(0.5)
