@@ -223,7 +223,8 @@ class visionbox(QMainWindow):
         if ok:
             if (slidertype == "intensity"):
                 Brightness_value = int(item)
-                self.w.slider_intensity.setValue(Brightness_value)
+                print("1234", Brightness_value)
+                self.w.slider_intensity.setValue(int(Brightness_value))
             elif (slidertype == "red"):
                 RGB_val[0] = int(item)
                 self.w.slider_red.setValue(int(item))
