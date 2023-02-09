@@ -234,7 +234,7 @@ class visionbox(QMainWindow):
                 self.w.slider_blue.setValue(int(item))
             else:
                 errorMsgBit = 1
-            LED_strips.apply_signal_to_leds(self, inputMatrix=lightInputs,RGB_val=RGB_val,brightness_val=Brightness_value)        
+            self.on_slider_change()
 
 
 ###############################################
