@@ -266,9 +266,10 @@ class CustomDialog(QDialog):
 
         self.layout = QVBoxLayout()
         message = QLabel("Please enter Admin Password.")
+        message.setFont(QFont('Times', default_font_size))
         self.keyinputDisplay = QLineEdit()
         font = self.keyinputDisplay.font()      # lineedit current font
-        font.setPointSize(15)               # change it's size
+        font.setPointSize(default_font_size)               # change it's size
         self.keyinputDisplay.setReadOnly(True)
         self.layout.addWidget(self.keyinputDisplay)
         self.layout.addWidget(message)
@@ -286,7 +287,7 @@ class CustomDialog(QDialog):
         for row, keys in enumerate(keyBoard):
             for col, key in enumerate(keys):
                 self.buttonMap[key] = QPushButton(key)
-                self.buttonMap[key].setFont(QFont('Times', 20))
+                self.buttonMap[key].setFont(QFont('Times', default_font_size))
                 self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
                 buttonsLayout.addWidget(self.buttonMap[key], row, col)
                 self.buttonMap[key].clicked.connect(partial(self.show_inserted_text, key))

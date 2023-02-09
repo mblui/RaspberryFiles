@@ -10,7 +10,7 @@ scp_path =  dir_path + "SCP_images/"
 
 ## Set main window size
 windowsize = np.array([1920, 900, 0])     # [width,heights, Fullsize = 1/0]
-
+default_font_size = 20
 ## Set update FPSdf
 updatefps = 3
 
