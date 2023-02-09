@@ -199,6 +199,7 @@ class visionbox(QMainWindow):
             pixmap =QPixmap(ExtendedPath)
             label.setPixmap(pixmap)
             label.show()
+        print("12121121", Brightness_value)
         if Brightness_value >= 99:          ## Workaround
             Brightness_value == 100 
         
