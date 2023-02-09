@@ -1351,10 +1351,10 @@ QSlider::groove:horizontal:disabled {
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>880</y>
-     <width>821</width>
-     <height>131</height>
+     <x>440</x>
+     <y>810</y>
+     <width>1051</width>
+     <height>61</height>
     </rect>
    </property>
   </widget>
