@@ -199,7 +199,8 @@ class visionbox(QMainWindow):
             pixmap =QPixmap(ExtendedPath)
             label.setPixmap(pixmap)
             label.show()
-        print("123", self.w.slider_intensity.value())
+        if Brightness_value >= 99:          ## Workaround
+            Brightness_value == 100 
         
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
         current_date_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
@@ -236,6 +237,7 @@ class visionbox(QMainWindow):
                 self.w.slider_blue.setValue(int(item))
             else:
                 errorMsgBit = 1
+            uselessVariable = 1
             self.on_slider_change()
 
 
