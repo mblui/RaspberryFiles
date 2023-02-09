@@ -147,7 +147,7 @@ class visionbox(QMainWindow):
         lightInputs[2][2] = self.w.check_Right_White.isChecked()
         if debug: print(lightInputs)
         LED_strips.apply_signal_to_leds(self, inputMatrix=lightInputs,RGB_val=RGB_val,brightness_val=Brightness_value)        
-        
+
     def openFolder(self, debug=debugArray[5]):
         show_in_file_manager(scp_path)
 
@@ -244,6 +244,7 @@ class visionbox(QMainWindow):
                 self.w.slider_blue.setValue(int(item))
             else:
                 errorMsgBit = 1
+            LED_strips.apply_signal_to_leds(self, inputMatrix=lightInputs,RGB_val=RGB_val,brightness_val=Brightness_value)        
 
 if __name__ == "__main__":
     app = QApplication([])
