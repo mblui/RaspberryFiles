@@ -2,13 +2,14 @@ from PySide2.QtGui      import QColor
 import time
 import board
 import neopixel
+import numpy as np
 ## ------------------------------ Inputs ------------------------------
 # Set Path directories 
 dir_path =  r'/home/dgslr/ProgramFiles/'
 scp_path =  dir_path + "SCP_images/"
 
 ## Set main window size
-windowsize = [1920, 900, 0]     # [width,heights, Fullsize = 1/0]
+windowsize = np.array([1920, 900, 0])     # [width,heights, Fullsize = 1/0]
 
 ## Set update FPSdf
 updatefps = 3
@@ -22,16 +23,16 @@ color_red       = QColor(255,0,0)
 color_black     = QColor(0,0,0)
 color_default   = QColor(0,0,0)
 # Led light related variables
-RGB_val= [0,0,0]                                # Default RGB value             range: [0-255]
+RGB_val= np.array([0,0,0])                                # Default RGB value             range: [0-255]
 Brightness_value = 50                           # Default brightness value      range: [0-50]%
 pixel_pin = board.D18
 ORDER = neopixel.GRBW
 num_pixels = 60
 max_brightness = 1;                             #[0-1]
 
-pos_led_top     = [20,  25]           
-pos_led_left    = [30,  35]
-pos_led_right   = [40,  45]
+pos_led_top     = np.array([20,  25])           
+pos_led_left    = np.array([30,  35])
+pos_led_right   = np.array([40,  45])
 max_pixels_manual = 60
 num_pixels = 60 #min (max(pos_led_top, pos_led_left, pos_led_right),  max_pixels_manual)
 
@@ -80,6 +81,6 @@ img_files = 0                               # sorted list of images
 globalImageUpdate = False                   # (Afterwards managable via start/pause/previous/next buttons)
 
 # Object to pass to LED (range [0-1])                      Top:    Left:   Right:
-lightInputs = [ [0,     0,      0],         # Enable:       X       X       X                   
-                [0,     0,      0],         # RGB:          X       X       X
-                [0,     0,      0]]         # White:        X       X       X    
+lightInputs =np.array([ [0,     0,      0],         # Enable:       X       X       X                   
+                        [0,     0,      0],         # RGB:          X       X       X
+                        [0,     0,      0]])        # White:        X       X       X    
