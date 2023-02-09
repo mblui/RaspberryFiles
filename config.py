@@ -22,8 +22,8 @@ color_red       = QColor(255,0,0)
 color_black     = QColor(0,0,0)
 color_default   = QColor(0,0,0)
 # Led light related variables
-RGB_val= [0,0,0]                            # Default RGB value             range: [0-255]
-Brightness_value = int(50)                  # Default brightness value      range: [0-100]
+RGB_val= float[0,0,0]                            # Default RGB value             range: [0-1]
+Brightness_value = float(0.5)                  # Default brightness value      range: [0-1]
 pixel_pin = board.D18
 ORDER = neopixel.GRBW
 num_pixels = 60

@@ -32,7 +32,7 @@ class LED_strips:
             val[1]      = int(      inputMatrix[0][0]   * inputMatrix[0][1]     * RGB_val[1]                        *   max_brightness)          # Green Setpoint 
             val[2]      = int(      inputMatrix[0][0]   * inputMatrix[0][1]     * RGB_val[2]                        *   max_brightness)          # Blue  Setpoint
             val[3]      = int(      inputMatrix[0][0]   * inputMatrix[0][2]     * brightness_val    * (255/100)     *   max_brightness)          # Brightness Setpoint
-            pixels[i] = (val[0],val[1],val[2],val[3])         ## WRGB
+            #pixels[i] = (val[0],val[1],val[2],val[3])         ## WRGB
         if debug: print("Setpointvalues Top, RGB: [{0},{1},{2}], Brightness: [{3}]".format(val[0],val[1],val[2],val[3]))
                 
         ## Set light for left led panel
@@ -42,7 +42,7 @@ class LED_strips:
             val[1]      = int(      inputMatrix[1][0]   * inputMatrix[1][1]     * RGB_val[1]                        *   max_brightness)          # Green Setpoint 
             val[2]      = int(      inputMatrix[1][0]   * inputMatrix[1][1]     * RGB_val[2]                        *   max_brightness)          # Blue  Setpoint
             val[3]      = int(      inputMatrix[1][0]   * inputMatrix[1][2]     * brightness_val    * (255/100)     *   max_brightness)          # Brightness Setpoint
-            pixels[i] = (val[0],val[1],val[2],val[3])         ## WRGB
+            #pixels[i] = (val[0],val[1],val[2],val[3])         ## WRGB
         if debug: print("Setpointvalues Top, RGB: [{0},{1},{2}], Brightness: [{3}]".format(val[0],val[1],val[2],val[3]))
                 
         ## Set light for right led panel
@@ -51,8 +51,8 @@ class LED_strips:
             val[0]      = int(      inputMatrix[2][0]   * inputMatrix[2][1]     * RGB_val[0]                        *   max_brightness)          # Red   Setpoint
             val[1]      = int(      inputMatrix[2][0]   * inputMatrix[2][1]     * RGB_val[1]                        *   max_brightness)          # Green Setpoint 
             val[2]      = int(      inputMatrix[2][0]   * inputMatrix[2][1]     * RGB_val[2]                        *   max_brightness)          # Blue  Setpoint
-            val[3]      = int(      inputMatrix[2][0]   * inputMatrix[2][2]     * brightness_val    * (255/100)     *   max_brightness)          # Brightness Setpoint
-            pixels[i] = (val[0],val[1],val[2],val[3])         ## WRGB
+            val[3]      = int(      inputMatrix[2][0]   * inputMatrix[2][2]     * brightness_val    * (1/100)       *   max_brightness)          # Brightness Setpoint
+            #pixels[i] = (val[0],val[1],val[2],val[3])         ## WRGB
         if debug: print("Setpointvalues Top, RGB: [{0},{1},{2}], Brightness: [{3}]".format(val[0],val[1],val[2],val[3]))
                 
         pixels.show()
