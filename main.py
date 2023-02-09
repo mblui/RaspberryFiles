@@ -199,7 +199,7 @@ class visionbox(QMainWindow):
             pixmap =QPixmap(ExtendedPath)
             label.setPixmap(pixmap)
             label.show()
-        print(Brightness_value)
+        #print(Brightness_value)
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
         current_date_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         self.w.text_date_time.setText(str(current_date_time))
