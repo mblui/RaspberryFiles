@@ -47,7 +47,7 @@ debugArray = [      0,      # Debug 0:  update image
                     0,      # Debug 6:  on_button_press  
                     0,      # Debug 7:  on_lock_unlock_button
                     0,      # Debug 8:  on_next_previous_image
-                    0,      # Debug 9:  on_slider_change
+                    1,      # Debug 9:  on_slider_change
                     0,      # Debug 10: getItem
                     0,      # Debug 11: getAvailableImagesInFolder
                     0,      # Debug 12: lightsettingsClass.__init__

@@ -170,7 +170,7 @@ class visionbox(QMainWindow):
             unlock = CustomDialog()
             returnvalue = unlock.exec() 
             if returnvalue and unlock.insertedText == Password_admin:
-                self.print_on_GUI_terminal(text_to_print="Succesfull change of admin rights!",  color='green') 
+                self.print_on_GUI_terminal(text_to_print="Succesfull change of admin rights! --> DGS Admin",  color='green') 
                 self.enable_disable_inputs(value=1) #True
                 self.w.text_current_user.setText(str(AvailableUserProfiles[0]))
                 self.w.lock_unlock_button.setIcon(QIcon('unlock_icon.png'))
@@ -181,7 +181,8 @@ class visionbox(QMainWindow):
             self.enable_disable_inputs(value=0) #False
             self.w.text_current_user.setText(str(AvailableUserProfiles[1]))
             self.w.lock_unlock_button.setIcon(QIcon('lock_icon.png'))
-
+            self.print_on_GUI_terminal(text_to_print="Succesfull change of admin rights! --> View-Only",  color='green') 
+    
     def on_next_previous_image(self,value, debug=debugArray[8]):
         global img_to_display_cnt
         self.w.Start_pause_watching.setChecked(True)
@@ -215,7 +216,7 @@ class visionbox(QMainWindow):
 
     def on_slider_change(self, debug=debugArray[9]):
         global RGB_val, Brightness_value
-        # Update RGBvalue
+        if debug: print("RGB value: [{0},{0},{0}]. Brightness value: {0}]".format(RGB_val[0], RGB_val[2],RGB_val[2], Brightness_value))
         Brightness_value = self.w.slider_intensity.value()
         RGB_val[0] = self.w.slider_red.value()
         RGB_val[1] = self.w.slider_green.value()
