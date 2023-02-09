@@ -17,7 +17,7 @@ class LED_strips:
         pixels.show()
         time.sleep(0.1)
     
-    def apply_signal_to_leds(self, inputMatrix):
+    def apply_signal_to_leds(self, inputMatrix, RGB_val, brightness_val, debug=debugArray[15]):
         global pixels
         #if previous == current 
         #    doNothing = 1
@@ -26,7 +26,12 @@ class LED_strips:
 
         ## Set light for main/top panel
         for i in range(pos_led_top[0],pos_led_top[1]):
-            val = int(inputMatrix[0][0]*150)
+            # Val[i] = integer (enable/diable    *   R/G/B val   *   maximum_brightness)
+            val[0] = int(inputMatrix[0][0]  *   RGB_val[0]      *   max_brightness)          # Red   Setpoint
+            val[1] = int(inputMatrix[0][0]  *   RGB_val[1]      *   max_brightness)          # Green Setpoint 
+            val[2] = int(inputMatrix[0][0]  *   RGB_val[2]      *   max_brightness)          # Blue  Setpoint
+            val[3] = int(inputMatrix[0][0]  *   brightness_val  *   max_brightness)          # Brightness Setpoint
+            if debug: print("Setpointvalues, RGB: [{0},{1},{2}], Brightness: [{3}]".format(RGB_val[0],RGB_val[1],RGB_val[2],brightness_val))
             pixels[i] = (0,0,0,val)         ## WRGB
             
         ## Set light for left led panel

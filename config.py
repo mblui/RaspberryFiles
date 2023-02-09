@@ -27,6 +27,7 @@ Brightness_value = int(50)                  # Default brightness value      rang
 pixel_pin = board.D18
 ORDER = neopixel.GRBW
 num_pixels = 60
+max_brightness = 255;           #[0-255]
 
 pos_led_top     = [20,  25]           
 pos_led_left    = [30,  35]
@@ -53,7 +54,7 @@ debugArray = [      0,      # Debug 0:  update image
                     0,      # Debug 12: lightsettingsClass.__init__
                     0,      # Debug 13: lightsettingsClass.lightsettings
                     0,      # Debug 14: print_on_GUI_terminal  
-                    0,      # Debug 15:   
+                    1,      # Debug 15: apply_signal_to_leds
                     0,      # Debug 16:   
                     0,      # Debug 17:   
                     0,      # Debug 18:   
