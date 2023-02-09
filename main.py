@@ -146,7 +146,7 @@ class visionbox(QMainWindow):
         lightInputs[1][2] = self.w.check_Left_White.isChecked()
         lightInputs[2][2] = self.w.check_Right_White.isChecked()
         if debug: print(lightInputs)
-        LED_strips.apply_signal_to_leds(self, lightInputs)
+        LED_strips.apply_signal_to_leds(self, inputMatrix=lightInputs,RGB_val=RGB_val,brightness_val=Brightness_value)        
         
     def openFolder(self, debug=debugArray[5]):
         show_in_file_manager(scp_path)
