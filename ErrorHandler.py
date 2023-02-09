@@ -15,7 +15,7 @@ from config import *
 from LED_strips import *
 # Error message bits
 # 0     =   no error
-# 1     =   Exit program 1
+# 1     =   
 # 2     =   ...
 # 3     =   ...
 # 4     =   ...
@@ -36,7 +36,7 @@ class errorMsgHandlerClass(QMessageBox):
     # ERROR 2: Error while exporting to ZIP
         elif errorMsgBit == 2:
             dlg = QMessageBox()
-            dlg.setFont(QFont('Times', default_font_size_buttons))
+            #dlg.setFont(QFont('Times', default_font_size_buttons))
             dlg.setWindowTitle("Error")
             dlg.setText("Error occured while extracting files to ZIP?")
             self.print_on_GUI_terminal(text_to_print="Error occured while extracting files to ZIP",  color='red')

@@ -74,6 +74,11 @@ class systemClass(QMessageBox):
         self.print_on_GUI_terminal(text_to_print="Export of ZIP succesfull!, name = " + str(name),  color='green') 
 
 
+
+###############################################################################################
+## Dialog for Make archive of images                          
+###############################################################################################
+
 class ExitDialog(QDialog):
     def __init__(self):
         global insertedText

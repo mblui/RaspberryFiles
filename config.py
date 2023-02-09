@@ -12,9 +12,9 @@ scp_path =  dir_path + "SCP_images/"
 windowsize = np.array([1920, 900, 0])     # [width,heights, Fullsize = 1/0]
 default_font_size = 18
 default_font_size_buttons = 14
+
 ## Set update FPS
 updatefps = 3
-
 
 ## Define user/Admin settings
 AvailableUserProfiles = ["DGS admin", "View only"]
@@ -23,19 +23,19 @@ color_green     = QColor(0,153,0)
 color_red       = QColor(255,0,0)
 color_black     = QColor(0,0,0)
 color_default   = QColor(0,0,0)
+
 # Led light related variables
-RGB_val= np.array([0,0,0])                                # Default RGB value             range: [0-255]
+RGB_val= np.array([0,0,0])                      # Default RGB value             range: [0-255]
 Brightness_value = 50                           # Default brightness value      range: [0-50]%
 pixel_pin = board.D18
 ORDER = neopixel.GRBW
 num_pixels = 60
-max_brightness = 255;                             #[0-1]
+max_brightness = 255;                           # Range [0-1]
 
 pos_led_top     = np.array([20,  25])           
 pos_led_left    = np.array([30,  35])
 pos_led_right   = np.array([40,  45])
 max_pixels_manual = 60
-num_pixels = 60 #min (max(pos_led_top, pos_led_left, pos_led_right),  max_pixels_manual)
 
 
 # Define maximum allowed number of images
@@ -56,7 +56,7 @@ debugArray = [      0,      # Debug 0:  update image
                     0,      # Debug 12: lightsettingsClass.__init__
                     0,      # Debug 13: lightsettingsClass.lightsettings
                     0,      # Debug 14: print_on_GUI_terminal  
-                    1,      # Debug 15: apply_signal_to_leds
+                    0,      # Debug 15: apply_signal_to_leds
                     0,      # Debug 16:   
                     0,      # Debug 17:   
                     0,      # Debug 18:   

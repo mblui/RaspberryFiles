@@ -34,7 +34,6 @@ from systemClass        import *    #   Defines general system fuctions
 #from main               import *
 from LED_strips         import *
 
-from functools import partial
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
         # global img_files, img_count, globalImageUpdate
@@ -53,7 +52,6 @@ class visionbox(QMainWindow):
         ui_file.close()
         self.print_on_GUI_terminal(text_to_print="--> Program is started!",  color='default')
         
-
         # Initial count number of images
         img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
 
@@ -69,7 +67,7 @@ class visionbox(QMainWindow):
         self.w.lock_unlock_button.clicked.connect(self.on_lock_unlock_button)
         self.w.lock_unlock_button.setCheckable(True)
 
-        # Initialise 
+        # Initialise LED strips 
         lightsettingsClass.__init__(self)       #   Link buttons and sliders to functions
         LED_strips.__init__(self)               #   Send initial command to LED strips
         self.on_button_press()                  #   Initialse start/pause button
@@ -87,6 +85,7 @@ class visionbox(QMainWindow):
         self.w.textBrowser.setReadOnly(True)
         current_date_time = str(datetime.now().strftime("%d/%m/%Y   %H:%M:%S"))
         message = current_date_time + "  " + str(text_to_print)
+        
         # Set colors      
         if      color == 'r' or color =='red':      self.w.textBrowser.setTextColor(color_red)
         elif    color == 'g' or color =='green':    self.w.textBrowser.setTextColor(color_green)
@@ -98,15 +97,9 @@ class visionbox(QMainWindow):
             file.write("\n")
             file.write(message)
         
-
     def enable_disable_inputs(self, value, debug=debugArray[3]):
         self.w.button_openImageFolder.setEnabled(value)
-        #self.w.button_ExitProgram.setEnabled(False)
-        #self.w.lock_unlock_button.setEnabled(False)
-        #self.w.Start_pause_watching.setEnabled(value)
         self.w.button_ExportFilesZIP.setEnabled(value)
-        #self.w.button_previous_img.setEnabled(value)
-        #self.w.button_next_img.setEnabled(value)
         self.w.check_Top_Enable.setEnabled(value)
         self.w.check_Left_Enable.setEnabled(value)
         self.w.check_Right_Enable.setEnabled(value)
@@ -162,8 +155,6 @@ class visionbox(QMainWindow):
             self.w.Start_pause_watching.setIcon(QIcon('pause_icon.png'))
             globalImageUpdate = True
         
-
-
     def on_lock_unlock_button(self,debug=debugArray[7]):
         #global insertedText
         if self.w.lock_unlock_button.isChecked():
@@ -210,7 +201,6 @@ class visionbox(QMainWindow):
             label.show()
 
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
-        ## TODO place timerupdate on separate Qtimer --> now its randomly updating.
         current_date_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         self.w.text_date_time.setText(str(current_date_time))
 
@@ -246,12 +236,21 @@ class visionbox(QMainWindow):
                 errorMsgBit = 1
             LED_strips.apply_signal_to_leds(self, inputMatrix=lightInputs,RGB_val=RGB_val,brightness_val=Brightness_value)        
 
+
+###############################################
+## Main program 
+###############################################
+
 if __name__ == "__main__":
     app = QApplication([])
     widget = visionbox()
     widget.show()
     sys.exit(app.exec_())
 
+
+###############################################
+## Custom dialog for password input
+###############################################
 class CustomDialog(QDialog):
     def __init__(self):
         global insertedText
