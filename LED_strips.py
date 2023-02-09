@@ -32,18 +32,18 @@ class LED_strips:
             val[1] = int(inputMatrix[0][0]  *   RGB_val[1]      *   max_brightness)          # Green Setpoint 
             val[2] = int(inputMatrix[0][0]  *   RGB_val[2]      *   max_brightness)          # Blue  Setpoint
             val[3] = int(inputMatrix[0][0]  *   brightness_val  *   max_brightness)          # Brightness Setpoint
-            if debug: print("Setpointvalues, RGB: [{0},{1},{2}], Brightness: [{3}]".format(RGB_val[0],RGB_val[1],RGB_val[2],brightness_val))
-            pixels[i] = (0,0,0,val)         ## WRGB
+            if debug: print("Setpointvalues, RGB: [{0},{1},{2}], Brightness: [{3}]".format(val[0],val[1],val[2],val[3]))
+            pixels[i] = (0,0,0,val[3])         ## WRGB
             
         ## Set light for left led panel
         for i in range(pos_led_left[0],pos_led_left[1]):
-            val = int(inputMatrix[1][0]*150)
-            pixels[i] = (0,0, 0, val)         ## WRGB
+            val[3] = int(inputMatrix[1][0]*150)
+            pixels[i] = (0,0, 0, val[3])         ## WRGB
             
         ## Set light for right led panel
         for i in range(pos_led_right[0],pos_led_right[1]):
-            val = int(inputMatrix[2][0]*150)
-            pixels[i] = (0,0,0,val)         ## WRGB
+            val[3] = int(inputMatrix[2][0]*150)
+            pixels[i] = (0,0,0,val[3])         ## WRGB
             
 
         # Comment this line out if you have RGBW/GRBW NeoPixels
