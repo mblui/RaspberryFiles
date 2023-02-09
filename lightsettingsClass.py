@@ -85,7 +85,7 @@ class lightsettingsClass:
         self.w.SliderVal_but_text_green.clicked.connect(partial(self.getItem,"green"))
         self.w.SliderVal_but_text_blue.clicked.connect(partial(self.getItem,"blue"))
 
-    def lightsettings(self, debug=debugArray[13], RGB_value = [0,0,0], Brightness = 0.1):
+    def lightsettings(self, debug=debugArray[13], RGB_value = [0,0,0], Brightness = 50):
                 ## Settings of sliders
             ## Slider Red value
         self.w.SliderVal_but_text_red.setText(str(RGB_value[0]))

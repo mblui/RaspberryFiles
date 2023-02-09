@@ -216,11 +216,11 @@ class visionbox(QMainWindow):
 
     def on_slider_change(self, debug=debugArray[9]):
         global RGB_val, Brightness_value
-        Brightness_value = self.w.slider_intensity.value()/100
+        Brightness_value = self.w.slider_intensity.value()
         RGB_val[0] = self.w.slider_red.value()
         RGB_val[1] = self.w.slider_green.value()
         RGB_val[2] = self.w.slider_blue.value()
-        if debug: print("RGB value: [{0},{1},{2}]. Brightness value: [{:3.2f}]".format(RGB_val[0], RGB_val[1],RGB_val[2], Brightness_value))
+        if debug: print("RGB value: [{0},{1},{2}]. Brightness value: [{3}]".format(RGB_val[0], RGB_val[1],RGB_val[2], Brightness_value))
         LED_strips.apply_signal_to_leds(self, inputMatrix=lightInputs,RGB_val=RGB_val,brightness_val=Brightness_value)
 
     def getItem(self, slidertype, debug=debugArray[10]):  # slidertype := [intensity', 'red', 'green', 'blue']
@@ -231,7 +231,7 @@ class visionbox(QMainWindow):
         item, ok = QInputDialog.getItem(self, "select input", "Enter a number", items, 0, False)
         if ok:
             if (slidertype == "intensity"):
-                Brightness_value = float(item/100)
+                Brightness_value = int(item)
                 self.w.slider_intensity.setValue(int(item))
             elif (slidertype == "red"):
                 RGB_val[0] = int(item)
