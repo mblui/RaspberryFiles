@@ -27,43 +27,45 @@ class LED_strips:
 
         ## Set light for main/top panel
         for i in range(pos_led_top[0],pos_led_top[1]):
-            # Val[i] = integer (enable/diable    *   R/G/B val   *   maximum_brightness)
-            val[0] = int(inputMatrix[0][0]  *   RGB_val[0]                  *   max_brightness)          # Red   Setpoint
-            val[1] = int(inputMatrix[0][0]  *   RGB_val[1]                  *   max_brightness)          # Green Setpoint 
-            val[2] = int(inputMatrix[0][0]  *   RGB_val[2]                  *   max_brightness)          # Blue  Setpoint
-            val[3] = int(inputMatrix[0][0]  *   brightness_val  *(255/100)  *   max_brightness)          # Brightness Setpoint
-            pixels[i] = (0,0,0,val[3])         ## WRGB
+            # Val[i]    = integer ( enable/diable       * RGB/white             * R/G/B val         *  Mapping      *   maximum_brightness)
+            val[0]      = int(      inputMatrix[0][0]   * inputMatrix[0][1]     * RGB_val[0]                        *   max_brightness)          # Red   Setpoint
+            val[1]      = int(      inputMatrix[0][0]   * inputMatrix[0][1]     * RGB_val[1]                        *   max_brightness)          # Green Setpoint 
+            val[2]      = int(      inputMatrix[0][0]   * inputMatrix[0][1]     * RGB_val[2]                        *   max_brightness)          # Blue  Setpoint
+            val[3]      = int(      inputMatrix[0][0]   * inputMatrix[0][2]     * brightness_val    * (255/100)     *   max_brightness)          # Brightness Setpoint
+            pixels[i] = (val[0],val[1],val[2],val[3])         ## WRGB
         if debug: print("Setpointvalues Top, RGB: [{0},{1},{2}], Brightness: [{3}]".format(val[0],val[1],val[2],val[3]))
                 
         ## Set light for left led panel
         for i in range(pos_led_left[0],pos_led_left[1]):
-            val[0] = int(inputMatrix[1][0]  *   RGB_val[0]                  *   max_brightness)          # Red   Setpoint
-            val[1] = int(inputMatrix[1][0]  *   RGB_val[1]                  *   max_brightness)          # Green Setpoint 
-            val[2] = int(inputMatrix[1][0]  *   RGB_val[2]                  *   max_brightness)          # Blue  Setpoint
-            val[3] = int(inputMatrix[1][0]  *   brightness_val  *(255/100)  *   max_brightness)          # Brightness Setpoint
-            pixels[i] = (0,0,0,val[3])         ## WRGB
-        if debug: print("Setpointvalues Left, RGB: [{0},{1},{2}], Brightness: [{3}]".format(val[0],val[1],val[2],val[3]))
-            
+            # Val[i]    = integer ( enable/diable       * RGB/white             * R/G/B val         *  Mapping      *   maximum_brightness)
+            val[0]      = int(      inputMatrix[1][0]   * inputMatrix[1][1]     * RGB_val[0]                        *   max_brightness)          # Red   Setpoint
+            val[1]      = int(      inputMatrix[1][0]   * inputMatrix[1][1]     * RGB_val[1]                        *   max_brightness)          # Green Setpoint 
+            val[2]      = int(      inputMatrix[1][0]   * inputMatrix[1][1]     * RGB_val[2]                        *   max_brightness)          # Blue  Setpoint
+            val[3]      = int(      inputMatrix[1][0]   * inputMatrix[1][2]     * brightness_val    * (255/100)     *   max_brightness)          # Brightness Setpoint
+            pixels[i] = (val[0],val[1],val[2],val[3])         ## WRGB
+        if debug: print("Setpointvalues Top, RGB: [{0},{1},{2}], Brightness: [{3}]".format(val[0],val[1],val[2],val[3]))
+                
         ## Set light for right led panel
         for i in range(pos_led_right[0],pos_led_right[1]):
-            val[0] = int(inputMatrix[2][0]  *   RGB_val[0]                  *   max_brightness)          # Red   Setpoint
-            val[1] = int(inputMatrix[2][0]  *   RGB_val[1]                  *   max_brightness)          # Green Setpoint 
-            val[2] = int(inputMatrix[2][0]  *   RGB_val[2]                  *   max_brightness)          # Blue  Setpoint
-            val[3] = int(inputMatrix[2][0]  *   brightness_val  *(255/100)  *   max_brightness)          # Brightness Setpoint
-            pixels[i] = (0,0,0,val[3])         ## WRGB
-        if debug: print("Setpointvalues Right, RGB: [{0},{1},{2}], Brightness: [{3}]".format(val[0],val[1],val[2],val[3]))
-        # Comment this line out if you have RGBW/GRBW NeoPixels
-        #pixels.fill((0, 255, 0))
-        # Uncomment this line if you have RGBW/GRBW NeoPixels
-        #pixels.fill((0, 0, 0, 0))
+            # Val[i]    = integer ( enable/diable       * RGB/white             * R/G/B val         *  Mapping      *   maximum_brightness)
+            val[0]      = int(      inputMatrix[2][0]   * inputMatrix[2][1]     * RGB_val[0]                        *   max_brightness)          # Red   Setpoint
+            val[1]      = int(      inputMatrix[2][0]   * inputMatrix[2][1]     * RGB_val[1]                        *   max_brightness)          # Green Setpoint 
+            val[2]      = int(      inputMatrix[2][0]   * inputMatrix[2][1]     * RGB_val[2]                        *   max_brightness)          # Blue  Setpoint
+            val[3]      = int(      inputMatrix[2][0]   * inputMatrix[2][2]     * brightness_val    * (255/100)     *   max_brightness)          # Brightness Setpoint
+            pixels[i] = (val[0],val[1],val[2],val[3])         ## WRGB
+        if debug: print("Setpointvalues Top, RGB: [{0},{1},{2}], Brightness: [{3}]".format(val[0],val[1],val[2],val[3]))
+                
         pixels.show()
         time.sleep(0.1)
 
-        # Comment this line out if you have RGBW/GRBW NeoPixels
-        #pixels.fill((0, 0, 255))
-        # Uncomment this line if you have RGBW/GRBW NeoPixels
-        # pixels.fill((0, 0, 255, 0))
-        #pixels.show()
-        #time.sleep(1)
+# Uncomment this line if you have RGBW/GRBW NeoPixels
+# pixels.fill((0, 0, 255, 0))
+# pixels.show()
+# time.sleep(1)
 
-        #rainbow_cycle(0.001)  # rainbow cycle with 1ms delay per step
+#rainbow_cycle(0.001)  # rainbow cycle with 1ms delay per step
+
+# Object to pass to LED (range [0-1])                      Top:    Left:   Right:
+# lightInputs = [ [0,     0,      0],         # Enable:       X       X       X                   
+#                 [0,     0,      0],         # RGB:          X       X       X
+#                 [0,     0,      0]]         # White:        X       X       X    
