@@ -258,7 +258,7 @@ class CustomDialog(QDialog):
         super().__init__()
         self.insertedText = ""
 
-        self.setWindowTitle("Virtual Keyboard")
+        #self.setWindowTitle("Virtual Keyboard")
 
         QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
 
@@ -267,8 +267,10 @@ class CustomDialog(QDialog):
         self.buttonBox.rejected.connect(self.reject)
 
         self.layout = QVBoxLayout()
-        message = QLabel("Something happened, is that OK?")
+        message = QLabel("Please enter Admin Password.")
         self.keyinputDisplay = QLineEdit()
+        font = self.keyinputDisplay.font()      # lineedit current font
+        font.setPointSize(15)               # change it's size
         self.keyinputDisplay.setReadOnly(True)
         self.layout.addWidget(self.keyinputDisplay)
         self.layout.addWidget(message)
@@ -286,6 +288,7 @@ class CustomDialog(QDialog):
         for row, keys in enumerate(keyBoard):
             for col, key in enumerate(keys):
                 self.buttonMap[key] = QPushButton(key)
+                self.buttonMap[key].setFont(QFont('Times', 15))
                 self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
                 buttonsLayout.addWidget(self.buttonMap[key], row, col)
                 self.buttonMap[key].clicked.connect(partial(self.showww, key))
