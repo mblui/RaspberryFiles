@@ -199,9 +199,6 @@ class visionbox(QMainWindow):
             pixmap =QPixmap(ExtendedPath)
             label.setPixmap(pixmap)
             label.show()
-        print("12121121", Brightness_value)
-        if Brightness_value >= 99:          ## Workaround
-            Brightness_value == 100 
         
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
         current_date_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
@@ -218,7 +215,7 @@ class visionbox(QMainWindow):
 
     def getItem(self, slidertype, debug=debugArray[10]):  # slidertype := [intensity', 'red', 'green', 'blue']
         global Brightness_value,RGB_val
-        items_1 = ("0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100")
+        items_1 = ("0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "101")
         items_2 = ("0", "25", "51", "77", "102", "128", "153", "178", "204", "229", "255")
         items = items_1 if slidertype == "intensity" else items_2
         item, ok = QInputDialog.getItem(self, "select input", "Enter a number", items, 0, False)
