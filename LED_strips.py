@@ -20,9 +20,11 @@ class LED_strips:
     
     def apply_signal_to_leds(self, inputMatrix, RGB_val, brightness_val, debug=debugArray[15]):
         global pixels, val
-        RGB_val_float = RGB_val.astype(np.float32)
+        ## Scale inputs to [0-1]
+        RGB_val_float = (1/255)*RGB_val.astype(np.float32)
         brightness_val_float = float(brightness_val/100)
         print("RGB_val_float", RGB_val_float,  "brightness_val_float", brightness_val_float)
+
         #if previous == current 
         #    doNothing = 1
         #    time.sleep(0.5)
