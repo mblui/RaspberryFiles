@@ -221,7 +221,7 @@ class visionbox(QMainWindow):
         RGB_val[1] = self.w.slider_green.value()
         RGB_val[2] = self.w.slider_blue.value()
         if debug: print("RGB value: [{0},{1},{2}]. Brightness value: [{3}]".format(RGB_val[0], RGB_val[1],RGB_val[2], Brightness_value))
-        LED_strips.apply_signal_to_leds(self, lightInputs)
+        LED_strips.apply_signal_to_leds(self, inputMatrix=lightInputs,RGB_val=RGB_val,brightness_val=Brightness_value)
 
     def getItem(self, slidertype, debug=debugArray[10]):  # slidertype := [intensity', 'red', 'green', 'blue']
         global Brightness_value,RGB_val
