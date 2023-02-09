@@ -258,8 +258,6 @@ class CustomDialog(QDialog):
         super().__init__()
         self.insertedText = ""
 
-        #self.setWindowTitle("Virtual Keyboard")
-
         QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
 
         self.buttonBox = QDialogButtonBox(QBtn)
@@ -288,15 +286,15 @@ class CustomDialog(QDialog):
         for row, keys in enumerate(keyBoard):
             for col, key in enumerate(keys):
                 self.buttonMap[key] = QPushButton(key)
-                self.buttonMap[key].setFont(QFont('Times', 15))
+                self.buttonMap[key].setFont(QFont('Times', 20))
                 self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
                 buttonsLayout.addWidget(self.buttonMap[key], row, col)
-                self.buttonMap[key].clicked.connect(partial(self.showww, key))
+                self.buttonMap[key].clicked.connect(partial(self.show_inserted_text, key))
         self.layout.addLayout(buttonsLayout)
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
 
-    def showww(self, key):
+    def show_inserted_text(self, key):
         if key == "del":    self.insertedText = self.insertedText[:len(self.insertedText)-1] 
         else:               self.insertedText = self.insertedText + str(key)
         self.keyinputDisplay.setText(self.insertedText)
