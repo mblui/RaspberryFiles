@@ -186,7 +186,7 @@ class visionbox(QMainWindow):
         elif    img_to_display_cnt == 0             and     value== 1:        
             print("i2")         
             img_to_display_cnt = img_to_display_cnt + value
-        elif    img_to_display_cnt == img_count     and     value==-1: 
+        elif    img_to_display_cnt == img_count-1     and     value==-1: 
             print("i3")                
             img_to_display_cnt = img_to_display_cnt + value
         else:
