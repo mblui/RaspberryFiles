@@ -199,6 +199,7 @@ class visionbox(QMainWindow):
         if debug: print("on_next_previous (#img_new, value)", img_to_display_cnt, value)
            
     def update_GUI(self, debug=debugArray[0]):
+        global previous_img_count
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
         if debug: print(globalImageUpdate)
 
