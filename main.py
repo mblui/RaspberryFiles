@@ -175,10 +175,10 @@ class visionbox(QMainWindow):
             self.print_on_GUI_terminal(text_to_print="Succesfull change of admin rights! --> View-Only",  color='green') 
     
     def on_next_previous_image(self,value, debug=debugArray[8]):
-        global img_to_display_cnt
+        global img_to_display_cnt, img_count
         self.w.Start_pause_watching.setChecked(True)
         self.on_button_press()
-        if debug: print("on_next_previous (#img_old, value)", img_to_display_cnt, value)
+        if debug: print("on_next_previous (#img_old, value, min, max)", img_to_display_cnt, value, "0", img_count)
         if img_to_display_cnt >= 0 and  img_to_display_cnt < img_count:
             img_to_display_cnt = img_to_display_cnt + value
         if debug: print("on_next_previous (#img_new, value)", img_to_display_cnt, value)
