@@ -178,9 +178,10 @@ class visionbox(QMainWindow):
         global img_to_display_cnt
         self.w.Start_pause_watching.setChecked(True)
         self.on_button_press()
-        if debug: print("on_next_previous (#img, value)", img_to_display_cnt, value)
+        if debug: print("on_next_previous (#img_old, value)", img_to_display_cnt, value)
         if img_to_display_cnt >= 0 and  img_to_display_cnt < img_count:
             img_to_display_cnt = img_to_display_cnt + value
+        if debug: print("on_next_previous (#img_new, value)", img_to_display_cnt, value)
            
     def update_GUI(self, debug=debugArray[0]):
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
