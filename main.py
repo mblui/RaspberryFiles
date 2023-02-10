@@ -180,11 +180,15 @@ class visionbox(QMainWindow):
         self.on_button_press()
         if debug: print("on_next_previous (#img_old, value, min, max)", img_to_display_cnt, value, "0", img_count)
         
-        
-        
-        if      img_to_display_cnt >= 0             and     img_to_display_cnt <= 35:  img_to_display_cnt = img_to_display_cnt + value
-        elif    img_to_display_cnt == 0             and     value== 1:                 img_to_display_cnt = img_to_display_cnt + value
-        elif    img_to_display_cnt == img_count     and     value==-1:                 img_to_display_cnt = img_to_display_cnt + value
+        if      img_to_display_cnt >= 0             and     img_to_display_cnt <= 35:  
+            print("i1")
+            img_to_display_cnt = img_to_display_cnt + value
+        elif    img_to_display_cnt == 0             and     value== 1:        
+            print("i2")         
+            img_to_display_cnt = img_to_display_cnt + value
+        elif    img_to_display_cnt == img_count     and     value==-1: 
+            print("i3")                
+            img_to_display_cnt = img_to_display_cnt + value
         
         if debug: print("on_next_previous (#img_new, value)", img_to_display_cnt, value)
            
