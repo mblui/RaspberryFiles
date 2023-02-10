@@ -142,7 +142,8 @@ class visionbox(QMainWindow):
         LED_strips.apply_signal_to_leds(self, inputMatrix=lightInputs,RGB_val=RGB_val,brightness_val=Brightness_value)        
 
     def openFolder(self, debug=debugArray[5]):
-        show_in_file_manager(scp_path)
+        a = show_in_file_manager(scp_path)
+        print("a", a)
 
     def on_button_press(self, debug=debugArray[6]):
         global globalImageUpdate
@@ -197,8 +198,11 @@ class visionbox(QMainWindow):
     def update_GUI(self, debug=debugArray[0]):
         global cnt, img_count, Brightness_value, RGB_val, globalImageUpdate, current_date_time, img_to_display, img_to_display_cnt
         if debug: print(globalImageUpdate)
+
         img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
-        
+        if (img_count - previous_img_count) > 5:    # Arbitrary number, assuming that normally not 5 pictures are taken between GUI_updates
+            img_to_display_cnt = img_count -1   # -1, because start at index zero 
+        previous_img_count =  img_count
         self.w.number_of_images.setText(str(img_count).zfill(maxImagesBits))
         if len(img_files)<1:
             self.w.num_img.setText("No files in folder to display")
