@@ -14,7 +14,7 @@ default_font_size = 18
 default_font_size_buttons = 14
 
 ## Set update FPS
-updatefps = 3
+updatefps = 5
 
 ## Define user/Admin settings
 AvailableUserProfiles = ["DGS admin", "View only"]

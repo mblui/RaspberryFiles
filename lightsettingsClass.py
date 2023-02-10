@@ -100,5 +100,4 @@ class lightsettingsClass:
 
             ## Slider Brightness 
         self.w.slider_intensity.setValue(Brightness)
-        print("HEHEHE", Brightness)
         self.w.SliderVal_but_text_intensity.setText(str(Brightness)+"%")
