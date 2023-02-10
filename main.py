@@ -36,7 +36,7 @@ from LED_strips         import *
 
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
-        # global img_files, img_count, globalImageUpdate
+        global img_files, img_count, globalImageUpdate, previous_img_count
         global current_date_time
         super().__init__(parent)
         self.setWindowTitle("Vision Box")
@@ -53,7 +53,7 @@ class visionbox(QMainWindow):
         self.print_on_GUI_terminal(text_to_print="--> Program is started!",  color='default')
         
         # Initial count number of images
-        img_files, img_count = systemClass.getAvailableImagesInFolder(self) 
+        img_files, img_count = systemClass.getAvailableImagesInFolder(self, init=True) 
 
         # Link buttons
         self.on_lock_unlock_button()

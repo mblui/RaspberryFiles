@@ -34,10 +34,12 @@ class systemClass(QMessageBox):
     ###############################################################################################
     ## Get available images in folder and sort
     ###############################################################################################
-    def getAvailableImagesInFolder(self, debug=debugArray[11]):
+    def getAvailableImagesInFolder(self, init=False, debug=debugArray[11]):
+        global previous_img_count
         _,_,files = next(os.walk(scp_path))
         img_count = len(files)
         img_files = natsorted(files)
+        if init: previous_img_count = init      ## Forward the number of images in the initial phase
         if debug: print("img_count", img_count, "img_files", img_files)
         return img_files, img_count
 
