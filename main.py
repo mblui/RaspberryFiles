@@ -91,8 +91,8 @@ class visionbox(QMainWindow):
         elif    color == 'g' or color =='green':    self.w.textBrowser.setTextColor(color_green)
         else:                                       self.w.textBrowser.setTextColor(color_default)
         self.w.textBrowser.append(message)
-        ## Also write Gui_terminal to txt file
 
+        ## Also write Gui_terminal to txt file
         with open("/home/dgslr/ProgramFiles/log_file.txt","a") as file:
             file.write("\n")
             file.write(message)
@@ -178,6 +178,7 @@ class visionbox(QMainWindow):
         global img_to_display_cnt
         self.w.Start_pause_watching.setChecked(True)
         self.on_button_press()
+        if debug: print("on_next_previous (#img, value)", img_to_display_cnt, value)
         if img_to_display_cnt >= 0 and  img_to_display_cnt < img_count:
             img_to_display_cnt = img_to_display_cnt + value
            
