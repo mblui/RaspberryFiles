@@ -25,6 +25,7 @@ from natsort import natsorted
 # Import time related packages
 import time
 from datetime import datetime
+previous_img_count = 0
 
 # Import dependent scripts
 from config             import *    #   Load configuration and initial values
@@ -34,7 +35,7 @@ from systemClass        import *    #   Defines general system fuctions
 #from main               import *
 from LED_strips         import *
 
-previous_img_count = 0
+
 
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
