@@ -105,7 +105,7 @@ class visionbox(QMainWindow):
         
     def enable_disable_inputs(self, value, debug=debugArray[3]):
         self.w.button_openImageFolder.setEnabled(value)
-        self.w.button_ExportFilesZIP.setEnabled(value)
+        self.w.button_ExportFilesZIP.setEnabled(False)                  ## MANUALLY DISABLED! 
         self.w.check_Top_Enable.setEnabled(value)
         self.w.check_Left_Enable.setEnabled(value)
         self.w.check_Right_Enable.setEnabled(value)
