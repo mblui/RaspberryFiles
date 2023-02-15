@@ -6,6 +6,9 @@
 ##  Last release:       XX-XX-XXXX, by XXXX             ## 
 ##########################################################
 
+## TODO Make light setup profile which can be easily loaded. 
+# Some save and load buttons
+
 # Import system functionalities 
 import sys, os, subprocess, zipfile, shutil
 from functools import partial               # To pass multiple arguments in a function call
