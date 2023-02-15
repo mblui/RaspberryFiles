@@ -9,7 +9,7 @@ dir_path =  r'/home/dgslr/ProgramFiles/'
 scp_path =  dir_path + "SCP_images/"
 
 ## Set main window size
-windowsize = np.array([1920, 900, 0])     # [width,heights, Fullsize = 1/0]
+windowsize = np.array([1280, 800, 0])     # [width,heights, Fullsize = 1/0]    
 default_font_size = 18
 default_font_size_buttons = 14
 
