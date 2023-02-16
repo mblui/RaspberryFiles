@@ -91,7 +91,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>400</x>
      <y>10</y>
      <width>171</width>
      <height>16</height>
@@ -130,7 +130,7 @@
   <widget class="QLabel" name="text_date_time">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>400</x>
      <y>40</y>
      <width>231</width>
      <height>16</height>
@@ -871,7 +871,7 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>670</x>
+     <x>640</x>
      <y>0</y>
      <width>151</width>
      <height>65</height>
@@ -911,7 +911,7 @@
   <widget class="QPushButton" name="lock_unlock_button">
    <property name="geometry">
     <rect>
-     <x>830</x>
+     <x>800</x>
      <y>10</y>
      <width>50</width>
      <height>50</height>
@@ -964,7 +964,7 @@
      <x>300</x>
      <y>600</y>
      <width>311</width>
-     <height>91</height>
+     <height>81</height>
     </rect>
    </property>
   </widget>
