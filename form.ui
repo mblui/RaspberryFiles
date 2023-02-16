@@ -639,9 +639,9 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>610</y>
+     <y>613</y>
      <width>211</width>
-     <height>104</height>
+     <height>91</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
@@ -962,7 +962,7 @@
    <property name="geometry">
     <rect>
      <x>300</x>
-     <y>620</y>
+     <y>610</y>
      <width>311</width>
      <height>91</height>
     </rect>
@@ -972,7 +972,7 @@
    <property name="geometry">
     <rect>
      <x>1002</x>
-     <y>490</y>
+     <y>480</y>
      <width>271</width>
      <height>220</height>
     </rect>
@@ -1245,7 +1245,7 @@ QSlider::groove:horizontal:disabled {
    <property name="geometry">
     <rect>
      <x>650</x>
-     <y>630</y>
+     <y>620</y>
      <width>341</width>
      <height>80</height>
     </rect>
