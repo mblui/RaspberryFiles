@@ -25,10 +25,10 @@
   <widget class="QLabel" name="imglabel">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>80</y>
-     <width>961</width>
-     <height>511</height>
+     <x>0</x>
+     <y>60</y>
+     <width>1021</width>
+     <height>541</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -49,8 +49,8 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>121</width>
-     <height>51</height>
+     <width>111</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -75,7 +75,7 @@
      <x>-30</x>
      <y>-10</y>
      <width>1921</width>
-     <height>81</height>
+     <height>71</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -99,7 +99,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
+     <pointsize>13</pointsize>
      <italic>true</italic>
      <bold>true</bold>
     </font>
@@ -112,14 +112,14 @@
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>20</y>
+     <y>10</y>
      <width>161</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>18</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -131,14 +131,14 @@
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>40</y>
+     <y>30</y>
      <width>231</width>
      <height>16</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
+     <pointsize>13</pointsize>
     </font>
    </property>
    <property name="text">
@@ -148,9 +148,9 @@
   <widget class="QWidget" name="gridLayoutWidget_4">
    <property name="geometry">
     <rect>
-     <x>1000</x>
-     <y>340</y>
-     <width>271</width>
+     <x>1040</x>
+     <y>300</y>
+     <width>231</width>
      <height>119</height>
     </rect>
    </property>
@@ -165,7 +165,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -183,7 +183,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -201,7 +201,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -214,10 +214,10 @@
   <widget class="QWidget" name="gridLayoutWidget_5">
    <property name="geometry">
     <rect>
-     <x>1000</x>
+     <x>1040</x>
      <y>90</y>
-     <width>271</width>
-     <height>241</height>
+     <width>231</width>
+     <height>201</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_6">
@@ -234,7 +234,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -258,7 +258,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -372,7 +372,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -426,7 +426,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -480,7 +480,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -619,7 +619,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -658,7 +658,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
         <bold>false</bold>
        </font>
       </property>
@@ -686,7 +686,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
         <bold>false</bold>
        </font>
       </property>
@@ -714,7 +714,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
         <bold>false</bold>
        </font>
       </property>
@@ -737,7 +737,7 @@
      <x>920</x>
      <y>0</y>
      <width>341</width>
-     <height>71</height>
+     <height>61</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_3">
@@ -760,7 +760,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>13</pointsize>
         <bold>true</bold>
        </font>
       </property>
@@ -791,7 +791,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -821,7 +821,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>13</pointsize>
         <bold>true</bold>
        </font>
       </property>
@@ -852,7 +852,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -871,10 +871,10 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>600</x>
      <y>0</y>
      <width>151</width>
-     <height>65</height>
+     <height>51</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -882,7 +882,7 @@
      <widget class="QLabel" name="text_current_user">
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -896,7 +896,7 @@
      <widget class="QLabel" name="Label">
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
         <italic>true</italic>
         <bold>true</bold>
        </font>
@@ -911,10 +911,10 @@
   <widget class="QPushButton" name="lock_unlock_button">
    <property name="geometry">
     <rect>
-     <x>800</x>
-     <y>10</y>
-     <width>50</width>
-     <height>50</height>
+     <x>760</x>
+     <y>0</y>
+     <width>41</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -962,18 +962,18 @@
    <property name="geometry">
     <rect>
      <x>300</x>
-     <y>600</y>
+     <y>610</y>
      <width>311</width>
-     <height>81</height>
+     <height>71</height>
     </rect>
    </property>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget_7">
    <property name="geometry">
     <rect>
-     <x>1002</x>
+     <x>1032</x>
      <y>460</y>
-     <width>271</width>
+     <width>241</width>
      <height>220</height>
     </rect>
    </property>
@@ -988,7 +988,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1095,7 +1095,7 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1119,7 +1119,7 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1140,7 +1140,7 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1164,7 +1164,7 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1231,7 +1231,7 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1261,7 +1261,7 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1337,7 +1337,7 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="styleSheet">
