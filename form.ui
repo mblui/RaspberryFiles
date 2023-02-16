@@ -973,7 +973,7 @@
     <rect>
      <x>1032</x>
      <y>460</y>
-     <width>241</width>
+     <width>254</width>
      <height>220</height>
     </rect>
    </property>
@@ -1009,7 +1009,7 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>100</width>
+        <width>115</width>
         <height>50</height>
        </size>
       </property>
@@ -1052,7 +1052,7 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="minimumSize">
        <size>
-        <width>100</width>
+        <width>115</width>
         <height>50</height>
        </size>
       </property>
@@ -1188,7 +1188,7 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="minimumSize">
        <size>
-        <width>100</width>
+        <width>115</width>
         <height>50</height>
        </size>
       </property>
