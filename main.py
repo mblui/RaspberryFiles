@@ -74,7 +74,7 @@ class visionbox(QMainWindow):
         self.w.lock_unlock_button.setCheckable(True)
 
         # Initialise LED strips 
-        lightsettingsClass.__init__(self)       #   Link buttons and sliders to functions
+        lightsettingsClass.__init__(self, Brightness_value)       #   Link buttons and sliders to functions
         LED_strips.__init__(self)               #   Send initial command to LED strips
         self.on_button_press()                  #   Initialse start/pause button
         
@@ -238,7 +238,7 @@ class visionbox(QMainWindow):
         LED_strips.apply_signal_to_leds(self, inputMatrix=lightInputs,RGB_val=RGB_val,brightness_val=Brightness_value)
 
     def getItem(self, slidertype, debug=debugArray[10]):  # slidertype := [intensity', 'red', 'green', 'blue']
-        global Brightness_value,RGB_val
+        global Brightness_value, RGB_val
         items_1 = ("0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100")
         items_2 = ("0", "25", "51", "77", "102", "128", "153", "178", "204", "229", "255")
         items = items_1 if slidertype == "intensity" else items_2

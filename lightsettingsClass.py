@@ -17,7 +17,7 @@ from systemClass import *
 
 
 class lightsettingsClass:
-    def __init__(self, debug=debugArray[12], RGB_value = [0,0,0], Brightness = 10):
+    def __init__(self, Brightness, debug=debugArray[12], RGB_value = [0,0,0], ):
         ## Create groups
         RGB_white_Group1 = QButtonGroup(self.w)
         RGB_white_Group1.addButton(self.w.check_Top_RGB, 1)         # ID = 1
