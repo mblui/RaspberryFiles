@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
-    <height>1080</height>
+    <width>1280</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -26,9 +26,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>90</y>
-     <width>1481</width>
-     <height>701</height>
+     <y>80</y>
+     <width>961</width>
+     <height>521</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -49,8 +49,8 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>163</width>
-     <height>70</height>
+     <width>121</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -72,8 +72,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
+     <x>-30</x>
+     <y>-10</y>
      <width>1921</width>
      <height>81</height>
     </rect>
@@ -91,8 +91,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>20</y>
+     <x>420</x>
+     <y>10</y>
      <width>171</width>
      <height>16</height>
     </rect>
@@ -111,8 +111,8 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>30</y>
+     <x>160</x>
+     <y>20</y>
      <width>161</width>
      <height>31</height>
     </rect>
@@ -130,8 +130,8 @@
   <widget class="QLabel" name="text_date_time">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>50</y>
+     <x>420</x>
+     <y>40</y>
      <width>231</width>
      <height>16</height>
     </rect>
@@ -145,404 +145,16 @@
     <string>01/01/2023 00:00:00</string>
    </property>
   </widget>
-  <widget class="QWidget" name="gridLayoutWidget_3">
-   <property name="geometry">
-    <rect>
-     <x>1515</x>
-     <y>600</y>
-     <width>391</width>
-     <height>270</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="gridLayout_4">
-    <item row="2" column="2">
-     <widget class="QPushButton" name="SliderVal_but_text_green">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>100</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QSlider" name="slider_blue">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>150</width>
-        <height>50</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QSlider::groove:horizontal {
-    border-radius: 10px;
-    height: 10	px;
-	width: 150px;
-    margin: 0px;
-    background-color: rgb(0, 0, 0);
-}
-
-QSlider::handle:horizontal {
-    background-color: rgb(153, 153, 153);
-    height: 50px;
-    width: 35px;
-    margin: -20px 0;
-    border-radius: 5px;
-}
-
-QSlider::handle:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.5);
-}
-QSlider::groove:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.4);
-}</string>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QPushButton" name="SliderVal_but_text_intensity">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>1</width>
-        <height>1</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>100</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="text_blue">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Blue:</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::RichText</enum>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="2">
-     <widget class="QPushButton" name="SliderVal_but_text_blue">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>100</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QSlider" name="slider_green">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>150</width>
-        <height>50</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QSlider::groove:horizontal {
-    border-radius: 10px;
-    height: 10	px;
-	width: 150px;
-    margin: 0px;
-    background-color: rgb(0, 0, 0);
-}
-
-QSlider::handle:horizontal {
-    background-color: rgb(153, 153, 153);
-    height: 50px;
-    width: 35px;
-    margin: -20px 0;
-    border-radius: 5px;
-}
-
-QSlider::handle:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.5);
-}
-QSlider::groove:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.4);
-}</string>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QPushButton" name="SliderVal_but_text_red">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>100</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="text_brightness">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Brightness:</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::RichText</enum>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="text_red">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Red:</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::RichText</enum>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QSlider" name="slider_red">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>150</width>
-        <height>75</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QSlider::groove:horizontal {
-    border-radius: 10px;
-    height: 10	px;
-	width: 150px;
-    margin: 0px;
-    background-color: rgb(0, 0, 0);
-}
-
-QSlider::handle:horizontal {
-    background-color: rgb(153, 153, 153);
-    height: 50px;
-    width: 35px;
-    margin: -20px 0;
-    border-radius: 5px;
-}
-
-QSlider::handle:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.5);
-}
-QSlider::groove:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.4);
-}</string>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="text_green">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Green:</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::RichText</enum>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QSlider" name="slider_intensity">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>150</width>
-        <height>50</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QSlider::groove:horizontal {
-    border-radius: 10px;
-    height: 10	px;
-	width: 150px;
-    margin: 0px;
-    background-color: rgb(0, 0, 0);
-}
-
-QSlider::handle:horizontal {
-    background-color: rgb(153, 153, 153);
-    height: 50px;
-    width: 35px;
-    margin: -20px 0;
-    border-radius: 5px;
-}
-
-QSlider::handle:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.5);
-}
-QSlider::groove:horizontal:disabled {
-    background-color:rgba(153, 153, 153,0.4);
-}</string>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="QWidget" name="gridLayoutWidget_4">
    <property name="geometry">
     <rect>
-     <x>1520</x>
-     <y>470</y>
-     <width>311</width>
+     <x>1000</x>
+     <y>340</y>
+     <width>271</width>
      <height>119</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_5">
-    <item row="2" column="0">
-     <widget class="QPushButton" name="button_ExportFilesZIP">
-      <property name="minimumSize">
-       <size>
-        <width>200</width>
-        <height>35</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Export files (ZIP)</string>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="0">
      <widget class="QPushButton" name="button_openImageFolder">
       <property name="minimumSize">
@@ -558,6 +170,24 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="text">
        <string>Open Image Folder</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="button_ExportFilesZIP">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Export files (ZIP)</string>
       </property>
      </widget>
     </item>
@@ -584,9 +214,9 @@ QSlider::groove:horizontal:disabled {
   <widget class="QWidget" name="gridLayoutWidget_5">
    <property name="geometry">
     <rect>
-     <x>1510</x>
-     <y>220</y>
-     <width>321</width>
+     <x>1000</x>
+     <y>90</y>
+     <width>271</width>
      <height>241</height>
     </rect>
    </property>
@@ -1008,70 +638,14 @@ QSlider::groove:horizontal:disabled {
   <widget class="QWidget" name="gridLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>800</y>
-     <width>401</width>
-     <height>80</height>
+     <x>30</x>
+     <y>610</y>
+     <width>211</width>
+     <height>104</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
-    <item row="0" column="1">
-     <widget class="QPushButton" name="Start_pause_watching">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Start</string>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QPushButton" name="button_next_img">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Next</string>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
+    <item row="2" column="0">
      <widget class="QPushButton" name="button_previous_img">
       <property name="enabled">
        <bool>true</bool>
@@ -1099,15 +673,71 @@ QSlider::groove:horizontal:disabled {
       </property>
      </widget>
     </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="button_next_img">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QPushButton" name="Start_pause_watching">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Start</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget_6">
    <property name="geometry">
     <rect>
-     <x>1510</x>
-     <y>130</y>
-     <width>331</width>
-     <height>80</height>
+     <x>920</x>
+     <y>0</y>
+     <width>341</width>
+     <height>71</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_3">
@@ -1130,7 +760,7 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>14</pointsize>
         <bold>true</bold>
        </font>
       </property>
@@ -1161,7 +791,7 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1191,7 +821,7 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>14</pointsize>
         <bold>true</bold>
        </font>
       </property>
@@ -1222,7 +852,7 @@ QSlider::groove:horizontal:disabled {
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1241,8 +871,8 @@ QSlider::groove:horizontal:disabled {
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>830</x>
-     <y>10</y>
+     <x>670</x>
+     <y>0</y>
      <width>151</width>
      <height>65</height>
     </rect>
@@ -1278,31 +908,11 @@ QSlider::groove:horizontal:disabled {
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>1390</x>
-     <y>550</y>
-     <width>108</width>
-     <height>75</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-     <italic>true</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>User:</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="lock_unlock_button">
    <property name="geometry">
     <rect>
-     <x>990</x>
-     <y>20</y>
+     <x>830</x>
+     <y>10</y>
      <width>50</width>
      <height>50</height>
     </rect>
@@ -1351,12 +961,394 @@ QSlider::groove:horizontal:disabled {
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>810</y>
-     <width>1051</width>
-     <height>61</height>
+     <x>300</x>
+     <y>620</y>
+     <width>311</width>
+     <height>91</height>
     </rect>
    </property>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget_7">
+   <property name="geometry">
+    <rect>
+     <x>1002</x>
+     <y>490</y>
+     <width>271</width>
+     <height>220</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_7">
+    <item row="1" column="2">
+     <widget class="QPushButton" name="SliderVal_but_text_green">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>100</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QSlider" name="slider_green">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QSlider::groove:horizontal {
+    border-radius: 10px;
+    height: 10	px;
+	width: 100px;
+    margin: 0px;
+    background-color: rgb(0, 0, 0);
+}
+
+QSlider::handle:horizontal {
+    background-color: rgb(153, 153, 153);
+    height: 50px;
+    width: 35px;
+    margin: -20px 0;
+    border-radius: 5px;
+}
+
+QSlider::handle:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.5);
+}
+QSlider::groove:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.4);
+}</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QSlider" name="slider_red">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QSlider::groove:horizontal {
+    border-radius: 5px;
+    height: 10	px;
+	width: 100px;
+    margin: 0px;
+    background-color: rgb(0, 0, 0);
+}
+
+QSlider::handle:horizontal {
+    background-color: rgb(153, 153, 153);
+    height: 50px;
+    width: 35px;
+    margin: -20px 0;
+    border-radius: 5px;
+}
+
+QSlider::handle:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.5);
+}
+QSlider::groove:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.4);
+}</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" alignment="Qt::AlignRight">
+     <widget class="QLabel" name="text_green">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Green:</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QPushButton" name="SliderVal_but_text_red">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>100</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" alignment="Qt::AlignRight">
+     <widget class="QLabel" name="text_red">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Red:</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" alignment="Qt::AlignRight">
+     <widget class="QLabel" name="text_blue">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Blue:</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QSlider" name="slider_blue">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QSlider::groove:horizontal {
+    border-radius: 10px;
+    height: 10	px;
+	width: 100px;
+    margin: 0px;
+    background-color: rgb(0, 0, 0);
+}
+
+QSlider::handle:horizontal {
+    background-color: rgb(153, 153, 153);
+    height: 50px;
+    width: 35px;
+    margin: -20px 0;
+    border-radius: 5px;
+}
+
+QSlider::handle:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.5);
+}
+QSlider::groove:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.4);
+}</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QPushButton" name="SliderVal_but_text_blue">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>100</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>630</y>
+     <width>341</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="0" column="0">
+     <widget class="QLabel" name="text_brightness">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Brightness:</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QSlider" name="slider_intensity">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>150</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QSlider::groove:horizontal {
+    border-radius: 10px;
+    height: 10	px;
+	width: 100px;
+    margin: 0px;
+    background-color: rgb(0, 0, 0);
+}
+
+QSlider::handle:horizontal {
+    background-color: rgb(153, 153, 153);
+    height: 50px;
+    width: 35px;
+    margin: -20px 0;
+    border-radius: 5px;
+}
+
+QSlider::handle:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.5);
+}
+QSlider::groove:horizontal:disabled {
+    background-color:rgba(153, 153, 153,0.4);
+}</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QPushButton" name="SliderVal_but_text_intensity">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>1</width>
+        <height>1</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>100</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <zorder>imglabel</zorder>
   <zorder>label</zorder>
@@ -1364,15 +1356,15 @@ QSlider::groove:horizontal:disabled {
   <zorder>label_2</zorder>
   <zorder>label_4</zorder>
   <zorder>text_date_time</zorder>
-  <zorder>gridLayoutWidget_3</zorder>
   <zorder>gridLayoutWidget_4</zorder>
   <zorder>gridLayoutWidget_5</zorder>
   <zorder>gridLayoutWidget_2</zorder>
   <zorder>gridLayoutWidget_6</zorder>
   <zorder>gridLayoutWidget</zorder>
-  <zorder>label_5</zorder>
   <zorder>lock_unlock_button</zorder>
   <zorder>textBrowser</zorder>
+  <zorder>gridLayoutWidget_7</zorder>
+  <zorder>gridLayoutWidget_3</zorder>
  </widget>
  <resources/>
  <connections/>
