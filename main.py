@@ -369,7 +369,7 @@ class CustomDialog_LightProfiles(QDialog):
 
         for row, keys in enumerate(keyBoard):
             for col, key in enumerate(keys):
-                print("key", key)
+                #print("key", key)
                 self.buttonMap[key] = QPushButton(key)
                 self.buttonMap[key].setFont(QFont('Times', default_font_size))
                 self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
@@ -380,7 +380,8 @@ class CustomDialog_LightProfiles(QDialog):
         self.setLayout(self.layout)
 
     def highlight_selection(self, key):
-        self.buttonMap[1].setStyleSheet("background-color:rgb(255,0,0)");
+        self.buttonMap[key].setFixedSize(100, 100)
+        self.buttonMap[key].setStyleSheet("background-color:rgb(255,0,0)")
         #self.insertedText = str(key)
         #self.buttonMap[key].setStyleSheet("background-color:rgb(255,0,0)");
 
