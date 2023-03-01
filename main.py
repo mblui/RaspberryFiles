@@ -334,7 +334,7 @@ class CustomDialog(QDialog):
 ## Custom dialog for light profiles
 ###############################################
 class CustomDialog_LightProfiles(QDialog):
-    def __init__(self, action):
+    def __init__(self):
         global insertedText
         super().__init__()
         self.insertedText = ""
