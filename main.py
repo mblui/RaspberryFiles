@@ -376,7 +376,7 @@ class CustomDialog_LightProfiles(QDialog):
                 self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
                 buttonsLayout.addWidget(self.buttonMap[key], row, col)
                 self.buttonMap[key].clicked.connect(partial(self.highlight_selection, key))
-        previous_key = key
+        self.previous_key = key
         self.layout.addLayout(buttonsLayout)
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
