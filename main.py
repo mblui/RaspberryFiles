@@ -42,7 +42,7 @@ from LED_strips         import *
 
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
-        global img_files, img_count, globalImageUpdate, previous_img_count, 
+        global img_files, img_count, globalImageUpdate, previous_img_count
         global current_date_time
         super().__init__(parent)
         self.setWindowTitle("Vision Box")
