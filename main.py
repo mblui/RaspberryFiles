@@ -337,14 +337,13 @@ class CustomDialog_LightProfiles(QDialog):
     def __init__(self):
         global insertedText, previous_key
         super().__init__()
-        previous_key = 0
-        self.insertedText = ""
+        self.previous_key = 0
         self.setWindowTitle("")
         QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
 
         self.buttonBox = QDialogButtonBox(QBtn)
         self.buttonBox.setFont(QFont('Times', default_font_size_buttons))
-        self.buttonBox.accepted.connect(partial(self.accept(), previous_key))
+        self.buttonBox.accepted.connect(self.accept)
         self.buttonBox.rejected.connect(self.reject)
 
         self.layout = QVBoxLayout()
@@ -383,10 +382,9 @@ class CustomDialog_LightProfiles(QDialog):
         self.setLayout(self.layout)
 
     def highlight_selection(self, key):
-        global previous_key
-        self.buttonMap[previous_key].setStyleSheet("background-color:rgb(252,252,252)")
+        self.buttonMap[self.previous_key].setStyleSheet("background-color:rgb(252,252,252)")
         self.buttonMap[key].setStyleSheet("background-color:rgb(0,255,0)")
-        previous_key = key
+        self.previous_key = key
         #self.buttonMap[key].setStyleSheet("background-color:rgb(255,0,0)");
 
 
