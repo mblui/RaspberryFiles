@@ -347,7 +347,7 @@ class CustomDialog_LightProfiles(QDialog):
         self.buttonBox.rejected.connect(self.reject)
 
         self.layout = QVBoxLayout()
-        message = QLabel("Please enter HDHDHDHD.")
+        message = QLabel("Please select config to load.")
         message.setFont(QFont('Times', default_font_size))
         self.keyinputDisplay = QLineEdit()
         font = self.keyinputDisplay.font()      # lineedit current font
@@ -359,11 +359,12 @@ class CustomDialog_LightProfiles(QDialog):
         BUTTON_SIZE = 60
         self.buttonMap = {}
         buttonsLayout = QGridLayout()
+        
         keyBoard = [
-            ["7",       "8",    "9"],
-            ["4",       "5",    "6"],
-            ["1",       "2",    "3"],
-            ["del",     "0",    "del"],
+            ["9",       "10",    "11"],
+            ["6",       "7",    "8"],
+            ["3",       "4",    "5"],
+            ["0",       "1",    "2"],
         ]
 
         for row, keys in enumerate(keyBoard):
@@ -377,7 +378,10 @@ class CustomDialog_LightProfiles(QDialog):
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
 
-    def show_inserted_text(self, key):
-        if key == "del":    self.insertedText = self.insertedText[:len(self.insertedText)-1] 
-        else:               self.insertedText = self.insertedText + str(key)
-        self.keyinputDisplay.setText(self.insertedText)
+    def highlight_selection(self, key):
+        self.buttonMap[insertedText].setStyleSheet("background-color:rgb(0,0,0)");
+        self.insertedText = str(key)
+        self.buttonMap[key].setStyleSheet("background-color:rgb(255,0,0)");
+
+
+        #self.keyinputDisplay.setText(self.insertedText)
