@@ -329,3 +329,56 @@ class CustomDialog(QDialog):
         else:               self.insertedText = self.insertedText + str(key)
         self.keyinputDisplay.setText(self.insertedText)
 
+
+###############################################
+## Custom dialog for light profiles
+###############################################
+class CustomDialog_LightProfiles(QDialog):
+    def __init__(self):
+        global insertedText
+        super().__init__()
+        self.insertedText = ""
+
+        self.setWindowTitle("")
+        QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.setFont(QFont('Times', default_font_size_buttons))
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
+
+        self.layout = QVBoxLayout()
+        message = QLabel("Please enter HDHDHDHD.")
+        message.setFont(QFont('Times', default_font_size))
+        self.keyinputDisplay = QLineEdit()
+        font = self.keyinputDisplay.font()      # lineedit current font
+        font.setPointSize(default_font_size)               # change it's size
+        self.keyinputDisplay.setReadOnly(True)
+        self.layout.addWidget(self.keyinputDisplay)
+        self.layout.addWidget(message)
+        #############################################
+        BUTTON_SIZE = 60
+        self.buttonMap = {}
+        buttonsLayout = QGridLayout()
+        keyBoard = [
+            ["7",       "8",    "9"],
+            ["4",       "5",    "6"],
+            ["1",       "2",    "3"],
+            ["del",     "0",    "del"],
+        ]
+
+        for row, keys in enumerate(keyBoard):
+            for col, key in enumerate(keys):
+                self.buttonMap[key] = QPushButton(key)
+                self.buttonMap[key].setFont(QFont('Times', default_font_size))
+                self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
+                buttonsLayout.addWidget(self.buttonMap[key], row, col)
+                self.buttonMap[key].clicked.connect(partial(self.show_inserted_text, key))
+        self.layout.addLayout(buttonsLayout)
+        self.layout.addWidget(self.buttonBox)
+        self.setLayout(self.layout)
+
+    def show_inserted_text(self, key):
+        if key == "del":    self.insertedText = self.insertedText[:len(self.insertedText)-1] 
+        else:               self.insertedText = self.insertedText + str(key)
+        self.keyinputDisplay.setText(self.insertedText)
