@@ -42,7 +42,7 @@ from LED_strips         import *
 
 class visionbox(QMainWindow):
     def __init__(self, parent: QWidget = None):
-        global img_files, img_count, globalImageUpdate, previous_img_count
+        global img_files, img_count, globalImageUpdate, previous_img_count, 
         global current_date_time
         super().__init__(parent)
         self.setWindowTitle("Vision Box")
@@ -339,7 +339,7 @@ class CustomDialog_LightProfiles(QDialog):
         super().__init__()
         self.setWindowTitle("")
         QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
-
+        self.previous_key = loaded_light_profile
         self.buttonBox = QDialogButtonBox(QBtn)
         self.buttonBox.setFont(QFont('Times', default_font_size_buttons))
         self.buttonBox.accepted.connect(self.accept)
@@ -368,14 +368,12 @@ class CustomDialog_LightProfiles(QDialog):
 
         for row, keys in enumerate(keyBoard):
             for col, key in enumerate(keys):
-                #print("key", key)
                 self.buttonMap[key] = QPushButton(key)
                 self.buttonMap[key].setFont(QFont('Times', default_font_size))
                 self.buttonMap[key].setStyleSheet("background-color:rgb(252,252,252)")
                 self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
                 buttonsLayout.addWidget(self.buttonMap[key], row, col)
                 self.buttonMap[key].clicked.connect(partial(self.highlight_selection, key))
-        self.previous_key = key
         self.layout.addLayout(buttonsLayout)
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)

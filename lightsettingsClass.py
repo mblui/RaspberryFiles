@@ -14,6 +14,7 @@ from functools import partial
 import time
 from main import *
 from systemClass import *
+from config import *
 
 
 class lightsettingsClass:
