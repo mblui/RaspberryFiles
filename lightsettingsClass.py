@@ -101,3 +101,6 @@ class lightsettingsClass:
             ## Slider Brightness 
         #self.w.slider_intensity.setValue(Brightness)
         self.w.SliderVal_but_text_intensity.setText(str(Brightness)+"%")
+    
+    def lightprofiles(self):
+        self.print_on_GUI_terminal(text_to_print="HELLO TEST",  color='red')
