@@ -343,7 +343,7 @@ class CustomDialog_LightProfiles(QDialog):
 
         self.buttonBox = QDialogButtonBox(QBtn)
         self.buttonBox.setFont(QFont('Times', default_font_size_buttons))
-        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.accepted.connect(self.accept, previous_key)
         self.buttonBox.rejected.connect(self.reject)
 
         self.layout = QVBoxLayout()
