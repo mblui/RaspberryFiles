@@ -103,7 +103,7 @@ class lightsettingsClass:
         self.w.SliderVal_but_text_intensity.setText(str(Brightness)+"%")
     
     def lightprofiles(self, action="NoAction"):
-        profile= CustomDialog_LightProfiles()
+        profile= CustomDialog_LightProfiles(self,action)
         ueturnvalue = profile.exec() 
         #if action == "save":
         #    self.print_on_GUI_terminal(text_to_print="HELLO TEST SAVE",  color='red')

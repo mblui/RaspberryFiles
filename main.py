@@ -334,10 +334,11 @@ class CustomDialog(QDialog):
 ## Custom dialog for light profiles
 ###############################################
 class CustomDialog_LightProfiles(QDialog):
-    def __init__(self):
+    def __init__(self, action):
         global insertedText
         super().__init__()
         self.insertedText = ""
+        self.print_on_GUI_terminal(text_to_print="NOW PROFILE IS LOADING BLIEP!",  color='default')
 
         self.setWindowTitle("")
         QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
