@@ -104,7 +104,7 @@ class lightsettingsClass:
     
     def lightprofiles(self):
         self.print_on_GUI_terminal(text_to_print="HELLO TEST NONE",  color='red')
-        profile= CustomDialog_LightProfiles(self)
+        profile= CustomDialog_LightProfiles()
         ueturnvalue = profile.exec() 
         #if action == "save":
         #    self.print_on_GUI_terminal(text_to_print="HELLO TEST SAVE",  color='red')
