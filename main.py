@@ -373,7 +373,7 @@ class CustomDialog_LightProfiles(QDialog):
                 self.buttonMap[key].setFont(QFont('Times', default_font_size))
                 self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
                 buttonsLayout.addWidget(self.buttonMap[key], row, col)
-                self.buttonMap[key].clicked.connect(partial(self.show_inserted_text, key))
+                self.buttonMap[key].clicked.connect(partial(self.highlight_selection, key))
         self.layout.addLayout(buttonsLayout)
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
