@@ -337,7 +337,6 @@ class CustomDialog_LightProfiles(QDialog):
     def __init__(self):
         global insertedText, previous_key
         super().__init__()
-        self.previous_key = 0
         self.setWindowTitle("")
         QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
 
