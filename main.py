@@ -72,8 +72,8 @@ class visionbox(QMainWindow):
         self.w.button_next_img.clicked.connect(partial(self.on_next_previous_image, 1))
         self.w.lock_unlock_button.clicked.connect(self.on_lock_unlock_button)
         self.w.lock_unlock_button.setCheckable(True)
-        self.w.save_conf_button.clicked.connect(lambda: lightsettingsClass.lightprofiles(self, action="save"))
-        self.w.load_conf_button.clicked.connect(lambda: lightsettingsClass.lightprofiles(self, action="load"))
+        self.w.save_conf_button.clicked.connect(lambda: lightsettingsClass.lightprofiles(self))
+        self.w.load_conf_button.clicked.connect(lambda: lightsettingsClass.lightprofiles(self))
 
         # Initialise LED strips 
         lightsettingsClass.__init__(self, Brightness_value)       #   Link buttons and sliders to functions
