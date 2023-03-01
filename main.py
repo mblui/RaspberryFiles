@@ -335,7 +335,7 @@ class CustomDialog(QDialog):
 ###############################################
 class CustomDialog_LightProfiles(QDialog):
     def __init__(self):
-        global insertedText
+        global insertedText, previous_key
         super().__init__()
         self.insertedText = ""
         self.setWindowTitle("")
@@ -359,7 +359,7 @@ class CustomDialog_LightProfiles(QDialog):
         BUTTON_SIZE = 60
         self.buttonMap = {}
         buttonsLayout = QGridLayout()
-        
+
         keyBoard = [
             ["9",       "10",    "11"],
             ["6",       "7",    "8"],
@@ -375,14 +375,16 @@ class CustomDialog_LightProfiles(QDialog):
                 self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
                 buttonsLayout.addWidget(self.buttonMap[key], row, col)
                 self.buttonMap[key].clicked.connect(partial(self.highlight_selection, key))
+        previous_key = key
         self.layout.addLayout(buttonsLayout)
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
 
     def highlight_selection(self, key):
-        self.buttonMap[key].setFixedSize(100, 100)
-        self.buttonMap[key].setStyleSheet("background-color:rgb(255,0,0)")
-        #self.insertedText = str(key)
+        global previous_key
+        self.buttonMap[previous_key].setStyleSheet("background-color:rgb(0,0,0)")
+        self.buttonMap[key].setStyleSheet("background-color:rgb(0,255,0)")
+        previous_key = key
         #self.buttonMap[key].setStyleSheet("background-color:rgb(255,0,0)");
 
 
