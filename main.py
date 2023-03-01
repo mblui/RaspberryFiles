@@ -338,7 +338,6 @@ class CustomDialog_LightProfiles(QDialog):
         global insertedText
         super().__init__()
         self.insertedText = ""
-        visionbox.print_on_GUI_terminal(text_to_print="NOW PROFILE IS LOADING BLIEP!",  color='default')
         self.setWindowTitle("")
         QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
 
