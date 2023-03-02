@@ -135,7 +135,12 @@ class lightsettingsClass:
         lines = open(file_name, 'r').readlines()
         #RGB = 1;
         #Brightness = lines[2][]
-        print("lines", lines[2]) #visionbox.print_on_GUI_terminal(text_to_print= str(lines),  color='default')
+        print("lines1", lines[2][20:23])
+        print("lines2", lines[2][24:27])
+        print("lines3", lines[2][28:32])
+        print("lines4", lines[2][48:51])
+
+        
         #out = open(file_name, 'w')
         #out.writelines(lines)
         #out.write("\n")
