@@ -124,12 +124,15 @@ class lightsettingsClass:
             # Write Setting to txt file
             RGBvall = np.array([self.w.slider_red.value() ,self.w.slider_green.value(), self.w.slider_blue.value()])
             Brighdhfdf = self.w.slider_intensity.value()
-            text_to_print = str(self.w.text_loaded_profile.text()) + "; profile " +str(self.w.text_loaded_profile.text()) + "; RGB;" + str(RGBvall) + "; BRIGHTNESS; [" + str(Brighdhfdf) + "] \n"
+            text_to_print = str(self.w.text_loaded_profile.text()) + "; profile " +str(self.w.text_loaded_profile.text()).zfill(3) + "; RGB;" + str(RGBvall).zfill(3) + "; BRIGHTNESS; [" + str(Brighdhfdf).zfill(3) + "] \n"
             lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles_saved.txt', (int(self.w.text_loaded_profile.text()) + 2), text_to_print)  # Offset of 2 to start looking after initilisation of file
             self.print_on_GUI_terminal(text_to_print= "Profile " + str(self.w.text_loaded_profile.text()) + ". Settings stored in file!",  color='default')
+            self.w.number_of_images.setText(str(img_count).zfill(3))
 
     def read_RGB_Brightness_from_File(file_name, line_num):
         lines = open(file_name, 'r').readlines()
+        RGB = 
+        Brightness = lines[2][]
         print("lines", lines[2]) #visionbox.print_on_GUI_terminal(text_to_print= str(lines),  color='default')
         #out = open(file_name, 'w')
         #out.writelines(lines)
