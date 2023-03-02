@@ -119,6 +119,7 @@ class lightsettingsClass:
     def save_lightprofiles(self):
         # Write Setting to txt file
         lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles.txt', 2, 'Mage')
+        self.print_on_GUI_terminal(text_to_print="HELLO TEST SAVE",  color='red')
         
     def replace_line(file_name, line_num, text):
         lines = open(file_name, 'r').readlines()
