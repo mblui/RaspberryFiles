@@ -130,7 +130,7 @@ class lightsettingsClass:
 
     def read_RGB_Brightness_from_File(file_name, line_num):
         lines = open(file_name, 'r').readlines()
-        print("lines", lines[2]) #visionbox.print_on_GUI_terminal(text_to_print= str(lines),  color='default')
+        print("lines", lines[2][5:10]) #visionbox.print_on_GUI_terminal(text_to_print= str(lines),  color='default')
         #out = open(file_name, 'w')
         #out.writelines(lines)
         #out.write("\n")
