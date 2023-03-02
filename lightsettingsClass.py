@@ -112,10 +112,11 @@ class lightsettingsClass:
             self.w.text_loaded_profile.setText(str(loaded_light_profile))
             RGB_val = [10, 20, 30]
             #self.w.slider_intensity.setValue(75)
-            #self.w.slider_red.setValue(150)
-            #self.w.slider_green.setValue(150)
-            #self.w.slider_blue.setValue(150)
+            self.w.slider_red.setValue(150)
+            self.w.slider_green.setValue(150)
+            self.w.slider_blue.setValue(150)
             visionbox.on_slider_change()
+            
 
         #if action == "save":
         #    self.print_on_GUI_terminal(text_to_print="HELLO TEST SAVE",  color='red')
