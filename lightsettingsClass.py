@@ -118,7 +118,8 @@ class lightsettingsClass:
             visionbox.on_slider_change(self)
     def save_lightprofiles(self):
         # Write Setting to txt file
-        lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles.txt', 2, 'Mage \n')
+        text_to_print = str(loaded_light_profile) + "; profile" + str(loaded_light_profile) + "; RGB;" + str([123,456,789]) + "; BRIGHTNESS; [000]" + "\n"
+        lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles.txt', 2, text_to_print)
         self.print_on_GUI_terminal(text_to_print="HELLO TEST SAVE",  color='red')
         
     def replace_line(file_name, line_num, text):
