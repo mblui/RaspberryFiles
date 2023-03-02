@@ -115,7 +115,7 @@ class lightsettingsClass:
             self.w.slider_red.setValue(150)
             self.w.slider_green.setValue(150)
             self.w.slider_blue.setValue(150)
-            visionbox.on_slider_change()
+            visionbox.on_slider_change(self)
             
 
         #if action == "save":
