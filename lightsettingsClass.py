@@ -110,12 +110,13 @@ class lightsettingsClass:
             self.print_on_GUI_terminal(text_to_print="Light profile: " + str(profile.previous_key) + " is succesfully loaded!",  color='black')
             loaded_light_profile = profile.previous_key
             self.w.text_loaded_profile.setText(str(loaded_light_profile))
-            self.w.slider_intensity.setValue(75)
-            self.w.slider_red.setValue(150)
-            self.w.slider_green.setValue(150)
-            self.w.slider_blue.setValue(150)
-            visionbox.on_slider_change()
-            
+            RGB_val = [10, 20, 30]
+            #self.w.slider_intensity.setValue(75)
+            #self.w.slider_red.setValue(150)
+            #self.w.slider_green.setValue(150)
+            #self.w.slider_blue.setValue(150)
+            visionbox.on_slider_change
+
         #if action == "save":
         #    self.print_on_GUI_terminal(text_to_print="HELLO TEST SAVE",  color='red')
         #elif action == "load":
