@@ -270,7 +270,7 @@ class visionbox(QMainWindow):
 ###############################################
 ## Main program 
 ###############################################
-
+ExitDialog
 if __name__ == "__main__":
     app = QApplication([])
     widget = visionbox()
