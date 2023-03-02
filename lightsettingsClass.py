@@ -120,7 +120,7 @@ class lightsettingsClass:
         # Write Setting to txt file
         RGB_valllll = np.array([123,456,789])
         Brighdhfdf = 87
-        text_to_print = str(loaded_light_profile) + "; profile " + str(loaded_light_profile) + "; RGB;" + str(RGB_valllll) + "; BRIGHTNESS; [" + Brighdhfdf + "] \n"
+        text_to_print = str(loaded_light_profile) + "; profile " + str(loaded_light_profile) + "; RGB;" + str(RGB_valllll) + "; BRIGHTNESS; [" + str(Brighdhfdf) + "] \n"
         lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles.txt', 2, text_to_print)
         self.print_on_GUI_terminal(text_to_print="HELLO TEST SAVE",  color='red')
         
