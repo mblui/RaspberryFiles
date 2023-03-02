@@ -111,7 +111,6 @@ class lightsettingsClass:
             loaded_light_profile = profile.previous_key
             self.w.text_loaded_profile.setText(str(loaded_light_profile))
             RGB_value = [10, 50, 150]
-            #self.w.slider_intensity.setValue(75)
             self.w.slider_red.setValue(RGB_value[0])
             self.w.slider_green.setValue(RGB_value[1])
             self.w.slider_blue.setValue(RGB_value[2])
@@ -122,12 +121,12 @@ class lightsettingsClass:
         returnvalue = areyousure.exec()
         if returnvalue:
             # Write Setting to txt file
-            RGB_valllll = np.array([self.w.slider_red.value() ,self.w.slider_green.value(), self.w.slider_blue.value()])
+            RGBvall = np.array([self.w.slider_red.value() ,self.w.slider_green.value(), self.w.slider_blue.value()])
             Brighdhfdf = self.w.slider_intensity.value()
             self.print_on_GUI_terminal(text_to_print= str(int(self.w.text_loaded_profile.text()) + 2),  color='default')
-            text_to_print = str(self.w.text_loaded_profile.text()) + "; profile " +str(self.w.text_loaded_profile.text()) + "; RGB;" + str(RGB_valllll) + "; BRIGHTNESS; [" + str(Brighdhfdf) + "] \n"
+            text_to_print = str(self.w.text_loaded_profile.text()) + "; profile " +str(self.w.text_loaded_profile.text()) + "; RGB;" + str(RGBvall) + "; BRIGHTNESS; [" + str(Brighdhfdf) + "] \n"
             lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles_saved.txt', (int(self.w.text_loaded_profile.text()) + 2), text_to_print)  # Offset of 2 to start looking after initilisation of file
-            self.print_on_GUI_terminal(text_to_print=" Settings stored in file!",  color='default')
+            self.print_on_GUI_terminal(text_to_print= "Profile " + str(self.w.text_loaded_profile.text()) + ". Settings stored in file!",  color='default')
         
     def replace_line(file_name, line_num, text):
         lines = open(file_name, 'r').readlines()
