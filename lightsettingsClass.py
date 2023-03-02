@@ -122,9 +122,11 @@ class lightsettingsClass:
         returnvalue = areyousure.exec()
         if returnvalue:
             # Write Setting to txt file
-            RGBvall = np.array([self.w.slider_red.value() ,self.w.slider_green.value(), self.w.slider_blue.value()])
-            Brighdhfdf = self.w.slider_intensity.value()
-            text_to_print = str(self.w.text_loaded_profile.text()) + "; profile " +str(self.w.text_loaded_profile.text()).zfill(3) + "; RGB;" + str(RGBvall).zfill(3) + "; BRIGHTNESS; [" + str(Brighdhfdf).zfill(3) + "] \n"
+            R_val = str(self.w.slider_red.value()).zfill(3)
+            G_val = str(self.w.slider_green.value()).zfill(3)
+            B_val = str(self.w.slider_blue.value()).zfill(3)
+            BB_val = str(self.w.slider_intensity.value()).zfill(3)
+            text_to_print = str(self.w.text_loaded_profile.text()) + "; profile " +str(self.w.text_loaded_profile.text())+ "; RGB; [" + R_val + "," + G_val + "," + B_val + "] ; BRIGHTNESS; [" + BB_val + "] \n"
             lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles_saved.txt', (int(self.w.text_loaded_profile.text()) + 2), text_to_print)  # Offset of 2 to start looking after initilisation of file
             self.print_on_GUI_terminal(text_to_print= "Profile " + str(self.w.text_loaded_profile.text()) + ". Settings stored in file!",  color='default')
             self.w.number_of_images.setText(str(img_count).zfill(3))
