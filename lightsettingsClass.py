@@ -110,6 +110,7 @@ class lightsettingsClass:
         if previous_key_val:
             self.print_on_GUI_terminal(text_to_print="Light profile: " + str(profile.previous_key) + " is succesfully loaded!",  color='black')
             loaded_light_profile = profile.previous_key
+            self.w.text_loaded_profile.setText(str(loaded_light_profile))
         #if action == "save":
         #    self.print_on_GUI_terminal(text_to_print="HELLO TEST SAVE",  color='red')
         #elif action == "load":

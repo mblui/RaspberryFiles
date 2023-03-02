@@ -737,7 +737,7 @@
      <x>920</x>
      <y>0</y>
      <width>301</width>
-     <height>61</height>
+     <height>80</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_3">
@@ -1540,7 +1540,7 @@ QSlider::groove:horizontal:disabled {
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="text_brightness_5">
+  <widget class="QLabel" name="text_loaded_profile">
    <property name="geometry">
     <rect>
      <x>1170</x>
@@ -1590,7 +1590,7 @@ QSlider::groove:horizontal:disabled {
   <zorder>text_brightness_2</zorder>
   <zorder>text_brightness_3</zorder>
   <zorder>text_brightness_4</zorder>
-  <zorder>text_brightness_5</zorder>
+  <zorder>text_loaded_profile</zorder>
  </widget>
  <resources/>
  <connections/>
