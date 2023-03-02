@@ -108,6 +108,7 @@ class lightsettingsClass:
         previous_key_val = profile.exec() 
         if previous_key_val:
             lines = open('/home/dgslr/ProgramFiles/LightProfiles_saved.txt', 'r').readlines()
+            print("HOOI", profile.previous_key)
             print("HOI", lines[2])
             #R_val = int(lines[int(profile.previous_key)][20:23])            
             #G_val = int(lines[int(profile.previous_key)][24:27])
