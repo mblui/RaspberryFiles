@@ -115,7 +115,7 @@ class lightsettingsClass:
             #self.w.slider_red.setValue(150)
             #self.w.slider_green.setValue(150)
             #self.w.slider_blue.setValue(150)
-            visionbox.on_slider_change
+            visionbox.on_slider_change()
 
         #if action == "save":
         #    self.print_on_GUI_terminal(text_to_print="HELLO TEST SAVE",  color='red')
