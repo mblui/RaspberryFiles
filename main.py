@@ -226,7 +226,7 @@ class visionbox(QMainWindow):
             label.setPixmap(pixmap)
             label.show()
         
-        self.print_on_GUI_terminal(text_to_print="redval: " + RGB_val,  color='default')
+        self.print_on_GUI_terminal(text_to_print="redval: " + str(RGB_val),  color='default')
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
         current_date_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         self.w.text_date_time.setText(str(current_date_time))
