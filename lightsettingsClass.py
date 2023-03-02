@@ -126,6 +126,7 @@ class lightsettingsClass:
         lines[line_num] = text
         out = open(file_name, 'w')
         out.writelines(lines)
+        out.write("\n")
         out.close()
 
         #if action == "save":
