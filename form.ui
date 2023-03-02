@@ -1485,7 +1485,7 @@ QSlider::groove:horizontal:disabled {
     <rect>
      <x>1170</x>
      <y>430</y>
-     <width>83</width>
+     <width>61</width>
      <height>23</height>
     </rect>
    </property>
