@@ -383,7 +383,7 @@ class CustomDialog_LightProfiles(QDialog):
     def highlight_selection(self, key):
         print("selfkey2", self.previous_key)
         print("selfkey3", key)
-        #self.buttonMap[self.previous_key].setStyleSheet("background-color:rgb(252,252,252)")
+        self.buttonMap[self.previous_key].setStyleSheet("background-color:rgb(252,252,252)")
         self.buttonMap[key].setStyleSheet("background-color:rgb(0,255,0)")
         self.previous_key = key
         #self.buttonMap[key].setStyleSheet("background-color:rgb(255,0,0)");
