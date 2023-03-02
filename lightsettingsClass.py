@@ -107,6 +107,7 @@ class lightsettingsClass:
         profile= CustomDialog_LightProfiles()
         previous_key_val = profile.exec() 
         if previous_key_val:
+            lightsettingsClass.read_RGB_Brightness_from_File(file_name='/home/dgslr/ProgramFiles/LightProfiles_saved.txt', line_num=2)
             self.print_on_GUI_terminal(text_to_print="Light profile: " + str(profile.previous_key) + " is succesfully loaded!",  color='black')
             loaded_light_profile = profile.previous_key
             self.w.text_loaded_profile.setText(str(loaded_light_profile))
@@ -123,11 +124,18 @@ class lightsettingsClass:
             # Write Setting to txt file
             RGBvall = np.array([self.w.slider_red.value() ,self.w.slider_green.value(), self.w.slider_blue.value()])
             Brighdhfdf = self.w.slider_intensity.value()
-            self.print_on_GUI_terminal(text_to_print= str(int(self.w.text_loaded_profile.text()) + 2),  color='default')
             text_to_print = str(self.w.text_loaded_profile.text()) + "; profile " +str(self.w.text_loaded_profile.text()) + "; RGB;" + str(RGBvall) + "; BRIGHTNESS; [" + str(Brighdhfdf) + "] \n"
             lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles_saved.txt', (int(self.w.text_loaded_profile.text()) + 2), text_to_print)  # Offset of 2 to start looking after initilisation of file
             self.print_on_GUI_terminal(text_to_print= "Profile " + str(self.w.text_loaded_profile.text()) + ". Settings stored in file!",  color='default')
-        
+
+    def read_RGB_Brightness_from_File(file_name, line_num):
+        lines = open(file_name, 'r').readlines()
+        visionbox.print_on_GUI_terminal(text_to_print= str(lines),  color='default')
+        #out = open(file_name, 'w')
+        #out.writelines(lines)
+        #out.write("\n")
+        #out.close()  
+
     def replace_line(file_name, line_num, text):
         lines = open(file_name, 'r').readlines()
         lines[line_num] = text
