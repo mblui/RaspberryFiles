@@ -104,7 +104,6 @@ class lightsettingsClass:
         self.w.SliderVal_but_text_intensity.setText(str(Brightness)+"%")
     
     def lightprofiles(self):
-        self.print_on_GUI_terminal(text_to_print="HELLO TEST NONE",  color='red')
         profile= CustomDialog_LightProfiles()
         previous_key_val = profile.exec() 
         if previous_key_val:
@@ -115,6 +114,7 @@ class lightsettingsClass:
             self.w.slider_red.setValue(150)
             self.w.slider_green.setValue(150)
             self.w.slider_blue.setValue(150)
+            visionbox.on_slider_change()
             
         #if action == "save":
         #    self.print_on_GUI_terminal(text_to_print="HELLO TEST SAVE",  color='red')
