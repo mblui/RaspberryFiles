@@ -72,7 +72,7 @@ class visionbox(QMainWindow):
         self.w.button_next_img.clicked.connect(partial(self.on_next_previous_image, 1))
         self.w.lock_unlock_button.clicked.connect(self.on_lock_unlock_button)
         self.w.lock_unlock_button.setCheckable(True)
-        self.w.save_conf_button.clicked.connect(lambda: lightsettingsClass.lightprofiles(self))
+        self.w.save_conf_button.clicked.connect(lambda: lightsettingsClass.save_lightprofiles(self))
         self.w.load_conf_button.clicked.connect(lambda: lightsettingsClass.lightprofiles(self))
 
         # Initialise LED strips 
@@ -80,7 +80,7 @@ class visionbox(QMainWindow):
         LED_strips.__init__(self)               #   Send initial command to LED strips
         self.on_button_press()                  #   Initialse start/pause button
         self.w.text_loaded_profile.setText(str(loaded_light_profile))
-        
+
         ## Set update timer
         self.__acquisition_timer = QTimer()
         timer = QTimer(self)
