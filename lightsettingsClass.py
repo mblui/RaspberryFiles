@@ -116,7 +116,17 @@ class lightsettingsClass:
             self.w.slider_green.setValue(RGB_value[1])
             self.w.slider_blue.setValue(RGB_value[2])
             visionbox.on_slider_change(self)
-            
+    def save_lightprofiles(self):
+        # Write Setting to txt file
+        self.replace_line('/home/dgslr/ProgramFiles/LightProfiles.txt', 2, 'Mage')
+        
+
+    def replace_line(file_name, line_num, text):
+        lines = open(file_name, 'r').readlines()
+        lines[line_num] = text
+        out = open(file_name, 'w')
+        out.writelines(lines)
+        out.close()
 
         #if action == "save":
         #    self.print_on_GUI_terminal(text_to_print="HELLO TEST SAVE",  color='red')
