@@ -107,14 +107,18 @@ class lightsettingsClass:
         profile= CustomDialog_LightProfiles()
         previous_key_val = profile.exec() 
         if previous_key_val:
-            lightsettingsClass.read_RGB_Brightness_from_File(file_name='/home/dgslr/ProgramFiles/LightProfiles_saved.txt', line_num=2)
+            lines = open('/home/dgslr/ProgramFiles/LightProfiles_saved.txt', 'r').readlines()
+            R_val = int(lines[int(profile.previous_key)][20:23])            
+            G_val = int(lines[int(profile.previous_key)][24:27])
+            B_val = int(lines[int(profile.previous_key)][28:31])            
+            BB_val = int(lines[int(profile.previous_key)][48:51]) 
             self.print_on_GUI_terminal(text_to_print="Light profile: " + str(profile.previous_key) + " is succesfully loaded!",  color='black')
             loaded_light_profile = profile.previous_key
             self.w.text_loaded_profile.setText(str(loaded_light_profile))
-            RGB_value = [10, 50, 150]
-            self.w.slider_red.setValue(RGB_value[0])
-            self.w.slider_green.setValue(RGB_value[1])
-            self.w.slider_blue.setValue(RGB_value[2])
+            self.w.slider_red.setValue(R_val)
+            self.w.slider_green.setValue(G_val)
+            self.w.slider_blue.setValue(B_val)
+            self.w.slider_intensity.setValue(BB_val)
             visionbox.on_slider_change(self)
 
     def save_lightprofiles(self):
@@ -133,18 +137,11 @@ class lightsettingsClass:
 
     def read_RGB_Brightness_from_File(file_name, line_num):
         lines = open(file_name, 'r').readlines()
-        #RGB = 1;
-        #Brightness = lines[2][]
-        print("lines1", lines[2][20:23])
-        print("lines2", lines[2][24:27])
-        print("lines3", lines[2][28:32])
-        print("lines4", lines[2][48:51])
+        R_val = lines[line_num][20:23]
+        G_val = lines[line_num][24:27]
+        B_val = lines[line_num][28:31]
+        BB_val = lines[line_num][48:51] 
 
-        
-        #out = open(file_name, 'w')
-        #out.writelines(lines)
-        #out.write("\n")
-        #out.close()  
 
     def replace_line(file_name, line_num, text):
         lines = open(file_name, 'r').readlines()
