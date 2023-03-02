@@ -126,7 +126,7 @@ class lightsettingsClass:
             Brighdhfdf = self.w.slider_intensity.value()
             self.print_on_GUI_terminal(text_to_print=str(RGB_valllll)+str(Brighdhfdf) +str(int(loaded_light_profile) + 2),  color='default')
             text_to_print = str(loaded_light_profile) + "; profile " + str(loaded_light_profile) + "; RGB;" + str(RGB_valllll) + "; BRIGHTNESS; [" + str(Brighdhfdf) + "] \n"
-            lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles.txt', int(loaded_light_profile) + 2, text_to_print)  # Offset of 2 to start looking after initilisation of file
+            lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles_saved.txt', int(loaded_light_profile) + 2, text_to_print)  # Offset of 2 to start looking after initilisation of file
             self.print_on_GUI_terminal(text_to_print=" Settings stored in file!",  color='default')
         
     def replace_line(file_name, line_num, text):
