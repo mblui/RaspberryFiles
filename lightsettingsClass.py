@@ -131,8 +131,8 @@ class lightsettingsClass:
 
     def read_RGB_Brightness_from_File(file_name, line_num):
         lines = open(file_name, 'r').readlines()
-        RGB = 
-        Brightness = lines[2][]
+        #RGB = 1;
+        #Brightness = lines[2][]
         print("lines", lines[2]) #visionbox.print_on_GUI_terminal(text_to_print= str(lines),  color='default')
         #out = open(file_name, 'w')
         #out.writelines(lines)
