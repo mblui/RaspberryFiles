@@ -118,7 +118,7 @@ class lightsettingsClass:
             visionbox.on_slider_change(self)
     def save_lightprofiles(self):
         # Write Setting to txt file
-        RGB_valllll = np.array([self.w.slider_red.getValue() ,self.w.slider_green.getValue(), self.w.slider_blue.getValue()])
+        RGB_valllll = np.array([self.w.slider_red.value() ,self.w.slider_green.value(), self.w.slider_blue.value()])
         Brighdhfdf = self.w.slider_intensity.getValue()
         text_to_print = str(loaded_light_profile) + "; profile " + str(loaded_light_profile) + "; RGB;" + str(RGB_valllll) + "; BRIGHTNESS; [" + str(Brighdhfdf) + "] \n"
         lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles.txt', 2, text_to_print)
