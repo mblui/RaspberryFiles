@@ -108,17 +108,18 @@ class lightsettingsClass:
         previous_key_val = profile.exec() 
         if previous_key_val:
             lines = open('/home/dgslr/ProgramFiles/LightProfiles_saved.txt', 'r').readlines()
-            R_val = int(lines[int(profile.previous_key)][20:23])            
-            G_val = int(lines[int(profile.previous_key)][24:27])
-            B_val = int(lines[int(profile.previous_key)][28:31])            
-            BB_val = int(lines[int(profile.previous_key)][48:51]) 
+            print("HOI", profile.previous_key)
+            #R_val = int(lines[int(profile.previous_key)][20:23])            
+            #G_val = int(lines[int(profile.previous_key)][24:27])
+            #B_val = int(lines[int(profile.previous_key)][28:31])            
+            #BB_val = int(lines[int(profile.previous_key)][48:51]) 
             self.print_on_GUI_terminal(text_to_print="Light profile: " + str(profile.previous_key) + " is succesfully loaded!",  color='black')
             loaded_light_profile = profile.previous_key
             self.w.text_loaded_profile.setText(str(loaded_light_profile))
-            self.w.slider_red.setValue(R_val)
-            self.w.slider_green.setValue(G_val)
-            self.w.slider_blue.setValue(B_val)
-            self.w.slider_intensity.setValue(BB_val)
+            #self.w.slider_red.setValue(R_val)
+            #self.w.slider_green.setValue(G_val)
+            #self.w.slider_blue.setValue(B_val)
+            #self.w.slider_intensity.setValue(BB_val)
             visionbox.on_slider_change(self)
 
     def save_lightprofiles(self):
