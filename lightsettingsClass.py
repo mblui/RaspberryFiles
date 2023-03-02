@@ -110,11 +110,11 @@ class lightsettingsClass:
             self.print_on_GUI_terminal(text_to_print="Light profile: " + str(profile.previous_key) + " is succesfully loaded!",  color='black')
             loaded_light_profile = profile.previous_key
             self.w.text_loaded_profile.setText(str(loaded_light_profile))
-            RGB_val = [10, 20, 30]
+            RGB_value = [10, 50, 150]
             #self.w.slider_intensity.setValue(75)
-            self.w.slider_red.setValue(150)
-            self.w.slider_green.setValue(150)
-            self.w.slider_blue.setValue(150)
+            self.w.slider_red.setValue(RGB_value[0])
+            self.w.slider_green.setValue(RGB_value[1])
+            self.w.slider_blue.setValue(RGB_value[2])
             visionbox.on_slider_change(self)
             
 

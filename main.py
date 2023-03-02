@@ -79,6 +79,7 @@ class visionbox(QMainWindow):
         lightsettingsClass.__init__(self, Brightness_value)       #   Link buttons and sliders to functions
         LED_strips.__init__(self)               #   Send initial command to LED strips
         self.on_button_press()                  #   Initialse start/pause button
+        self.w.text_loaded_profile.setText(str(loaded_light_profile))
         
         ## Set update timer
         self.__acquisition_timer = QTimer()
