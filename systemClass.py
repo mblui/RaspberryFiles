@@ -100,3 +100,24 @@ class ExitDialog(QDialog):
         self.layout.addWidget(message)
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
+
+
+class areYouSure(QDialog):
+    def __init__(self):
+        global insertedText
+        super().__init__()
+
+        self.setWindowTitle("Quit")
+        QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.setFont(QFont('Times', default_font_size_buttons))
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
+
+        self.layout = QVBoxLayout()
+        message = QLabel("Are you sure??")
+        message.setFont(QFont('Times', default_font_size))
+        self.layout.addWidget(message)
+        self.layout.addWidget(self.buttonBox)
+        self.setLayout(self.layout)
