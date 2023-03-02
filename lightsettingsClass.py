@@ -108,7 +108,7 @@ class lightsettingsClass:
         profile= CustomDialog_LightProfiles()
         previous_key_val = profile.exec() 
         if previous_key_val:
-            self.print_on_GUI_terminal(text_to_print="Light profile: " + str(profile.previous_key) + "is succesfully loaded!",  color='black')
+            self.print_on_GUI_terminal(text_to_print="Light profile: " + str(profile.previous_key) + " is succesfully loaded!",  color='black')
             loaded_light_profile = profile.previous_key
         #if action == "save":
         #    self.print_on_GUI_terminal(text_to_print="HELLO TEST SAVE",  color='red')
