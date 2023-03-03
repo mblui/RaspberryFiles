@@ -1450,7 +1450,7 @@ QSlider::groove:horizontal:disabled {
     </size>
    </property>
   </widget>
-  <widget class="QLabel" name="text_brightness_2">
+  <widget class="QLabel" name="text_save_profile">
    <property name="geometry">
     <rect>
      <x>1042</x>
@@ -1587,7 +1587,7 @@ QSlider::groove:horizontal:disabled {
   <zorder>gridLayoutWidget_3</zorder>
   <zorder>load_conf_button</zorder>
   <zorder>save_conf_button</zorder>
-  <zorder>text_brightness_2</zorder>
+  <zorder>text_save_profile</zorder>
   <zorder>text_brightness_3</zorder>
   <zorder>text_brightness_4</zorder>
   <zorder>text_loaded_profile</zorder>
