@@ -122,14 +122,8 @@ class lightsettingsClass:
             lightInputs[0][2] = int(lines[int(profile.previous_key)+2][78])
             lightInputs[1][2] = int(lines[int(profile.previous_key)+2][80])
             lightInputs[2][2] = int(lines[int(profile.previous_key)+2][82])
-            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX " + str(lightInputs),  color='default')
+            #self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX " + str(lightInputs),  color='default')
            
-                
-# Object to pass to LED (range [0-1])                      Top:    Left:   Right:
-# lightInputs = [ [0,     0,      0],         # Enable:       X       X       X                   
-#                 [0,     0,      0],         # RGB:          X       X       X
-#                 [0,     0,      0]]         # White:        X       X       X    
-
             self.print_on_GUI_terminal(text_to_print="Light profile: " + str(profile.previous_key) + " is succesfully loaded!",  color='black')
             loaded_light_profile = profile.previous_key
             self.w.text_loaded_profile.setText(str(loaded_light_profile))
@@ -148,7 +142,7 @@ class lightsettingsClass:
             G_val = str(self.w.slider_green.value()).zfill(3)
             B_val = str(self.w.slider_blue.value()).zfill(3)
             BB_val = str(self.w.slider_intensity.value()).zfill(3)
-            text_to_print = str(self.w.text_loaded_profile.text()).zfill(2) + "; profile " +str(self.w.text_loaded_profile.text()).zfill(2)+ "; RGB; [" + R_val + "," + G_val + "," + B_val + "] ; BRIGHTNESS; [" + BB_val + "] \n"
+            text_to_print = str(self.w.text_loaded_profile.text()).zfill(2) + "; profile " +str(self.w.text_loaded_profile.text()).zfill(2)+ "; RGB; [" + R_val + "," + G_val + "," + B_val + "] ; BRIGHTNESS; [" + BB_val + "] ; MATRIX ; [" +str(lightInputs[0][0])+","+str(lightInputs[1][0])+","+str(lightInputs[2][0])+","+str(lightInputs[0][1])+","+str(lightInputs[1][1])+","+str(lightInputs[2][1])+","+str(lightInputs[0][2])+","+str(lightInputs[1][2])+","+str(lightInputs[2][2])+"," "] \n"
             lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles_saved.txt', (int(self.w.text_loaded_profile.text()) + 2), text_to_print)  # Offset of 2 to start looking after initilisation of file
             self.print_on_GUI_terminal(text_to_print= "Profile " + str(self.w.text_loaded_profile.text()) + ". Settings stored in file!",  color='default')
             self.w.number_of_images.setText(str(img_count).zfill(3))
