@@ -108,6 +108,7 @@ class lightsettingsClass:
         previous_key_val = profile.exec() 
         if previous_key_val:
             lines = open('/home/dgslr/ProgramFiles/LightProfiles_saved.txt', 'r').readlines()
+            print("hoi", lines[int(profile.previous_key)+2][20:23])
             R_val = int(lines[int(profile.previous_key)+2][20:23])            
             G_val = int(lines[int(profile.previous_key)+2][24:27])
             B_val = int(lines[int(profile.previous_key)+2][28:31])            
@@ -134,15 +135,6 @@ class lightsettingsClass:
             lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles_saved.txt', (int(self.w.text_loaded_profile.text()) + 2), text_to_print)  # Offset of 2 to start looking after initilisation of file
             self.print_on_GUI_terminal(text_to_print= "Profile " + str(self.w.text_loaded_profile.text()) + ". Settings stored in file!",  color='default')
             self.w.number_of_images.setText(str(img_count).zfill(3))
-
-    def read_RGB_Brightness_from_File(file_name, line_num):
-        lines = open(file_name, 'r').readlines()
-        print("hoi", lines[line_num][20:23])
-        R_val = lines[line_num][20:23]
-        G_val = lines[line_num][24:27]
-        B_val = lines[line_num][28:31]
-        BB_val = lines[line_num][48:51] 
-
 
     def replace_line(file_name, line_num, text):
         lines = open(file_name, 'r').readlines()
