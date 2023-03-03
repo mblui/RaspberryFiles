@@ -134,7 +134,7 @@ class lightsettingsClass:
             self.w.check_Right_White.setChecked(lightInputs[2][2])
 
 
-            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX " + str(lightInputs),  color='default')
+            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX " + str(lines[int(profile.previous_key)+2][66:82]),  color='default')
            
             self.print_on_GUI_terminal(text_to_print="Light profile: " + str(profile.previous_key) + " is succesfully loaded!",  color='black')
             loaded_light_profile = profile.previous_key
