@@ -136,7 +136,8 @@ class visionbox(QMainWindow):
         self.w.text_red.setEnabled(value)
         self.w.text_green.setEnabled(value)
         self.w.text_blue.setEnabled(value)
-
+        self.w.save_conf_button.setEnabled(value)
+        #self.w.load_conf_button.setEnabled(value)
     def onCheckboxChange(self, debug=debugArray[4]):
         lightInputs[0][0] = self.w.check_Top_Enable.isChecked()
         lightInputs[1][0] = self.w.check_Left_Enable.isChecked()
