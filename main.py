@@ -60,6 +60,10 @@ class visionbox(QMainWindow):
         
         # Initial count number of images
         img_files, img_count = systemClass.getAvailableImagesInFolder(self, init=True) 
+        #Empty folder
+        for f in img_files:
+            ExtendedPath = scp_path + str(f)
+            os.remove(ExtendedPath)    
 
         # Link buttons
         self.on_lock_unlock_button()
@@ -233,7 +237,7 @@ class visionbox(QMainWindow):
             label.setPixmap(pixmap)
             label.show()
         if len(img_files)>MAX_images_on_storage:
-            for i in range(50):
+            for i in range(images_on_storage_to_delete):
                 ExtendedPath = scp_path + str(img_files[i])
                 os.remove(ExtendedPath)
 
