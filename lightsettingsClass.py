@@ -130,13 +130,14 @@ class lightsettingsClass:
             G_val = str(self.w.slider_green.value()).zfill(3)
             B_val = str(self.w.slider_blue.value()).zfill(3)
             BB_val = str(self.w.slider_intensity.value()).zfill(3)
-            text_to_print = str(self.w.text_loaded_profile.text()) + "; profile " +str(self.w.text_loaded_profile.text())+ "; RGB; [" + R_val + "," + G_val + "," + B_val + "] ; BRIGHTNESS; [" + BB_val + "] \n"
+            text_to_print = str(self.w.text_loaded_profile.text()).zfill(2) + "; profile " +str(self.w.text_loaded_profile.text()).zfill(2)+ "; RGB; [" + R_val + "," + G_val + "," + B_val + "] ; BRIGHTNESS; [" + BB_val + "] \n"
             lightsettingsClass.replace_line('/home/dgslr/ProgramFiles/LightProfiles_saved.txt', (int(self.w.text_loaded_profile.text()) + 2), text_to_print)  # Offset of 2 to start looking after initilisation of file
             self.print_on_GUI_terminal(text_to_print= "Profile " + str(self.w.text_loaded_profile.text()) + ". Settings stored in file!",  color='default')
             self.w.number_of_images.setText(str(img_count).zfill(3))
 
     def read_RGB_Brightness_from_File(file_name, line_num):
         lines = open(file_name, 'r').readlines()
+        print("hoi", lines[line_num][20:23])
         R_val = lines[line_num][20:23]
         G_val = lines[line_num][24:27]
         B_val = lines[line_num][28:31]
