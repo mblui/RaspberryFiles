@@ -113,15 +113,6 @@ class lightsettingsClass:
             G_val = int(lines[int(profile.previous_key)+2][26:29])
             B_val = int(lines[int(profile.previous_key)+2][30:33])            
             BB_val = int(lines[int(profile.previous_key)+2][50:53]) 
-            lightInputs[0][0] = int(lines[int(profile.previous_key)+2][66])
-            lightInputs[1][0] = int(lines[int(profile.previous_key)+2][68])
-            lightInputs[2][0] = int(lines[int(profile.previous_key)+2][70])
-            lightInputs[0][1] = int(lines[int(profile.previous_key)+2][72])
-            lightInputs[1][1] = int(lines[int(profile.previous_key)+2][74])
-            lightInputs[2][1] = int(lines[int(profile.previous_key)+2][76])
-            lightInputs[0][2] = int(lines[int(profile.previous_key)+2][78])
-            lightInputs[1][2] = int(lines[int(profile.previous_key)+2][80])
-            lightInputs[2][2] = int(lines[int(profile.previous_key)+2][82])
 
             self.w.check_Top_Enable.setChecked(int(lines[int(profile.previous_key)+2][66]))
             self.w.check_Left_Enable.setChecked(int(lines[int(profile.previous_key)+2][68]))
@@ -133,19 +124,6 @@ class lightsettingsClass:
             self.w.check_Left_White.setChecked(int(lines[int(profile.previous_key)+2][80]))
             self.w.check_Right_White.setChecked(int(lines[int(profile.previous_key)+2][82]))
 
-
-            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX1 " + str(int(lines[int(profile.previous_key)+2][66])),  color='default')
-            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX2 " + str(int(lines[int(profile.previous_key)+2][68])),  color='default')
-            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX3 " + str(int(lines[int(profile.previous_key)+2][70])),  color='default')
-            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX4 " + str(int(lines[int(profile.previous_key)+2][72])),  color='default')
-            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX5 " + str(int(lines[int(profile.previous_key)+2][74])),  color='default')
-            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX6 " + str(int(lines[int(profile.previous_key)+2][76])),  color='default')
-            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX7 " + str(int(lines[int(profile.previous_key)+2][78])),  color='default')
-            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX8 " + str(int(lines[int(profile.previous_key)+2][80])),  color='default')
-            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX9 " + str(int(lines[int(profile.previous_key)+2][82])),  color='default')
-            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX9 " + str(lines[int(profile.previous_key)+2][65:84]),  color='default')
-
-          
             self.print_on_GUI_terminal(text_to_print="Light profile: " + str(profile.previous_key) + " is succesfully loaded!",  color='black')
             loaded_light_profile = profile.previous_key
             self.w.text_loaded_profile.setText(str(loaded_light_profile))
@@ -176,11 +154,3 @@ class lightsettingsClass:
         out.writelines(lines)
         out.write("\n")
         out.close()
-
-        #if action == "save":
-        #    self.print_on_GUI_terminal(text_to_print="HELLO TEST SAVE",  color='red')
-        #elif action == "load":
-        #    self.print_on_GUI_terminal(text_to_print="HELLO TEST LOAD",  color='red')
-        #else:
-        #    self.print_on_GUI_terminal(text_to_print="HELLO TEST NONE",  color='red')
-        
