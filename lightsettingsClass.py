@@ -113,18 +113,16 @@ class lightsettingsClass:
             G_val = int(lines[int(profile.previous_key)+2][26:29])
             B_val = int(lines[int(profile.previous_key)+2][30:33])            
             BB_val = int(lines[int(profile.previous_key)+2][50:53]) 
-            a =(lines[int(profile.previous_key)+2][66:75])
-            
-            #lightInputs[0][0] = int(lines[int(profile.previous_key)+2][66])
-            #lightInputs[1][0] = int(lines[int(profile.previous_key)+2][67])
-            #lightInputs[2][0] = int(lines[int(profile.previous_key)+2][68])
-            #lightInputs[0][1] = int(lines[int(profile.previous_key)+2][67])
-            #lightInputs[1][1] = int(lines[int(profile.previous_key)+2][68])
-            #lightInputs[2][1] = int(lines[int(profile.previous_key)+2][69])
-            #lightInputs[0][2] = int(lines[int(profile.previous_key)+2][70])
-            #lightInputs[1][2] = int(lines[int(profile.previous_key)+2][71])
-            #lightInputs[2][2] = int(lines[int(profile.previous_key)+2][72])
-            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX " + str(a),  color='default')
+            lightInputs[0][0] = int(lines[int(profile.previous_key)+2][66])
+            lightInputs[1][0] = int(lines[int(profile.previous_key)+2][68])
+            lightInputs[2][0] = int(lines[int(profile.previous_key)+2][70])
+            lightInputs[0][1] = int(lines[int(profile.previous_key)+2][72])
+            lightInputs[1][1] = int(lines[int(profile.previous_key)+2][74])
+            lightInputs[2][1] = int(lines[int(profile.previous_key)+2][76])
+            lightInputs[0][2] = int(lines[int(profile.previous_key)+2][78])
+            lightInputs[1][2] = int(lines[int(profile.previous_key)+2][80])
+            lightInputs[2][2] = int(lines[int(profile.previous_key)+2][82])
+            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX " + str(lightInputs),  color='default')
            
                 
 # Object to pass to LED (range [0-1])                      Top:    Left:   Right:
