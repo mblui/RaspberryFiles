@@ -107,12 +107,29 @@ class lightsettingsClass:
         profile= CustomDialog_LightProfiles()
         previous_key_val = profile.exec() 
         if previous_key_val:
+            ## Write info from file into corresponding variables
             lines = open('/home/dgslr/ProgramFiles/LightProfiles_saved.txt', 'r').readlines()
-            print("hoi", lines[int(profile.previous_key)+2][22:25])
             R_val = int(lines[int(profile.previous_key)+2][22:25])            
             G_val = int(lines[int(profile.previous_key)+2][26:29])
             B_val = int(lines[int(profile.previous_key)+2][30:33])            
             BB_val = int(lines[int(profile.previous_key)+2][50:53]) 
+            lightInputs[0][0] = int(lines[int(profile.previous_key)+2][64])
+            lightInputs[1][0] = int(lines[int(profile.previous_key)+2][65])
+            lightInputs[2][0] = int(lines[int(profile.previous_key)+2][66])
+            lightInputs[0][1] = int(lines[int(profile.previous_key)+2][67])
+            lightInputs[1][1] = int(lines[int(profile.previous_key)+2][68])
+            lightInputs[2][1] = int(lines[int(profile.previous_key)+2][69])
+            lightInputs[0][2] = int(lines[int(profile.previous_key)+2][70])
+            lightInputs[1][2] = int(lines[int(profile.previous_key)+2][71])
+            lightInputs[2][2] = int(lines[int(profile.previous_key)+2][72])
+            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX " + str(lightInputs[0][0]) + str(lightInputs[1][0]) + str(lightInputs[2][0]),  color='default')
+           
+                
+# Object to pass to LED (range [0-1])                      Top:    Left:   Right:
+# lightInputs = [ [0,     0,      0],         # Enable:       X       X       X                   
+#                 [0,     0,      0],         # RGB:          X       X       X
+#                 [0,     0,      0]]         # White:        X       X       X    
+
             self.print_on_GUI_terminal(text_to_print="Light profile: " + str(profile.previous_key) + " is succesfully loaded!",  color='black')
             loaded_light_profile = profile.previous_key
             self.w.text_loaded_profile.setText(str(loaded_light_profile))

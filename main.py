@@ -198,13 +198,13 @@ class visionbox(QMainWindow):
         if debug: print("on_next_previous (#img_old, value, min, max)", img_to_display_cnt, value, img_count)
         
         if  img_to_display_cnt > 0             and     img_to_display_cnt < img_count-1:  
-            print("i1")
+            #print("i1")
             img_to_display_cnt = img_to_display_cnt + value
         elif    img_to_display_cnt == 0             and     value== 1:        
-            print("i2")         
+            #print("i2")         
             img_to_display_cnt = img_to_display_cnt + value
         elif    img_to_display_cnt == img_count-1     and     value==-1: 
-            print("i3")                
+            #print("i3")                
             img_to_display_cnt = img_to_display_cnt + value
         else:
             print("i4")
