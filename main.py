@@ -236,7 +236,7 @@ class visionbox(QMainWindow):
             pixmap =QPixmap(ExtendedPath)
             label.setPixmap(pixmap)
             label.show()
-        if len(img_files)>MAX_images_on_storage:
+        if (len(img_files)>MAX_images_on_storage) and (globalImageUpdate) :
             for i in range(images_on_storage_to_delete):
                 ExtendedPath = scp_path + str(img_files[i])
                 os.remove(ExtendedPath)
