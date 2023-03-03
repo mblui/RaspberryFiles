@@ -113,7 +113,7 @@ class lightsettingsClass:
             G_val = int(lines[int(profile.previous_key)+2][26:29])
             B_val = int(lines[int(profile.previous_key)+2][30:33])            
             BB_val = int(lines[int(profile.previous_key)+2][50:53]) 
-            lightInputs[0][0] = int(lines[int(profile.previous_key)+2][64])
+            lightInputs[0][0] = int(lines[int(profile.previous_key)+2][65])
             lightInputs[1][0] = int(lines[int(profile.previous_key)+2][65])
             lightInputs[2][0] = int(lines[int(profile.previous_key)+2][66])
             lightInputs[0][1] = int(lines[int(profile.previous_key)+2][67])
