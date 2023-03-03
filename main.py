@@ -234,7 +234,8 @@ class visionbox(QMainWindow):
             label.show()
         if len(img_files)>MAX_images_on_storage:
             for i in range(50):
-                os.remove(img_files[i])
+                ExtendedPath = scp_path + str(img_files[i])
+                os.remove(ExtendedPath)
 
 
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
