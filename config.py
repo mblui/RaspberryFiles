@@ -16,7 +16,10 @@ default_font_size_buttons = 13
 ## Set update FPS
 updatefps = 5
 loaded_light_profile = str(0)
-MAX_images_on_storage = 200
+MAX_images_on_storage = 50             ## Maximum number of images to save locally (To prevent storage overflow)
+images_on_storage_to_delete = 5        ## If maximum is reached, delete # number of images
+
+
 ## Define user/Admin settings
 AvailableUserProfiles = ["DGS admin", "View only"]
 Password_admin  = "1466"
