@@ -232,7 +232,10 @@ class visionbox(QMainWindow):
             pixmap =QPixmap(ExtendedPath)
             label.setPixmap(pixmap)
             label.show()
-        
+        if len(img_files)>MAX_images_on_storage:
+            for i in range(50):
+                os.remove(img_files[i])
+
 
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
         current_date_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
