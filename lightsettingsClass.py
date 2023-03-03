@@ -144,6 +144,7 @@ class lightsettingsClass:
             self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX8 " + str(lightInputs[1][2]),  color='default')
             self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX9 " + str(lightInputs[2][2]),  color='default')
             self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX9 " + str(lines[int(profile.previous_key)+2][65:83]),  color='default')
+            self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX9 " + str(lines[int(profile.previous_key)+2][65]),  color='default')
           
             self.print_on_GUI_terminal(text_to_print="Light profile: " + str(profile.previous_key) + " is succesfully loaded!",  color='black')
             loaded_light_profile = profile.previous_key
