@@ -159,7 +159,6 @@ class visionbox(QMainWindow):
 
     def openFolder(self, debug=debugArray[5]):
         a = show_in_file_manager(scp_path)
-        print("a", a)
 
     def on_button_press(self, debug=debugArray[6]):
         global globalImageUpdate
@@ -245,7 +244,7 @@ class visionbox(QMainWindow):
         RGB_val[1] = self.w.slider_green.value()
         RGB_val[2] = self.w.slider_blue.value()
         Brightness_value = self.w.slider_intensity.value()
-        if debug: print("RGB value: [{0},{1},{2}]. Brightness value: [{3}]".format(RGB_val[0], RGB_val[1],RGB_val[2], Brightness_value))
+        #if debug: print("RGB value: [{0},{1},{2}]. Brightness value: [{3}]".format(RGB_val[0], RGB_val[1],RGB_val[2], Brightness_value))
         LED_strips.apply_signal_to_leds(self, inputMatrix=lightInputs,RGB_val=RGB_val,brightness_val=Brightness_value)
 
     def getItem(self, slidertype, debug=debugArray[10]):  # slidertype := [intensity', 'red', 'green', 'blue']
@@ -257,7 +256,6 @@ class visionbox(QMainWindow):
         if ok:
             if (slidertype == "intensity"):
                 Brightness_value = int(item)
-                print("1234", Brightness_value)
                 self.w.slider_intensity.setValue(int(Brightness_value))
             elif (slidertype == "red"):
                 RGB_val[0] = int(item)
