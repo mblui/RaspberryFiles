@@ -124,14 +124,15 @@ class lightsettingsClass:
             lightInputs[2][2] = int(lines[int(profile.previous_key)+2][82])
 
             self.w.check_Top_Enable.setChecked(lightInputs[0][0])
-            #lightInputs[1][0] = self.w.check_Left_Enable.isChecked()
-            #lightInputs[2][0] = self.w.check_Right_Enable.isChecked()
-            #lightInputs[0][1] = self.w.check_Top_RGB.isChecked()
-            ##lightInputs[1][1] = self.w.check_Left_RGB.isChecked()
-            #lightInputs[2][1] = self.w.check_Right_RGB.isChecked()
-            #lightInputs[0][2] = self.w.check_Top_White.isChecked()
-            #lightInputs[1][2] = self.w.check_Left_White.isChecked()
-            #lightInputs[2][2] = self.w.check_Right_White.isChecked()
+            self.w.check_Left_Enable.setChecked(lightInputs[1][0])
+            self.w.check_Right_Enable.setChecked(lightInputs[2][0])
+            self.w.check_Top_RGB.setChecked(lightInputs[0][1])
+            self.w.check_Left_RGB.setChecked(lightInputs[1][1])
+            self.w.check_Right_RGB.setChecked(lightInputs[2][1])
+            self.w.check_Top_White.setChecked(lightInputs[0][2])
+            self.w.check_Left_White.setChecked(lightInputs[1][2])
+            self.w.check_Right_White.setChecked(lightInputs[2][2])
+
 
             #self.print_on_GUI_terminal(text_to_print= "LIGHTMATRIX " + str(lightInputs),  color='default')
            
