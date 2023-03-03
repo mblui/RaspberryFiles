@@ -127,10 +127,10 @@ class visionbox(QMainWindow):
         self.w.SliderVal_but_text_green.setEnabled(value)
         self.w.SliderVal_but_text_blue.setEnabled(value)
 
-        self.w.slider_red.setEnabled(value)
-        self.w.slider_green.setEnabled(value)
-        self.w.slider_blue.setEnabled(value)
-        self.w.slider_intensity.setEnabled(value)
+        self.w.slider_red.setVisible(value)
+        self.w.slider_green.setVisible(value)
+        self.w.slider_blue.setVisible(value)
+        self.w.slider_intensity.setVisible(value)
         
         self.w.text_right.setEnabled(value)
         self.w.text_left.setEnabled(value)
