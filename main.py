@@ -241,7 +241,6 @@ class visionbox(QMainWindow):
                 ExtendedPath = scp_path + str(img_files[i])
                 os.remove(ExtendedPath)
 
-
         lightsettingsClass.lightsettings(self, RGB_value=RGB_val, Brightness=Brightness_value)      ## Update lightvalues
         current_date_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         self.w.text_date_time.setText(str(current_date_time))
